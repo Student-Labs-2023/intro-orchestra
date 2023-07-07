@@ -1,0 +1,43 @@
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 25px;
+	flex-wrap: wrap;
+	padding: 50px 50px 0 50px;
+	margin-bottom: 260px;
+}
+
+.info {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.info h1{
+	font-family: 'Roboto', sans-serif;
+	font-size: 80px;
+	color: #F060C0;
+}
+
+.info h1 span {
+	font-size: 110px;
+	letter-spacing: 8px;
+}
+
+.info p {
+	font-size: 45px;
+	font-weight: 700;
+	color: #fff;
+	text-transform: none;
+}
+
+.pointer {
+	position: absolute;
+	top: 90%;
+	right: 25%;
+}
