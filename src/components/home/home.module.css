@@ -19,7 +19,6 @@
 }
 
 .info h1{
-	font-family: 'Roboto', sans-serif;
 	font-size: 80px;
 	color: #F060C0;
 }
@@ -31,7 +30,6 @@
 
 .info p {
 	font-size: 45px;
-	font-weight: 700;
 	color: #fff;
 	text-transform: none;
 }
@@ -39,5 +37,5 @@
 .pointer {
 	position: absolute;
 	top: 90%;
-	right: 25%;
+	right: 24%;
 }

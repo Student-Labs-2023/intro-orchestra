@@ -1,5 +1,9 @@
 import Image from "next/image";
 import styles from "./home.module.css";
+import localFont from "next/font/local"
+
+const PTSerif = localFont({ src: "../../fonts/PTSerif-Bold.ttf" })
+const geometria = localFont({ src: "../../fonts/Geometria-Bold.woff" })
 
 export const Home = () => {
   return (
@@ -22,10 +26,10 @@ export const Home = () => {
         />
       </div>
       <div className={styles.info}>
-        <h1>
+        <h1 style={PTSerif.style}>
           Знакомство <br /> <span>c оркестром</span>
         </h1>
-        <p>Нажмите на экран, чтобы начать</p>
+        <p style={geometria.style}>Нажмите на экран, чтобы начать</p>
         <Image
           className={styles.pointer}
           src={"/pointer.svg"}
