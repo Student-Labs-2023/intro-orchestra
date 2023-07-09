@@ -1,19 +1,21 @@
-import styles from './main.module.css'
-import Image from 'next/image';
+import Image from "next/image";
 import localFont from "next/font/local";
 
-const PTSerif = localFont({ src: "../../../fonts/PTSerif-Bold.ttf" })
-const geometria = localFont({ src: "../../../fonts/Geometria-Bold.woff" })
+const PTSerif = localFont({ src: "../../../fonts/PTSerif-Bold.ttf" });
+const geometria = localFont({ src: "../../../fonts/Geometria-Bold.woff" });
 
 export const TheMain = () => {
-	return (
-    <main className={styles.main}>
-      <h1 style={PTSerif.style}>
-        Знакомство <br/><span>c оркестром</span>
+  return (
+    <main className="relative flex flex-col justify-center items-center text-center uppercase">
+      <h1 style={PTSerif.style} className="text-[80px] text-[#f060c0]">
+        Знакомство <br />
+        <span className="text-[110px] tracking-[8px]">c оркестром</span>
       </h1>
-      <p style={geometria.style}>Нажмите на экран, чтобы начать</p>
+      <p style={geometria.style} className="text-[45px] text-white normal-case">
+        Нажмите на экран, чтобы начать
+      </p>
       <Image
-        className={styles.pointer}
+        className="absolute top-[90%] right-[24%]"
         src={"/pointer.svg"}
         alt={"Указатель"}
         width={85}
@@ -21,4 +23,4 @@ export const TheMain = () => {
       />
     </main>
   );
-}
+};
