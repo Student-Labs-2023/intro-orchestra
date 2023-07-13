@@ -21,7 +21,7 @@ const FakeChat = () => {
       );
       setBgColor((prev) => (prev = "#E6E9FF"));
       setTextSize((prev) => (prev = "32px"));
-      setAnswer(prev => !prev)
+      setAnswer(prev => prev = true)
     }, 4000);
     return () => {
       clearInterval(interval);
