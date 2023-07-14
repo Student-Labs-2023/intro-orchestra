@@ -1,3 +1,5 @@
+import React from "react";
+
 type AlertWindowProps = {
   remaining: number;
 };

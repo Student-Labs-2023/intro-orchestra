@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import { Children, PropsWithChildren, useEffect, useState } from "react";
 import { useIdleTimer } from "react-idle-timer";
 import AlertWindow from "./alertWindow/AlertWindow";
+import React from "react";
 
 type stateProps = "Active" | "Idle";
 
