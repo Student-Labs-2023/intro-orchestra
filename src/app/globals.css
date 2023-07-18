@@ -17,7 +17,7 @@ body {
 body {
   width: 100vw;
   height: 100vh;
-  background: url('/main-screen-bg.png') center;
+  background: url('/main-bg.svg') center / cover no-repeat;
 }
 
 a {

@@ -1,11 +1,12 @@
+"use client";
 import { useMemo } from "react";
 import View360, { EquirectProjection } from "@egjs/react-view360";
 import "@egjs/react-view360/css/view360.min.css";
-import styles from "./panoramaViewer.module.css"
+import styles from "./panoramaViewer.module.css";
 
 const hotspotData = {
   //Scene 1
-  1: [
+  homeScene: [
     {
       type: "link",
       yaw: 30,
@@ -16,6 +17,8 @@ const hotspotData = {
 };
 
 const PanoramaViewer = () => {
+  const homeHotspots = hotspotData.homeScene;
+
   const projection = useMemo(
     () =>
       new EquirectProjection({
@@ -28,7 +31,7 @@ const PanoramaViewer = () => {
     <>
       <View360 className="is-16by9" projection={projection}>
         <div className="view360-hotspots">
-          {hotspotData[1].map((hotspot, i) => (
+          {homeHotspots.map((hotspot, i) => (
             <div
               key={i}
               className={`view360-hotspot ${styles.search}`}

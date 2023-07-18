@@ -25,13 +25,7 @@ export const TheMain = () => {
       >
         Нажмите на экран, чтобы начать
       </p>
-      <Image
-        className=""
-        src={"/pointer.svg"}
-        alt={"Указатель"}
-        width={85}
-        height={155}
-      />
+      <Image src={"/pointer.svg"} alt={"Указатель"} width={85} height={155} />
     </main>
   );
 };
