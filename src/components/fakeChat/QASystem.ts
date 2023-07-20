@@ -13,7 +13,7 @@ export type QASystemType = {
   };
 };
 
-const names: string[] = ["Имя 1", "Имя 2"];
+const names: string[] = ["Гоар Айрапетян", "Имя 2"];
 const namesObj = Object.assign({}, names);
 
 export const QASystem: QASystemType = {
@@ -21,7 +21,7 @@ export const QASystem: QASystemType = {
     name: namesObj[0],
     start: {
       msgClass: "textMsg",
-      msg: "Привет, меня зовут Гоар.\nЯ скрипачка в симфоническом оркестре, исполняю партию первых скрипок.",
+      msg: "Привет, меня зовут Гоар. \n Я скрипачка в симфоническом оркестре, исполняю партию первых скрипок.",
     },
     qa: {
       "Расскажи о своём инструменте": [
@@ -31,11 +31,19 @@ export const QASystem: QASystemType = {
         },
         {
           msgClass: "textMsg",
-          msg: "textMsg2",
+          msg: "Скрипка – это струнный смычковый музыкальный инструмент. Первая скрипка была изобретена в 1540 году. Имеет 4 струны, которые натянуты на гриф. Обладает высоким регистром.",
+        },
+        {
+          msgClass: "textMsg",
+          msg: "Скрипка – это струнный смычковый музыкальный инструмент. Первая скрипка была изобретена в 1540 году. Имеет 4 струны, которые натянуты на гриф. Обладает высоким регистром.",
+        },
+        {
+          msgClass: "textMsg",
+          msg: "Продам гараж ",
         },
         {
           msgClass: "imgURL",
-          msg: "logo.svg", // plug
+          msg: "chevron.left.svg", // plug
         },
       ],
       "Как звучит твой инструмент?": [

@@ -2,6 +2,8 @@ import localFont from "next/font/local";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
 import { QASystemType, msgType } from "./QASystem";
+import TextMsg from "./msgComponents/TextMsg";
+import ImgMsg from "./msgComponents/imgMsg";
 
 const geometriaRegular = localFont({ src: "../../fonts/Geometria.ttf" });
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
@@ -24,13 +26,18 @@ const FakeChat = ({ data }: QASystemType) => {
     let toAddQueue: ReactElement[] = [];
     switch (msgList[0].msgClass) {
       case "textMsg":
-        toAddQueue = [<div key={uuid()}>{msgList[0].msg}</div>];
+        toAddQueue = [<TextMsg key={uuid()}>{msgList[0].msg}</TextMsg>];
         break;
       case "audioMsg":
         toAddQueue = [<div key={uuid()}>audioMsg</div>];
         break;
       case "imgURL":
-        toAddQueue = [<div key={uuid()}>img</div>];
+        console.log(msgList[0].msg.normalize());
+        toAddQueue = [
+          <ImgMsg url={msgList[0].msg.normalize()} key={uuid()}></ImgMsg>,
+        ];
+
+        console.log(toAddQueue);
         break;
       case "musicianPos":
         toAddQueue = [<div key={uuid()}>musicianPos</div>];
@@ -95,6 +102,7 @@ const FakeChat = ({ data }: QASystemType) => {
           />
         </div>
       </div>
+
       <div className="w-full h-[82.6%] bg-white z-0 flex flex-col justify-end px-[24px] pb-[24px]">
         <div
           className={`mb-[24px] max-w-[568px] py-[15px] rounded-tl-lg rounded-tr-lg rounded-br-lg`}
@@ -122,16 +130,8 @@ const FakeChat = ({ data }: QASystemType) => {
           </div>
         )}
       </div>
-      <div className="border-t-chatBorder border-t-2 w-full h-[8.85%] bg-bottomBar sm:rounded-bl-[16px] 2xl:rounded-bl-[32px] z-10 flex flex-col justify-center align-middle ">
-        <div className="bg-[#f9f9f9] rounded-[18px] w-[93.8%] h-[66.7%] xl:ml-[24px] ml-[14px] flex flex-col justify-center">
-          <span
-            style={geometriaRegular.style}
-            className="leading-[32px] tracking-[-0.41px] text-[#CCC] lg:text-[20px] 2xl:text-[26px] 2xl:ml-[18px] 3xl:text-[32px] xl:ml-[24px] ml-[14px]"
-          >
-            Сообщение
-          </span>
-        </div>
-      </div>
+
+      <div className="border-t-chatBorder border-t-2 w-full h-[8.85%] bg-bottomBar sm:rounded-bl-[16px] 2xl:rounded-bl-[32px] z-10 flex flex-col justify-center align-middle "></div>
     </div>
   );
 };
