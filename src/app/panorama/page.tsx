@@ -1,8 +1,8 @@
-"use client";
+import PanoramaViewer from "@/components/panoramaViewer/PanoramaViewer";
 
 const Panorama= () => {
   return (
-    <h1>Hello</h1>
+    <PanoramaViewer/>
   );
 };
 
