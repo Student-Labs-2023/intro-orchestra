@@ -9,19 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@egjs/react-view360": "^4.0.0-beta.7",
     "@photo-sphere-viewer/core": "^5.1.7",
     "@types/node": "20.4.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.8",
-    "next": "^13.4.9",
+    "next": "13.4.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-photo-sphere-viewer": "^3.3.5-psv5.1.4",
-    "react-uuid": "^2.0.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
