@@ -5,21 +5,14 @@ import Image from "next/image";
 
 export const TheHeader = () => {
   return (
-    <header className="flex justify-between items-center gap-[25px] flex-wrap pr-[50px] pt-[50px] pl-[50px] mb-[200px]">
+    <header className="flex justify-between items-center gap-[25px] flex-wrap pr-[25px] pt-[10px] pl-[10px]">
       <Link href="https://omfil.ru" style={{ zIndex: "2" }}>
         <Image
+          className="sm:w-[100px] md:w-[120px] lg:w-[150px] xl:w-[200px]"
           src={"/logo.svg"}
           alt={"Омская Филармония"}
-          width={250}
-          height={150}
-        />
-      </Link>
-      <Link href="/" style={{ zIndex: "2" }}>
-        <Image
-          src={"/instruction.svg"}
-          alt={"Инструкция пользователя"}
-          width={75}
-          height={75}
+          width={80}
+          height={50}
         />
       </Link>
     </header>
