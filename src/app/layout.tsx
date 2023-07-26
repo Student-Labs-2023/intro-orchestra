@@ -19,8 +19,8 @@ export default function RootLayout({
           }
           src={"/main-image.svg"}
           alt={"Картинка"}
-          width={1610}
-          height={1585}
+          width={1920}
+          height={1080}
         />
         {children}
       </body>
