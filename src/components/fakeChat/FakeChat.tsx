@@ -5,44 +5,81 @@ import { QASystemType, msgType } from "./QASystem";
 import ImgMsg from "./msgComponents/ImgMsg";
 
 import ArtistPanorama from "../artistPanorama/ArtistPanorama";
+import LinkMsg from "./msgComponents/LinkMsg";
 import TextAnswerMsg from "./msgComponents/TextAnswerMsg";
 import TextQuestionMsg from "./msgComponents/TextQuestionMsg";
 
 const geometriaRegular = localFont({ src: "../../fonts/Geometria.ttf" });
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({ src: "../../fonts/Geometria-Medium.woff" });
+type device = "phone" | "desktop";
 
-type waitingMsgType = "...печатает" | "...записывает аудио" | "в сети";
+type waitingMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
 const FakeChat = ({ data }: QASystemType) => {
+  const [device, setDevice] = useState<"phone" | "desktop">();
   const [activeFinishButton, setActiveFinishButton] = useState<boolean>(false);
   const [answer, setAnswer] = useState(false);
   const [queue, setQueue] = useState<ReactElement[]>([]);
   const [questions, setQuestions] = useState<string[]>(Object.keys(data.qa));
   const [viewArtist, setViewArtist] = useState<boolean>(false);
   const [waitingMsg, setWaitingMsg] = useState<waitingMsgType>("в сети");
+  const [activeBlur, setActiveBlur] = useState<boolean>(true);
 
   useEffect(() => {
     msgHandler([data.start], "start", 1000);
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setDevice("phone");
+    } else {
+      setDevice("desktop");
+    }
   }, []);
 
   function msgHandler(msgList: msgType[], element: string, t = 3000) {
-    setWaitingMsg("...печатает");
     setAnswer(false);
     let toAddQueue: ReactElement[] = [];
     switch (msgList[0].msgClass) {
       case "textMsg":
-        toAddQueue = [
-          <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>,
-        ];
+        setWaitingMsg("печатает...");
+        if (msgList[0].device === device || msgList[0].device === "any") {
+          toAddQueue = [
+            <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>,
+          ];
+        } else {
+          t = 0;
+        }
         break;
       case "audioMsg":
-        toAddQueue = [<div key={uuid()}>audioMsg</div>];
+        setWaitingMsg("записывает аудио...");
+        if (msgList[0].device === device || msgList[0].device === "any") {
+          toAddQueue = [<div key={uuid()}>audioMsg</div>];
+        } else {
+          t = 0;
+        }
         break;
       case "imgURL":
-        toAddQueue = [
-          <ImgMsg url={msgList[0].msg.normalize()} key={uuid()}></ImgMsg>,
-        ];
+        setWaitingMsg("печатает...");
+        if (msgList[0].device === device || msgList[0].device === "any") {
+          toAddQueue = [
+            <ImgMsg url={msgList[0].msg.normalize()} key={uuid()}></ImgMsg>,
+          ];
+        } else {
+          t = 0;
+        }
+        break;
+      case "linkMsg":
+        setWaitingMsg("печатает...");
+        if (msgList[0].device === device || msgList[0].device === "any") {
+          toAddQueue = [
+            <LinkMsg href={msgList[0].msg.normalize()} key={uuid()}></LinkMsg>,
+          ];
+        } else {
+          t = 0;
+        }
         break;
       case "musicianPos":
         setAnswer(true);
@@ -53,6 +90,7 @@ const FakeChat = ({ data }: QASystemType) => {
         break;
     }
     msgList.splice(0, 1);
+
     if (msgList.length != 0) {
       setTimeout(() => {
         setQueue((prev) => [...prev, ...toAddQueue]);
@@ -91,13 +129,20 @@ const FakeChat = ({ data }: QASystemType) => {
 
   return (
     <>
-      <div
-        className={`flex flex-col h-full w-[39.65%] absolute right-0 z-10 ${
-          viewArtist ? "" : null
-        }`}
-      >
-        <button className="absolute blur-0 top-60 bg-red-700">Привет</button>
-        <div className="w-full h-[8.55%] bg-white rounded-tl-[30px] shadow-topBar z-10 flex flex-col justify-center">
+      {activeBlur && (
+        <div className="flex flex-col items-center justify-center h-full w-[39.65%] absolute right-0 z-30 backdrop-blur-md sm:rounded-tl-[16px] 2xl:rounded-tl-[32px] sm:rounded-bl-[16px] 2xl:rounded-bl-[32px]">
+          <button className="bg-[#D93284] rounded-[16px] w-[70%] h-[12%] flex flex-col items-center justify-center">
+            <span
+              className="text-white text-[2.3vw] whitespace-nowrap pb-1 pl-3 pr-3"
+              style={geometriaBold.style}
+            >
+              вернуться к диалогу
+            </span>
+          </button>
+        </div>
+      )}
+      <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10">
+        <div className="w-full h-[8.55%] bg-white sm:rounded-tl-[16px] 2xl:rounded-tl-[32px] shadow-topBar z-10 flex flex-col justify-center">
           <div className="flex flex-row items-center justify-between p-4 ml-[10px] ">
             <div className="flex flex-row items-center justify-evenly">
               <img
@@ -117,13 +162,13 @@ const FakeChat = ({ data }: QASystemType) => {
             <div className="flex flex-col items-center pt-1 3xl:pt-2">
               <span
                 style={geometriaBold.style}
-                className="text-[#141414]  xl:text-[28px] text-[22px] leading-[20px] tracking-[-0.32px]"
+                className="text-[#141414]  xl:text-[28px] lg:text-[22px] text-[16px] xl:leading-[20px] lg:leading-[16px] leading-[12px] tracking-[-0.32px] "
               >
                 {data.name}
               </span>
               <span
                 style={geometriaMedium.style}
-                className=" text-[#D93284] 3xl:pt-1"
+                className=" text-[#D93284] 3xl:pt-1 text-[11px] xl:text-[18px] lg:text-[14px]"
               >
                 {waitingMsg}
               </span>
@@ -137,10 +182,10 @@ const FakeChat = ({ data }: QASystemType) => {
           </div>
         </div>
 
-        <div className="w-full h-[82.6%] bg-white z-0 flex flex-col-reverse px-[24px] pb-[24px] overflow-y-auto no-scrollbar">
+        <div className="w-full h-[82.6%] bg-white z-0 flex flex-col-reverse px-[24px] lg:pb-[24px] pb-[6px] overflow-y-auto no-scrollbar">
           <div className="flex flex-col justify-end">
             <div
-              className={`mb-[24px] py-[15px] rounded-tl-lg rounded-tr-lg rounded-br-lg`}
+              className={`lg:mb-[24px]  mb-[6px] py-[15px] rounded-tl-lg rounded-tr-lg rounded-br-lg`}
             >
               {queue.map((item) => (
                 <div key={uuid()}>{item}</div>
@@ -157,12 +202,12 @@ const FakeChat = ({ data }: QASystemType) => {
                     <div key={uuid()} className="group">
                       <button
                         style={geometriaBold.style}
-                        className="flex flex-start w-[450px] mb-[14px] border-[3px] rounded-[18px] border-[#F060C0] group-active:bg-[#FAEBEB] transition-all"
+                        className="flex flex-start mb-[14px] border-[3px] rounded-[18px] border-[#F060C0] group-active:bg-[#fdd0eb] transition-all hover:bg-[#fdebf2] w-[200px] lg:w-[300px] xl:w-[450px]"
                         onClick={() => {
                           handleClick(t);
                         }}
                       >
-                        <span className="group-active:text-[#D93284] transition-all text-[#222] text-[24px] p-3 ml-3">
+                        <span className="group-active:text-[#e1468c] transition-all text-[#222] xl:text-[24px] lg:text-[20px] text-[16px] p-3 lg:ml-3">
                           {t}
                         </span>
                       </button>

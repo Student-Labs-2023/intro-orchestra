@@ -11,7 +11,7 @@ const TextQuestionMsg: FC<
     <div className="w-full flex flex-col items-end">
       <span
         className={cn(
-          "max-w-[70%] p-3 mt-3 w-auto inline-block bg-[#FAEBEB] rounded-tl-lg rounded-tr-lg rounded-bl-lg text-[20px]",
+          "max-w-[60%] p-2 pl-3 mt-3 w-auto inline-block bg-[#fdd0eb] rounded-tl-xl rounded-tr-xl rounded-bl-xl lg:text-[20px] text-[16px]",
           className
         )}
         style={geometriaRegular.style}

@@ -11,7 +11,7 @@ const TextAnswerMsg: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({
   return (
     <div
       className={cn(
-        "bg-[#E6E9FF] max-w-[70%] p-3 rounded-tl-lg rounded-tr-lg rounded-br-lg mt-3 w-auto inline-block text-[20px]",
+        "bg-[#E6E9FF] max-w-[60%] p-2 pl-3 rounded-tl-xl rounded-tr-xl rounded-br-xl mt-3 w-auto inline-block lg:text-[20px] text-[16px]",
         className
       )}
       style={geometriaRegular.style}
