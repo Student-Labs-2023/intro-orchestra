@@ -12,16 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"relative"}>
-        <Image
-          className={
-            "h-[100%] absolute top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]"
-          }
-          src={"/main-image.svg"}
-          alt={"Картинка"}
-          width={1920}
-          height={1080}
-        />
+      <body>
         {children}
       </body>
     </html>
