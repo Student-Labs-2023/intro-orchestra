@@ -21,7 +21,9 @@ export type QASystemType = {
 const names: string[] = ["Гоар Айрапетян", "Имя 2"];
 const namesObj = Object.assign({}, names);
 
-export const QASystem: QASystemType = {
+
+
+const QASystem: QASystemType = {
   0: {
     name: namesObj[0],
     start: {
