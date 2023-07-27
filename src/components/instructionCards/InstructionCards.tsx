@@ -45,7 +45,7 @@ const InstructionCards = () => {
       {!backToPanorama && (
         <div
           className={`
-          } absolute z-[2] w-screen h-screen flex justify-center items-center bg-[#42424299]/[0.6]`}
+          } absolute z-[3] w-screen h-screen flex justify-center items-center bg-[#42424299]/[0.6]`}
         >
           <div className="max-w-[800px] px-[40px] py-[24px] bg-[#FFFFFF] rounded-3xl  border-[3px] border-[#D93284]">
             <div className="flex justify-between items-center mb-[24px]">
@@ -125,18 +125,17 @@ const InstructionCards = () => {
           </div>
         </div>
       )}
-      {backToPanorama && (
-        <div className="absolute z-[3] top-0 right-0 mt-[30px] mr-[30px]">
-          <button onClick={changeVisibleInstruction}>
-            <Image
-              width={90}
-              height={90}
-              src={"/instruction.svg"}
-              alt={"Инструкция пользователя"}
-            />
-          </button>
-        </div>
-      )}
+      
+      <div className="absolute z-[2] top-0 right-0 mt-[30px] mr-[30px]">
+        <button onClick={changeVisibleInstruction}>
+          <Image
+            width={90}
+            height={90}
+            src={"/instruction.svg"}
+            alt={"Инструкция пользователя"}
+          />
+        </button>
+      </div>
     </>
   );
 };
