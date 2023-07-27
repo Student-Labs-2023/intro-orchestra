@@ -2,9 +2,7 @@ import Image from "next/image";
 import localFont from "next/font/local";
 
 const geometriaBold = localFont({ src: "../../../fonts/Geometria-Bold.woff" });
-const geometriaMedium = localFont({
-  src: "../../../fonts/Geometria-Bold.woff",
-});
+const geometriaMedium = localFont({src: "../../../fonts/Geometria-Bold.woff",});
 
 export const TheMain = () => {
   return (
