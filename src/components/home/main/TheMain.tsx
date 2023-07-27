@@ -1,11 +1,8 @@
 import Image from "next/image";
 import localFont from "next/font/local";
 
-const PTSerif = localFont({ src: "../../../fonts/PTSerif-Bold.ttf" });
 const geometriaBold = localFont({ src: "../../../fonts/Geometria-Bold.woff" });
-const geometriaMedium = localFont({
-  src: "../../../fonts/Geometria-Bold.woff",
-});
+const geometriaMedium = localFont({src: "../../../fonts/Geometria-Bold.woff",});
 
 export const TheMain = () => {
   return (
