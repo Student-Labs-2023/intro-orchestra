@@ -18,7 +18,7 @@ const namesObj = Object.assign({}, names);
 
 
 
-const QASystem: QASystemType = {
+export const QASystem: QASystemType = {
   0: {
     name: namesObj[0],
     start: {
