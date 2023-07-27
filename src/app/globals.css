@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -15,9 +28,7 @@ body {
   overflow: hidden;
 }
 
-body {
   background: url('/main-bg.svg') center / cover no-repeat;
-}
 
 a {
   color: inherit;
