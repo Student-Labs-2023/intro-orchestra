@@ -1,0 +1,1 @@
+export { deviceRecognizer } from "./deviceRecognizer";

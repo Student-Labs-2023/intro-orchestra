@@ -62,9 +62,7 @@ const QASystem: QASystemType = {
           device: "any",
         },
       ],
-      "Посмотреть глазами музыканта": [
-        { msgClass: "musicianPos", msg: "plug", device: "any" }, // plug
-      ],
+
       "Нет, спасибо": [
         {
           msgClass: "textMsg",

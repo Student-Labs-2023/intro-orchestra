@@ -3,7 +3,6 @@ type ImgMsgProps = {
 };
 
 const ImgMsg = ({ url }: ImgMsgProps) => {
-  console.log("12", url);
   return (
     <img
       src={url}
