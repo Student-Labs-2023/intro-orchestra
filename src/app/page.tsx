@@ -1,7 +1,7 @@
 import Home from "@/components/home/Home";
 import Link from "next/link";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
     <>
       <Link
@@ -17,4 +17,7 @@ export default function HomePage() {
       <Home />
     </>
   );
-}
+};
+
+export default HomePage;
+

@@ -37,12 +37,12 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
     return (
       <div className="loader-container">
         <div className="spinner"></div>
-        {/* <span
+        <span
           className="loading text-[20px] mt-2 text-[#dd1181]"
           style={geometriaMedium.style}
         >
           Загрузка...
-        </span> */}
+        </span>
       </div>
     );
   } else {
