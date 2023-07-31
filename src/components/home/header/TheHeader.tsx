@@ -14,14 +14,6 @@ export const TheHeader = () => {
           height={150}
         />
       </Link>
-      <Link href="/" style={{ zIndex: "2" }}>
-        <Image
-          src={"/instruction.svg"}
-          alt={"Инструкция пользователя"}
-          width={75}
-          height={75}
-        />
-      </Link>
     </header>
   );
 };

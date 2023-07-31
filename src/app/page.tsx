@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <>
       <Link 
-      href={'/instruction'} 
+      href={'/panorama'} 
       style={
         { position: "absolute", display: "block", width: "100%", height: "100%", zIndex: '1' }
       }/>
