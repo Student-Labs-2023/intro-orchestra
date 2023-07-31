@@ -47,7 +47,7 @@ const InstructionCards = () => {
           className={`
           } absolute z-[3] w-screen h-screen flex justify-center items-center bg-[#42424299]/[0.6]`}
         >
-          <div className="max-w-[420px] px-[20px] py-[12px] bg-[#FFFFFF] rounded-3xl  border-[3px] border-[#D93284] sm:max-w-[520px] md:max-w-[800px] md:px-[40px] md:py-[24px]">
+          <div className="max-w-[420px] px-[20px] py-[12px] bg-[#FFFFFF] rounded-3xl  border-[3px] border-[#D93284] sm:max-w-[520px] lg:max-w-[800px] lg:px-[40px] md:py-[24px]">
             <div className="flex justify-between items-center mb-[12px]">
               <div className="flex items-center gap-[5px]">
                 {buttonsData.map((button) => (
@@ -72,16 +72,16 @@ const InstructionCards = () => {
             {cardsData.map((card) => {
               if (card.id === cardID) {
                 return (
-                  <div key={uuid()} className="mb-[20px]">
+                  <div key={uuid()} className="mb-[35px] sm:mb-[40px]">
                     <h3
                       style={geometriaBold.style}
-                      className="text-[20px] text-[#141414] mb-[8px] sm:text-[30px] md:text-[34px]"
+                      className="text-[20px] text-[#141414] mb-[8px] sm:text-[30px] lg:text-[34px]"
                     >
                       {card.title}
                     </h3>
                     <p
                       style={geometria.style}
-                      className="text-[15px] text-[#141414] sm:text-[20px] md:text-[30px]"
+                      className="text-[15px] text-[#141414] sm:text-[20px] lg:text-[30px]"
                     >
                       {card.desc}
                     </p>
