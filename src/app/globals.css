@@ -28,7 +28,10 @@ body {
   overflow: hidden;
 }
 
+body {
   background: url('/main-bg.svg') center / cover no-repeat;
+}
+  
 
 a {
   color: inherit;
