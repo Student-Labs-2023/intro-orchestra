@@ -1,15 +1,17 @@
 import InstructionCards from "@/components/instructionCards/InstructionCards";
-import React from "react";
+import OrientationChange from "@/components/orientationChange/OrientationChange";
 
 const Instruction = () => {
   return (
-    <div
-      className={
-        'w-screen h-screen bg-[url("/instruction-bg.png")] bg-cover bg-no-repeat bg-center flex justify-center items-center'
-      }
-    >
-      <InstructionCards />
-    </div>
+    <OrientationChange>
+      <div
+        className={
+          'w-screen h-screen bg-[url("/instruction-bg.png")] bg-cover bg-no-repeat bg-center flex justify-center items-center'
+        }
+      >
+        <InstructionCards />
+      </div>
+    </OrientationChange>
   );
 };
 
