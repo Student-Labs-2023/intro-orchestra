@@ -47,8 +47,8 @@ const InstructionCards = () => {
           className={`
           } absolute z-[3] w-screen h-screen flex justify-center items-center bg-[#42424299]/[0.6]`}
         >
-          <div className="max-w-[800px] px-[40px] py-[24px] bg-[#FFFFFF] rounded-3xl  border-[3px] border-[#D93284]">
-            <div className="flex justify-between items-center mb-[24px]">
+          <div className="max-w-[420px] px-[20px] py-[12px] bg-[#FFFFFF] rounded-3xl  border-[3px] border-[#D93284] sm:max-w-[520px] md:max-w-[800px] md:px-[40px] md:py-[24px]">
+            <div className="flex justify-between items-center mb-[12px]">
               <div className="flex items-center gap-[5px]">
                 {buttonsData.map((button) => (
                   <div
@@ -63,7 +63,7 @@ const InstructionCards = () => {
               </div>
               <button
                 style={geometria.style}
-                className="text-[24px] text-[#424242]"
+                className="text-[20px] text-[#424242] sm:text-[30px]"
                 onClick={changeVisibleInstruction}
               >
                 Закрыть
@@ -72,16 +72,16 @@ const InstructionCards = () => {
             {cardsData.map((card) => {
               if (card.id === cardID) {
                 return (
-                  <div key={uuid()} className="mb-[40px]">
+                  <div key={uuid()} className="mb-[20px]">
                     <h3
                       style={geometriaBold.style}
-                      className="text-[34px] text-[#141414] mb-[8px]"
+                      className="text-[20px] text-[#141414] mb-[8px] sm:text-[30px] md:text-[34px]"
                     >
                       {card.title}
                     </h3>
                     <p
                       style={geometria.style}
-                      className="text-[30px] text-[#141414]"
+                      className="text-[15px] text-[#141414] sm:text-[20px] md:text-[30px]"
                     >
                       {card.desc}
                     </p>
@@ -92,12 +92,12 @@ const InstructionCards = () => {
             <div
               className={`flex ${
                 currentIndex != 0 ? "justify-between" : "justify-end "
-              } items-center text-[30px] text-[#ffff]`}
+              } items-center text-[20px] text-[#ffff] sm:text-[30px]`}
             >
               {currentIndex != 0 ? (
                 <button
                   style={geometria.style}
-                  className="w-[150px] h-[50px] border-[2px] border-[#D93284] rounded-2xl text-[#141414] hover:bg-[#D93284]/[0.1] active:text-[#D93284] active:bg-[#F060C0]/[0.3]"
+                  className="w-[100px] h-[50px] border-[2px] border-[#D93284] rounded-2xl text-[#141414] hover:bg-[#D93284]/[0.1] active:text-[#D93284] active:bg-[#F060C0]/[0.3] sm:w-[150px]"
                   onClick={goToBackCard}
                 >
                   назад
@@ -107,7 +107,7 @@ const InstructionCards = () => {
               {finishInstruction ? (
                 <button
                   style={geometriaMedium.style}
-                  className="w-[150px] h-[50px] bg-[#D93284] rounded-2xl hover:bg-[#F060C0] active:bg-[#792EC0]"
+                  className="w-[100px] h-[50px] bg-[#D93284] rounded-2xl hover:bg-[#F060C0] active:bg-[#792EC0] sm:w-[150px]"
                   onClick={changeVisibleInstruction}
                 >
                   начать
@@ -115,7 +115,7 @@ const InstructionCards = () => {
               ) : (
                 <button
                   style={geometriaMedium.style}
-                  className="w-[150px] h-[50px] bg-[#D93284] rounded-2xl transition-all duration-400 ease-in hover:bg-[#F060C0] active:bg-[#792EC0]"
+                  className="w-[100px] h-[50px] bg-[#D93284] rounded-2xl transition-all duration-400 ease-in hover:bg-[#F060C0] active:bg-[#792EC0] sm:w-[150px]"
                   onClick={goToNextCard}
                 >
                   далее
@@ -125,12 +125,13 @@ const InstructionCards = () => {
           </div>
         </div>
       )}
-      
+
       <div className="absolute z-[2] top-0 right-0 mt-[30px] mr-[30px]">
         <button onClick={changeVisibleInstruction}>
           <Image
-            width={90}
-            height={90}
+            className="sm:w-[60px] sm:h-[60px] md:w-[90px] md:h-[90px]"
+            width={45}
+            height={45}
             src={"/instruction.svg"}
             alt={"Инструкция пользователя"}
           />
