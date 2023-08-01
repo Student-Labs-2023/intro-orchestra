@@ -1,23 +1,25 @@
+import { IQASystem } from "@/types/QASystem.interface";
+import { IMessage } from "@/types/message.interface";
 import localFont from "next/font/local";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
-import { QASystemType, msgType } from "./QASystem";
-import ImgMsg from "./msgComponents/ImgMsg";
-
 import ArtistPanorama from "../artistPanorama/ArtistPanorama";
 import { deviceRecognizer } from "./lib";
-import LinkMsg from "./msgComponents/LinkMsg";
-import TextAnswerMsg from "./msgComponents/TextAnswerMsg";
-import TextQuestionMsg from "./msgComponents/TextQuestionMsg";
+import {
+  Button,
+  ImgMsg,
+  LinkMsg,
+  TextAnswerMsg,
+  TextQuestionMsg,
+} from "./msgComponents";
 
 const geometriaRegular = localFont({ src: "../../fonts/Geometria.ttf" });
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({ src: "../../fonts/Geometria-Medium.woff" });
-type device = "phone" | "desktop";
 
 type waitingMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
-const FakeChat = ({ data }: QASystemType) => {
+const FakeChat = ({ data }: IQASystem) => {
   const [device, setDevice] = useState<"phone" | "desktop">();
   const [activeFinishButton, setActiveFinishButton] = useState<boolean>(false);
   const [answer, setAnswer] = useState(false);
@@ -33,7 +35,7 @@ const FakeChat = ({ data }: QASystemType) => {
   }, []);
 
   function pendAdding(
-    msgList: msgType[],
+    msgList: IMessage[],
     element: string,
     t = 3000,
     toAddQueue: ReactElement
@@ -55,9 +57,9 @@ const FakeChat = ({ data }: QASystemType) => {
     }
   }
 
-  function msgHandler(msgList: msgType[], element: string, t = 3000) {
+  function msgHandler(msgList: IMessage[], element: string, t = 3000) {
     setAnswer(false);
-    console.log(msgList[0], "vnesh");
+
     while (!(msgList[0].device == device || msgList[0].device == "any")) {
       msgList.splice(0, 1);
       if (!msgList.length) {
@@ -117,7 +119,7 @@ const FakeChat = ({ data }: QASystemType) => {
     setQuestions(newQuestions);
   }
 
-  function changeView() {
+  function changeView(t: string | undefined) {
     setActiveBlur((prev) => (prev = !prev));
     setViewArtist((prev) => (prev = !prev));
   }
@@ -126,19 +128,9 @@ const FakeChat = ({ data }: QASystemType) => {
     <>
       {activeBlur && (
         <div className="flex flex-col items-center justify-center h-full w-[39.65%] absolute right-0 z-30 backdrop-blur-md sm:rounded-tl-[16px] 2xl:rounded-tl-[32px] sm:rounded-bl-[16px] 2xl:rounded-bl-[32px]">
-          <button
-            className="bg-[#D93284] rounded-[16px] w-[70%] h-[12%] flex flex-col items-center justify-center"
-            onClick={() => {
-              changeView();
-            }}
-          >
-            <span
-              className="text-white text-[2.3vw] whitespace-nowrap pb-1 pl-3 pr-3"
-              style={geometriaBold.style}
-            >
-              вернуться к диалогу
-            </span>
-          </button>
+          <Button onClick={changeView} variant="pink">
+            вернуться к диалогу
+          </Button>
         </div>
       )}
       <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10">
@@ -194,37 +186,17 @@ const FakeChat = ({ data }: QASystemType) => {
 
             {answer && (
               <div className={"w-full flex flex-col items-end"}>
-                <div key={uuid()} className="group">
-                  <button
-                    style={geometriaBold.style}
-                    className="flex flex-start mb-[14px] border-[3px] rounded-[18px] border-[#F060C0] group-active:bg-[#fdd0eb] transition-all hover:bg-[#fdebf2] w-[200px] lg:w-[300px] xl:w-[450px]"
-                    onClick={() => {
-                      changeView();
-                    }}
-                  >
-                    <span className="group-active:text-[#e1468c] transition-all text-[#222] xl:text-[24px] lg:text-[20px] text-[16px] p-3 lg:ml-3">
-                      Посмотреть глазами музыканта
-                    </span>
-                  </button>
-                </div>
+                <Button key={uuid()} onClick={changeView} variant="white">
+                  Посмотреть глазами музыканта
+                </Button>
                 {questions.map((t) => {
                   if (!activeFinishButton && t === "Нет, спасибо") {
-                    return <></>;
+                    return;
                   }
                   return (
-                    <div key={uuid()} className="group">
-                      <button
-                        style={geometriaBold.style}
-                        className="flex flex-start mb-[14px] border-[3px] rounded-[18px] border-[#F060C0] group-active:bg-[#fdd0eb] transition-all hover:bg-[#fdebf2] w-[200px] lg:w-[300px] xl:w-[450px]"
-                        onClick={() => {
-                          handleClick(t);
-                        }}
-                      >
-                        <span className="group-active:text-[#e1468c] transition-all text-[#222] xl:text-[24px] lg:text-[20px] text-[16px] p-3 lg:ml-3">
-                          {t}
-                        </span>
-                      </button>
-                    </div>
+                    <Button key={uuid()} onClick={handleClick} variant="white">
+                      {t}
+                    </Button>
                   );
                 })}
               </div>

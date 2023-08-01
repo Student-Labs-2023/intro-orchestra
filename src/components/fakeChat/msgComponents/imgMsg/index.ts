@@ -1,0 +1,1 @@
+export { ImgMsg } from "./ImgMsg";
