@@ -142,7 +142,6 @@ const FakeChat = ({ data }: IQASystem) => {
                 className="lg:h-[29px] h-[21px]"
                 alt="Вернуться назад"
               />
-
               <span
                 style={geometriaRegular.style}
                 className=" text-[28px] text-raspberryPink leading-normal tracking-[-0.41px] hidden 2xl:block ml-2"
