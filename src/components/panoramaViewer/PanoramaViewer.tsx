@@ -29,7 +29,7 @@ const PanoramaViewer = () => {
 
   return (
     <>
-      <View360 className="is-16by9 z-0" projection={projection}>
+      <View360 className="is-16by9 z-0 h-screen" projection={projection}>
         <div className="view360-hotspots">
           {homeHotspots.map((hotspot, i) => (
             <div

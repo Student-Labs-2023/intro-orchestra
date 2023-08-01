@@ -1,6 +1,7 @@
 import Home from "@/components/home/Home";
 import Link from "next/link";
 import Image from "next/image";
+
 export default function HomePage() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function HomePage() {
         }}
       />
       <Image
-        className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+        className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] cover"
         src={"/main-image.svg"}
         width={1610}
         height={1080}
@@ -25,6 +26,4 @@ export default function HomePage() {
     </>
   );
 };
-
-export default HomePage;
 
