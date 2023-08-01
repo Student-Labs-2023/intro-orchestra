@@ -2,12 +2,11 @@ import cn from "clsx";
 import localFont from "next/font/local";
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
 
-const geometriaRegular = localFont({ src: "../../../fonts/Geometria.ttf" });
+const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.ttf" });
 
-const TextAnswerMsg: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({
-  children,
-  className,
-}) => {
+export const TextAnswerMsg: FC<
+  PropsWithChildren<HTMLAttributes<HTMLDivElement>>
+> = ({ children, className }) => {
   return (
     <div
       className={cn(
@@ -20,5 +19,3 @@ const TextAnswerMsg: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({
     </div>
   );
 };
-
-export default TextAnswerMsg;

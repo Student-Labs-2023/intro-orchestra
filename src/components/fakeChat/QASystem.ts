@@ -1,29 +1,10 @@
-export type possibleMsgClasses =
-  | "textMsg"
-  | "audioMsg"
-  | "imgURL"
-  | "musicianPos"
-  | "linkMsg";
-export type msgType = {
-  msgClass: possibleMsgClasses;
-  msg: string;
-  device: "phone" | "desktop" | "any";
-};
-
-export type QASystemType = {
-  [chatId: string]: {
-    name: string;
-    start: msgType;
-    qa: { [item: string]: Array<msgType> };
-  };
-};
+import { IQASystem } from "@/types/QASystem.interface";
 
 const names: string[] = ["Гоар Айрапетян", "Имя 2"];
-const namesObj = Object.assign({}, names);
 
-export const QASystem: QASystemType = {
+export const QASystem: IQASystem = {
   0: {
-    name: namesObj[0],
+    name: names[0],
     start: {
       msgClass: "textMsg",
       msg: "Привет, меня зовут Гоар. \n Я скрипачка в симфоническом оркестре, исполняю партию первых скрипок.",
