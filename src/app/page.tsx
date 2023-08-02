@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <>
       <Link
-        href={"/instruction"}
+        href={"/panorama"}
         className="absolute block w-full h-full z-[1]"
       />
       <Image
