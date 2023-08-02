@@ -17,7 +17,6 @@ export default function HomePage() {
         alt={"Картинка"}
         width={1610}
         height={1590}
-        href={"/panorama"}
       />
       <Home />
     </>
