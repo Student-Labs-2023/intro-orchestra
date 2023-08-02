@@ -1,37 +1,43 @@
 import Image from "next/image";
 import localFont from "next/font/local";
-
+import styles from './theMain.module.css'
 const geometriaBold = localFont({ src: "../../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({src: "../../../fonts/Geometria-Bold.woff",});
 
 export const TheMain = () => {
   return (
-    <main className="relative flex flex-col justify-center items-center text-center uppercase w-full h-screen">
+    <main className="relative flex flex-col justify-center items-center text-center uppercase w-full h-screen ">
       <h1
         style={geometriaBold.style}
-        className="text-[25px] text-[#D93284] sm:text-[30px] lg:text-[35px] xl:text-[45px] 2xl:text-[70px]"
+        className="text-[25px] text-[#D93284] sm:text-[30px] md:text-[35px] lg:text-[45px] xl:text-[55px] 2xl:text-[70px]"
       >
         знакомьтесь <br />
         <span
           style={geometriaBold.style}
-          className="text-[25px] tracking-[4px] text-[#D93284] sm:text-[35px] lg:text-[45px] xl:text-[60px] 2xl:text-[85px]"
+          className="text-[30px] tracking-[4px] text-[#D93284] sm:text-[35px] md:text-[45px] lg:text-[55px] xl:text-[65px] 2xl:text-[85px]"
         >
           c оркестром
         </span>
       </h1>
       <p
         style={geometriaMedium.style}
-        className="block mb-[15px] text-[15px] normal-case text-[#D93284] sm:text-[17px] lg:text-[23px] xl:text-[24px] 2xl:text-[30px]"
+        className="block mb-[15px] text-[13px] normal-case text-[#D93284] sm:text-[15px] md:text-[17px] lg:text-[20px] xl:text-[27px] 2xl:text-[30px]"
       >
         Нажмите на экран, чтобы начать
       </p>
-      <Image
-        className="h-[75px] lg:h-[85px]"
+      <div className="relative w-[30px] h-[60px] sm:w-[40px] sm:h-[80px] md:w-[50px] md:h-[100px] lg:w-[75px] lg:h-[140px]">
+        <div
+          className={` rounded-full ${styles.gradient} blur-[3px]`}
+        ></div>
+        <Image className="absolute w-[95%] h-[80%] top-[18%] left-[11%]" src={"/pointer.svg"} alt={"Указатель"} width={70} height={110}/>
+      </div>
+      {/* <Image
+        className="sm:w-[40px] md:w-[50px] lg:w-[60px] xl:w-[75px] 2xl:w-[85px]"
         src={"/pointer.svg"}
-        alt={"Указатель"}
-        width={75}
-        height={40}
-      />
+        
+        width={30}
+        height={96}
+      /> */}
     </main>
   );
 };
