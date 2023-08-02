@@ -1,6 +1,7 @@
 import Home from "@/components/home/Home";
 import Link from "next/link";
 import Image from "next/image";
+
 export default function HomePage() {
   return (
     <>
@@ -16,8 +17,10 @@ export default function HomePage() {
         alt={"Картинка"}
         width={1610}
         height={1590}
+        href={"/panorama"}
       />
       <Home />
     </>
   );
-}
+};
+
