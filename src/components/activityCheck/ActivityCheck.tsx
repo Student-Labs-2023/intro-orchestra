@@ -48,7 +48,6 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
       {Children.map(children, (child) => (
         <>{child}</>
       ))}
-      <div className="absolute top-10 text-white"> {remaining} </div>
       {state === "Active" && remaining <= 30 && remaining > 0 ? (
         <AlertWindow remaining={remaining} />
       ) : (
