@@ -12,6 +12,7 @@ import {
   TextAnswerMsg,
   TextQuestionMsg,
 } from "./msgComponents";
+import { AudioMsg } from "./msgComponents/audioMsg";
 
 const geometriaRegular = localFont({ src: "../../fonts/Geometria.ttf" });
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
@@ -82,7 +83,14 @@ const FakeChat = ({ data }: IQASystem) => {
         break;
       case "audioMsg":
         setWaitingMsg("записывает аудио...");
-        pendAdding(msgList, element, t, <div key={uuid()}>audioMsg</div>);
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <div key={uuid()}>
+            <AudioMsg></AudioMsg>
+          </div>
+        );
         break;
       case "imgURL":
         setWaitingMsg("печатает...");

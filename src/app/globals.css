@@ -28,9 +28,10 @@ body {
 }
 
 body {
-  background: url('/main-bg.svg') center / cover no-repeat;
+  background: url("/main-bg.svg") center / cover no-repeat;
+  width: 100vw;
+  height: 100vh;
 }
-  
 
 a {
   color: inherit;
