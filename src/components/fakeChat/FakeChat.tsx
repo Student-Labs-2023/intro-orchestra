@@ -1,6 +1,7 @@
 import { IQASystem } from "@/types/QASystem.interface";
 import { IMessage } from "@/types/message.interface";
 import localFont from "next/font/local";
+import Image from "next/image";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
 import ArtistPanorama from "../artistPanorama/ArtistPanorama";
@@ -137,12 +138,13 @@ const FakeChat = ({ data }: IQASystem) => {
         <div className="w-full h-[8.55%] bg-white sm:rounded-tl-[16px] 2xl:rounded-tl-[32px] shadow-topBar z-10 flex flex-col justify-center">
           <div className="flex flex-row items-center justify-between p-4 ml-[10px] ">
             <div className="flex flex-row items-center justify-evenly">
-              <img
+              <Image
+                className="w-auto lg:h-[29px] h-[21px]"
                 src="chevron.left.svg"
-                className="lg:h-[29px] h-[21px]"
                 alt="Вернуться назад"
+                width={20}
+                height={30}
               />
-
               <span
                 style={geometriaRegular.style}
                 className=" text-[28px] text-raspberryPink leading-normal tracking-[-0.41px] hidden 2xl:block ml-2"
@@ -165,11 +167,12 @@ const FakeChat = ({ data }: IQASystem) => {
                 {waitingMsg}
               </span>
             </div>
-
-            <img
+            <Image
+              className="w-auto ml-[7%] lg:h-[42px] h-[28px]"
               src="headset.svg"
-              className="ml-[7%] lg:h-[42px] h-[28px]"
               alt="Прослушать"
+              width={50}
+              height={50}
             />
           </div>
         </div>
