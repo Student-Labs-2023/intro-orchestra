@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/navigation";
 import { Children, PropsWithChildren, useEffect, useState } from "react";
 import { useIdleTimer } from "react-idle-timer";
