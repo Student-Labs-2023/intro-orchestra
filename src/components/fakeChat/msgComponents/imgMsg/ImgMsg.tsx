@@ -2,8 +2,7 @@ type ImgMsgProps = {
   url: string;
 };
 
-const ImgMsg = ({ url }: ImgMsgProps) => {
-  console.log("12", url);
+export const ImgMsg = ({ url }: ImgMsgProps) => {
   return (
     <img
       src={url}
@@ -11,5 +10,3 @@ const ImgMsg = ({ url }: ImgMsgProps) => {
     ></img>
   );
 };
-
-export default ImgMsg;

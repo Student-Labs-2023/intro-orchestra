@@ -1,22 +1,26 @@
+import { IQASystem } from "@/types/QASystem.interface";
+import { IMessage } from "@/types/message.interface";
 import localFont from "next/font/local";
+import Image from "next/image";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
-import { QASystemType, msgType } from "./QASystem";
-import ImgMsg from "./msgComponents/ImgMsg";
-
 import ArtistPanorama from "../artistPanorama/ArtistPanorama";
-import LinkMsg from "./msgComponents/LinkMsg";
-import TextAnswerMsg from "./msgComponents/TextAnswerMsg";
-import TextQuestionMsg from "./msgComponents/TextQuestionMsg";
+import { deviceRecognizer } from "./lib";
+import {
+  Button,
+  ImgMsg,
+  LinkMsg,
+  TextAnswerMsg,
+  TextQuestionMsg,
+} from "./msgComponents";
 
 const geometriaRegular = localFont({ src: "../../fonts/Geometria.ttf" });
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({ src: "../../fonts/Geometria-Medium.woff" });
-type device = "phone" | "desktop";
 
 type waitingMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
-const FakeChat = ({ data }: QASystemType) => {
+const FakeChat = ({ data }: IQASystem) => {
   const [device, setDevice] = useState<"phone" | "desktop">();
   const [activeFinishButton, setActiveFinishButton] = useState<boolean>(false);
   const [answer, setAnswer] = useState(false);
@@ -24,90 +28,83 @@ const FakeChat = ({ data }: QASystemType) => {
   const [questions, setQuestions] = useState<string[]>(Object.keys(data.qa));
   const [viewArtist, setViewArtist] = useState<boolean>(false);
   const [waitingMsg, setWaitingMsg] = useState<waitingMsgType>("в сети");
-  const [activeBlur, setActiveBlur] = useState<boolean>(true);
+  const [activeBlur, setActiveBlur] = useState<boolean>(false);
 
   useEffect(() => {
     msgHandler([data.start], "start", 1000);
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      setDevice("phone");
-    } else {
-      setDevice("desktop");
-    }
+    setDevice(deviceRecognizer);
   }, []);
 
-  function msgHandler(msgList: msgType[], element: string, t = 3000) {
-    setAnswer(false);
-    let toAddQueue: ReactElement[] = [];
-    switch (msgList[0].msgClass) {
-      case "textMsg":
-        setWaitingMsg("печатает...");
-        if (msgList[0].device === device || msgList[0].device === "any") {
-          toAddQueue = [
-            <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>,
-          ];
-        } else {
-          t = 0;
-        }
-        break;
-      case "audioMsg":
-        setWaitingMsg("записывает аудио...");
-        if (msgList[0].device === device || msgList[0].device === "any") {
-          toAddQueue = [<div key={uuid()}>audioMsg</div>];
-        } else {
-          t = 0;
-        }
-        break;
-      case "imgURL":
-        setWaitingMsg("печатает...");
-        if (msgList[0].device === device || msgList[0].device === "any") {
-          toAddQueue = [
-            <ImgMsg url={msgList[0].msg.normalize()} key={uuid()}></ImgMsg>,
-          ];
-        } else {
-          t = 0;
-        }
-        break;
-      case "linkMsg":
-        setWaitingMsg("печатает...");
-        if (msgList[0].device === device || msgList[0].device === "any") {
-          toAddQueue = [
-            <LinkMsg href={msgList[0].msg.normalize()} key={uuid()}></LinkMsg>,
-          ];
-        } else {
-          t = 0;
-        }
-        break;
-      case "musicianPos":
-        setAnswer(true);
-        setWaitingMsg("в сети");
-        clickToViewArtist();
-        return;
-      default:
-        break;
-    }
+  function pendAdding(
+    msgList: IMessage[],
+    element: string,
+    t = 3000,
+    toAddQueue: ReactElement
+  ) {
     msgList.splice(0, 1);
-
     if (msgList.length != 0) {
       setTimeout(() => {
-        setQueue((prev) => [...prev, ...toAddQueue]);
+        setQueue((prev) => [...prev, toAddQueue]);
         msgHandler(msgList, element);
       }, t);
     } else {
       setTimeout(() => {
-        setQueue((prev) => [...prev, ...toAddQueue]);
+        setQueue((prev) => [...prev, toAddQueue]);
         setTimeout(() => {
-          if (element === "Нет, спасибо") {
-            setAnswer(false);
-          } else {
-            setAnswer(true);
-          }
+          setAnswer(element != "Нет, спасибо");
           setWaitingMsg("в сети");
         }, 2000);
       }, t);
+    }
+  }
+
+  function msgHandler(msgList: IMessage[], element: string, t = 3000) {
+    setAnswer(false);
+
+    while (!(msgList[0].device == device || msgList[0].device == "any")) {
+      msgList.splice(0, 1);
+      if (!msgList.length) {
+        setTimeout(() => {
+          setAnswer(element != "Нет, спасибо");
+          setWaitingMsg("в сети");
+        }, 2000);
+        return;
+      }
+    }
+    switch (msgList[0].msgClass) {
+      case "textMsg":
+        setWaitingMsg("печатает...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>
+        );
+        break;
+      case "audioMsg":
+        setWaitingMsg("записывает аудио...");
+        pendAdding(msgList, element, t, <div key={uuid()}>audioMsg</div>);
+        break;
+      case "imgURL":
+        setWaitingMsg("печатает...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <ImgMsg url={msgList[0].msg.normalize()} key={uuid()}></ImgMsg>
+        );
+        break;
+      case "linkMsg":
+        setWaitingMsg("печатает...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <LinkMsg href={msgList[0].msg.normalize()} key={uuid()}></LinkMsg>
+        );
+        break;
+      default:
+        break;
     }
   }
 
@@ -123,7 +120,8 @@ const FakeChat = ({ data }: QASystemType) => {
     setQuestions(newQuestions);
   }
 
-  function clickToViewArtist() {
+  function changeView(t: string | undefined) {
+    setActiveBlur((prev) => (prev = !prev));
     setViewArtist((prev) => (prev = !prev));
   }
 
@@ -131,26 +129,22 @@ const FakeChat = ({ data }: QASystemType) => {
     <>
       {activeBlur && (
         <div className="flex flex-col items-center justify-center h-full w-[39.65%] absolute right-0 z-30 backdrop-blur-md sm:rounded-tl-[16px] 2xl:rounded-tl-[32px] sm:rounded-bl-[16px] 2xl:rounded-bl-[32px]">
-          <button className="bg-[#D93284] rounded-[16px] w-[70%] h-[12%] flex flex-col items-center justify-center">
-            <span
-              className="text-white text-[2.3vw] whitespace-nowrap pb-1 pl-3 pr-3"
-              style={geometriaBold.style}
-            >
-              вернуться к диалогу
-            </span>
-          </button>
+          <Button onClick={changeView} variant="pink">
+            вернуться к диалогу
+          </Button>
         </div>
       )}
       <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10">
         <div className="w-full h-[8.55%] bg-white sm:rounded-tl-[16px] 2xl:rounded-tl-[32px] shadow-topBar z-10 flex flex-col justify-center">
           <div className="flex flex-row items-center justify-between p-4 ml-[10px] ">
             <div className="flex flex-row items-center justify-evenly">
-              <img
+              <Image
+                className="w-auto lg:h-[29px] h-[21px]"
                 src="chevron.left.svg"
-                className="lg:h-[29px] h-[21px]"
                 alt="Вернуться назад"
+                width={20}
+                height={30}
               />
-
               <span
                 style={geometriaRegular.style}
                 className=" text-[28px] text-raspberryPink leading-normal tracking-[-0.41px] hidden 2xl:block ml-2"
@@ -173,11 +167,12 @@ const FakeChat = ({ data }: QASystemType) => {
                 {waitingMsg}
               </span>
             </div>
-
-            <img
+            <Image
+              className="w-auto ml-[7%] lg:h-[42px] h-[28px]"
               src="headset.svg"
-              className="ml-[7%] lg:h-[42px] h-[28px]"
               alt="Прослушать"
+              width={50}
+              height={50}
             />
           </div>
         </div>
@@ -194,24 +189,17 @@ const FakeChat = ({ data }: QASystemType) => {
 
             {answer && (
               <div className={"w-full flex flex-col items-end"}>
+                <Button key={uuid()} onClick={changeView} variant="white">
+                  Посмотреть глазами музыканта
+                </Button>
                 {questions.map((t) => {
                   if (!activeFinishButton && t === "Нет, спасибо") {
-                    return <></>;
+                    return;
                   }
                   return (
-                    <div key={uuid()} className="group">
-                      <button
-                        style={geometriaBold.style}
-                        className="flex flex-start mb-[14px] border-[3px] rounded-[18px] border-[#F060C0] group-active:bg-[#fdd0eb] transition-all hover:bg-[#fdebf2] w-[200px] lg:w-[300px] xl:w-[450px]"
-                        onClick={() => {
-                          handleClick(t);
-                        }}
-                      >
-                        <span className="group-active:text-[#e1468c] transition-all text-[#222] xl:text-[24px] lg:text-[20px] text-[16px] p-3 lg:ml-3">
-                          {t}
-                        </span>
-                      </button>
-                    </div>
+                    <Button key={uuid()} onClick={handleClick} variant="white">
+                      {t}
+                    </Button>
                   );
                 })}
               </div>
