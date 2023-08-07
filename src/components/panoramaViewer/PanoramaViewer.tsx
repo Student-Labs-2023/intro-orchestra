@@ -22,14 +22,14 @@ const PanoramaViewer = () => {
   const projection = useMemo(
     () =>
       new EquirectProjection({
-        src: "/1.jpeg",
+        src: "/1.jpg",
       }),
     []
   );
 
   return (
     <>
-      <View360 className="is-16by9" projection={projection}>
+      <View360 className="is-16by9 z-0 h-screen" projection={projection}>
         <div className="view360-hotspots">
           {homeHotspots.map((hotspot, i) => (
             <div
