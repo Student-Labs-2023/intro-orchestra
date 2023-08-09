@@ -22,7 +22,7 @@ const PanoramaViewer = () => {
   const projection = useMemo(
     () =>
       new EquirectProjection({
-        src: "/1.jpeg",
+        src: "/9.jpg",
       }),
     []
   );

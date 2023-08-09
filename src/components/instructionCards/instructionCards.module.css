@@ -4,19 +4,19 @@
   width: 45px;
   height: 45px;
 
-  border: 2px solid #d93284;
-  border-radius: 100%;
+  border: 5px solid #d93284;
+  border-radius: 16px;
   background-color: #ffff;
   transition: all 0.2s ease-in;
 }
 
 .exit_btn:hover {
-  border: 2px solid #f060c0;
+  border: 5px solid #f060c0;
 }
 
 .exit_btn:active {
-  border: 2px solid #792ec0;
-  background-color: #a393f5;
+  border: 5px solid #792ec0;
+  background-color: #CCD3FF;
 }
 
 .exit_btn::before,
@@ -65,7 +65,7 @@
 
 .instruction_btn:active {
   border: 5px solid #792ec0;
-  background-color: #a393f5;
+  background-color: #CCD3FF;
 }
 
 .instruction_btn::before {
@@ -114,14 +114,15 @@
   animation: slideIn 2s forwards;
 }
 
+
 @keyframes slideIn {
-    0% {
-      left: -368px; 
-    }
-    100% {
-      left: calc(50% - 184px); 
-    }
+  0% {
+    left: -368px;
   }
+  100% {
+    left: calc(50% - 184px);
+  }
+}
 
 @media (min-width: 640px) {
   .exit_btn {
@@ -145,22 +146,21 @@
   }
   @keyframes slideIn {
     0% {
-      left: -550px; 
+      left: -550px;
     }
     100% {
-      left: calc(50% - 275px); 
+      left: calc(50% - 275px);
     }
   }
 }
 
-
 @media (min-width: 1024px) {
   @keyframes slideIn {
     0% {
-      left: -800px; 
+      left: -800px;
     }
     100% {
-      left: calc(50% - 400px); 
+      left: calc(50% - 400px);
     }
   }
 }
