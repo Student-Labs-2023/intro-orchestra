@@ -6,8 +6,12 @@ const Panorama = () => {
   return (
     <div className="relative">
       <ActivityCheck>
-        <InstructionCards/>
-        <PanoramaViewer />
+        <InstructionCards />
+        <PanoramaViewer
+          imageSrc={"/panorama-images/home-panorama.jpg"}
+          pitch={-30}
+          yaw={0}
+        />
       </ActivityCheck>
     </div>
   );

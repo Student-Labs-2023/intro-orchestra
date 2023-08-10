@@ -10,7 +10,7 @@ export const TextAnswerMsg: FC<
   return (
     <div
       className={cn(
-        "bg-[#E6E9FF] max-w-[60%] p-2 pl-3 rounded-tl-xl rounded-tr-xl rounded-br-xl mt-3 w-auto inline-block lg:text-[20px] text-[16px]",
+        "bg-[#E6E9FF] max-w-[60%] md:p-2 md:pl-3 md:pr-3 pl-2 pr-2 p-1 rounded-tl-xl rounded-tr-xl rounded-br-xl lg:mt-4 md:mt-3 sm:mt-2 mt-1 w-auto inline-block lg:text-[20px] md:text-[16px] sm:text-[12px] text-[8px]",
         className
       )}
       style={geometriaRegular.style}

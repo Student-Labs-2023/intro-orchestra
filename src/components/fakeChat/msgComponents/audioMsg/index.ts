@@ -1,1 +1,1 @@
-export * from "./AudioMsg";
+export { AudioMsg } from "./AudioMsg";
