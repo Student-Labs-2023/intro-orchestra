@@ -3,7 +3,6 @@ import { IMessage } from "@/types/message.interface";
 import { useRouter } from "next/navigation";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
-import ArtistPanorama from "../artistPanorama/ArtistPanorama";
 import { ChatBody, ChatBottom, ChatHeader } from "./chatComponents";
 import { ChatBlurModal } from "./chatComponents/chatBlurModal";
 import { deviceRecognizer } from "./lib";
@@ -14,6 +13,7 @@ import {
   TextQuestionMsg,
 } from "./msgComponents";
 import { AudioMsg } from "./msgComponents/audioMsg";
+import PanoramaViewer from "../panoramaViewer/PanoramaViewer";
 
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
@@ -27,6 +27,10 @@ const FakeChat = ({ data }: IQASystem) => {
   const [statusMsg, setStatusMsg] = useState<statusMsgType>("в сети");
   const [activeBlur, setActiveBlur] = useState<boolean>(false);
   const [activeFlicker, setActiveFlicker] = useState<boolean>(false);
+
+  const imageSrc = data.panoramaData.imageSrc;
+  const initialPitch = data.panoramaData.pitch;
+  const initialYaw = data.panoramaData.yaw;
 
   useEffect(() => {
     msgHandler([data.start], "start", 1000);
@@ -94,7 +98,7 @@ const FakeChat = ({ data }: IQASystem) => {
           msgList,
           element,
           t,
-          <AudioMsg key={uuid()} audioUrl="SOAPMan.wav"></AudioMsg>
+          <AudioMsg key={uuid()} audioUrl="/SOAPMan.wav"></AudioMsg>
         );
         break;
       case "imgURL":
@@ -162,7 +166,13 @@ const FakeChat = ({ data }: IQASystem) => {
         ></ChatBody>
         <ChatBottom></ChatBottom>
       </div>
-      {viewArtist && <ArtistPanorama />}
+      {viewArtist && (
+        <PanoramaViewer
+          imageSrc={imageSrc}
+          yaw={initialYaw}
+          pitch={initialPitch}
+        />
+      )}
     </>
   );
 };
