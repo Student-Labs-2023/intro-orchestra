@@ -28,7 +28,7 @@ export function ChatHeader({
           onClick={returnToMainPage}
         >
           <Image
-            src="chevron.left.svg"
+            src="/chevron.left.svg"
             className="lg:h-[29px] h-[21px] w-auto"
             alt="Вернуться назад"
             width={19}
@@ -59,7 +59,7 @@ export function ChatHeader({
         </div>
 
         <Image
-          src="headset.svg"
+          src="/headset.svg"
           className="ml-[7%] lg:h-[42px] h-[28px] w-auto"
           alt="Прослушать"
           height={44}
