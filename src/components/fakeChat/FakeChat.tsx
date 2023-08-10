@@ -3,6 +3,7 @@ import { IMessage } from "@/types/message.interface";
 import { useRouter } from "next/navigation";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
+import PanoramaViewer from "../panoramaViewer/PanoramaViewer";
 import { ChatBody, ChatBottom, ChatHeader } from "./chatComponents";
 import { ChatBlurModal } from "./chatComponents/chatBlurModal";
 import { deviceRecognizer } from "./lib";
@@ -13,7 +14,6 @@ import {
   TextQuestionMsg,
 } from "./msgComponents";
 import { AudioMsg } from "./msgComponents/audioMsg";
-import PanoramaViewer from "../panoramaViewer/PanoramaViewer";
 
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
@@ -98,7 +98,7 @@ const FakeChat = ({ data }: IQASystem) => {
           msgList,
           element,
           t,
-          <AudioMsg key={uuid()} audioUrl="/SOAPMan.wav"></AudioMsg>
+          <AudioMsg key={uuid()} audioUrl={msgList[0].msg}></AudioMsg>
         );
         break;
       case "imgURL":
@@ -150,7 +150,7 @@ const FakeChat = ({ data }: IQASystem) => {
         changeView={changeView}
       ></ChatBlurModal>
 
-      <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10">
+      <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10 ">
         <ChatHeader
           musicianName={data.name}
           statusMsg={statusMsg}
