@@ -1,9 +1,27 @@
 .search {
   width: 70px;
   height: 70px;
-  background-image: url('/hotspot.svg');
   background-position: center;
   background-size: cover;
+
+}
+.search circle  {
+  transition: all 0.2s ease-in;
+}
+
+.search:hover circle {
+  fill: #f060c0;
+}
+
+.search:hover g circle {
+  fill: #f060c0;
+}
+
+.search:active circle {
+  fill: #792ec0;
+}
+.search:active g circle {
+  fill: #792ec0;
 }
 
 .link {
