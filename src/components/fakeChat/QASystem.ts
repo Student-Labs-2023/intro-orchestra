@@ -11,7 +11,7 @@ const names: string[] = [
   "Павел Лунин",
   "Сергей Бутиков",
   "Станислав Сезонов",
-  "Даурен Орынбаев"
+  "Даурен Орынбаев",
 ];
 
 export const QASystem: IQASystem = {
@@ -46,7 +46,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -109,7 +109,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -172,7 +172,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -235,7 +235,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -298,7 +298,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -361,7 +361,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -424,7 +424,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -487,7 +487,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -550,7 +550,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -613,7 +613,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
@@ -676,7 +676,7 @@ export const QASystem: IQASystem = {
         },
       ],
       "Как звучит твой инструмент?": [
-        { msgClass: "audioMsg", msg: "soloviolin.mp3", device: "any" },
+        { msgClass: "audioMsg", msg: "SOAPMan.wav", device: "any" },
         {
           msgClass: "textMsg",
           msg: "Так звонко звучит скрипка!",
