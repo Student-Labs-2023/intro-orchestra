@@ -1,111 +1,169 @@
-"use client";
-import localFont from "next/font/local";
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import { IQASystem } from "@/types/QASystem.interface";
+import { IMessage } from "@/types/message.interface";
+import { useRouter } from "next/navigation";
+import { ReactElement, useEffect, useState } from "react";
+import uuid from "react-uuid";
+import ArtistPanorama from "../artistPanorama/ArtistPanorama";
+import { ChatBody, ChatBottom, ChatHeader } from "./chatComponents";
+import { ChatBlurModal } from "./chatComponents/chatBlurModal";
+import { deviceRecognizer } from "./lib";
+import {
+  ImgMsg,
+  LinkMsg,
+  TextAnswerMsg,
+  TextQuestionMsg,
+} from "./msgComponents";
+import { AudioMsg } from "./msgComponents/audioMsg";
 
-const geometriaRegular = localFont({ src: "../../fonts/Geometria.ttf" });
-const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
+type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
-const FakeChat = () => {
-  const [text, setText] = useState("...Печатает");
-  const [bgColor, setBgColor] = useState("#CCD3FF");
-  const [textSize, setTextSize] = useState("36px");
+const FakeChat = ({ data }: IQASystem) => {
+  const [device, setDevice] = useState<"phone" | "desktop">();
+  const [activeFinishButton, setActiveFinishButton] = useState<boolean>(false);
   const [answer, setAnswer] = useState(false);
+  const [queue, setQueue] = useState<ReactElement[]>([]);
+  const [questions, setQuestions] = useState<string[]>(Object.keys(data.qa));
+  const [viewArtist, setViewArtist] = useState<boolean>(false);
+  const [statusMsg, setStatusMsg] = useState<statusMsgType>("в сети");
+  const [activeBlur, setActiveBlur] = useState<boolean>(false);
+  const [activeFlicker, setActiveFlicker] = useState<boolean>(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setText(
-        (prev) =>
-          (prev =
-            "Привет! Меня зовут Гоар. Я скрипачка в симфоническом оркестре, исполняю партию первых скрипок.")
-      );
-      setBgColor((prev) => (prev = "#E6E9FF"));
-      setTextSize((prev) => (prev = "32px"));
-      setAnswer(prev => prev = true)
-    }, 4000);
-    return () => {
-      clearInterval(interval);
-    };
+    msgHandler([data.start], "start", 1000);
+    setDevice(deviceRecognizer);
   }, []);
 
+  function activateFlicker() {
+    setActiveFlicker((prev) => !prev);
+  }
+
+  const { push } = useRouter();
+  function returnToMainPage() {
+    push("/");
+  }
+
+  function pendAdding(
+    msgList: IMessage[],
+    element: string,
+    t = 3000,
+    toAddQueue: ReactElement
+  ) {
+    msgList.splice(0, 1);
+    if (msgList.length != 0) {
+      setTimeout(() => {
+        setQueue((prev) => [...prev, toAddQueue]);
+        msgHandler(msgList, element);
+      }, t);
+    } else {
+      setTimeout(() => {
+        setQueue((prev) => [...prev, toAddQueue]);
+        setTimeout(() => {
+          setAnswer(element != "Нет, спасибо");
+          setStatusMsg("в сети");
+        }, 2000);
+      }, t);
+    }
+  }
+
+  function msgHandler(msgList: IMessage[], element: string, t = 3000) {
+    setAnswer(false);
+
+    while (!(msgList[0].device == device || msgList[0].device == "any")) {
+      msgList.splice(0, 1);
+      if (!msgList.length) {
+        setTimeout(() => {
+          setAnswer(element != "Нет, спасибо");
+          setStatusMsg("в сети");
+        }, 2000);
+        return;
+      }
+    }
+    switch (msgList[0].msgClass) {
+      case "textMsg":
+        setStatusMsg("печатает...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>
+        );
+        break;
+      case "audioMsg":
+        setStatusMsg("записывает аудио...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <AudioMsg key={uuid()} audioUrl="SOAPMan.wav"></AudioMsg>
+        );
+        break;
+      case "imgURL":
+        setStatusMsg("печатает...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <ImgMsg url={msgList[0].msg.normalize()} key={uuid()}></ImgMsg>
+        );
+        break;
+      case "linkMsg":
+        setStatusMsg("печатает...");
+        pendAdding(
+          msgList,
+          element,
+          t,
+          <LinkMsg href={msgList[0].msg.normalize()} key={uuid()}></LinkMsg>
+        );
+        break;
+      default:
+        break;
+    }
+  }
+
+  function handleClick(element: string) {
+    setActiveFinishButton(true);
+    setAnswer(false);
+    setQueue((prev) => [
+      ...prev,
+      <TextQuestionMsg key={uuid()}> {element} </TextQuestionMsg>,
+    ]);
+    const newQuestions = [...questions].filter((t) => t != element);
+    msgHandler(data.qa[element], element);
+    setQuestions(newQuestions);
+  }
+
+  function changeView(t: string | undefined) {
+    setActiveBlur((prev) => (prev = !prev));
+    setViewArtist((prev) => (prev = !prev));
+  }
+
   return (
-    <div className="flex flex-col h-screen w-[39.65%] absolute right-0">
-      <div className="w-full h-[8.55%] bg-white rounded-tl-[30px] shadow-topBar z-10 flex flex-col justify-center">
-        <div className="flex flex-row items-center justify-between p-4 ml-[10px] ">
-          <div className="flex flex-row items-center justify-evenly ">
-            <Image
-              className="w-[19px] h-[29px]"
-              src={"chevron.left.svg"}
-              alt={"Вернуться назад"}
-              width={19}
-              height={29}
-            />
-            <span
-              style={geometriaRegular.style}
-              className="text-[28px] text-raspberryPink leading-normal tracking-[-0.41px] sm:hidden 2xl:block ml-2"
-            >
-              Назад
-            </span>
-          </div>
+    <>
+      <ChatBlurModal
+        activateFlicker={activateFlicker}
+        activeBlur={activeBlur}
+        activeFlicker={activeFlicker}
+        changeView={changeView}
+      ></ChatBlurModal>
 
-          <span
-            style={geometriaBold.style}
-            className="text-[#141414] 2xl:text-[36px] xl:text-[28px] text-[22px] leading-[20px] tracking-[-0.32px]  justify-center"
-          >
-            Гоар Айрапетян
-          </span>
-
-          <Image
-            className=" ml-[7%]"
-            src={"headset.svg"}
-            alt={"Прослушать"}
-            width={40}
-            height={42}
-          />
-        </div>
+      <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10">
+        <ChatHeader
+          musicianName={data.name}
+          statusMsg={statusMsg}
+          returnToMainPage={returnToMainPage}
+        ></ChatHeader>
+        <ChatBody
+          activeFinishButton={activeFinishButton}
+          answer={answer}
+          changeView={changeView}
+          handleClick={handleClick}
+          questions={questions}
+          queue={queue}
+        ></ChatBody>
+        <ChatBottom></ChatBottom>
       </div>
-      <div className="w-full h-[82.6%] bg-white z-0 flex flex-col justify-end px-[24px] pb-[24px]">
-        <div
-          className={`bg-[${bgColor}] mb-[24px] max-w-[568px]  px-[20px] py-[15px] rounded-tl-lg rounded-tr-lg rounded-br-lg`}
-        >
-          <p style={geometriaRegular.style} className={`text-[${textSize}]`}>
-            {text}
-          </p>
-        </div>
-        {answer &&
-          <div className={"w-[100%] flex flex-col items-end"}>
-            <button
-              style={geometriaBold.style}
-              className="block py-[30px] w-[450px] mb-[14px] px-[20px] border-[3px] rounded-[18px] border-[#F060C0]"
-            >
-              Расскажи о своем инструменте
-            </button>
-            <button
-              style={geometriaBold.style}
-              className="block py-[30px] w-[450px] mb-[14px]  px-[20px] border-[3px] rounded-[18px] border-[#F060C0]"
-            >
-              Посмотреть глазами музыканта
-            </button>
-            <button
-              style={geometriaBold.style}
-              className="block w-[450px] py-[30px] px-[20px] border-[3px] rounded-[18px] border-[#F060C0]"
-            >
-              Как звучит инструмент?
-            </button>
-          </div>
-        }
-      </div>
-      <div className="border-t-chatBorder border-t-2 w-full h-[8.85%] bg-bottomBar sm:rounded-bl-[16px] 2xl:rounded-bl-[32px] z-10 flex flex-col justify-center align-middle ">
-        <div className="bg-[#f9f9f9] rounded-[18px] w-[93.8%] h-[66.7%] ml-[24px] flex flex-col justify-center">
-          <span
-            style={geometriaRegular.style}
-            className="leading-[32px] tracking-[-0.41px] text-[#CCC] lg:text-[20px] 2xl:text-[26px] 2xl:ml-[18px] 3xl:text-[32px] ml-[24px]"
-          >
-            Сообщение
-          </span>
-        </div>
-      </div>
-    </div>
+      {viewArtist && <ArtistPanorama />}
+    </>
   );
 };
 
