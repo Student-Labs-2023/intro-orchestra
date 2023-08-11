@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
-import { default as WaveSurfer, WaveSurferOptions } from "waveSurfer.js";
+import { default as WaveSurfer, WaveSurferOptions } from "wavesurfer.js";
 
 // попробовать memo
 
