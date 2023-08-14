@@ -11,12 +11,13 @@ export default function HomePage() {
       />
       <Image
         className={
-          "absolute max-w-none h-screen top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]"
+          "absolute w-full h-full object-contain top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]"
         }
-        src={"/main-image.svg"}
+        src={"/main-image.webp"}
         alt={"Картинка"}
-        width={1610}
-        height={1590}
+        width={1920}
+        height={1080}
+        priority
       />
       <Home />
     </>

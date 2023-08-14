@@ -44,9 +44,9 @@ export const Button = ({
       >
         <div
           className={cn({
-            "text-white 2xl:text-[24px] xl:text-[21px] lg:text-[17px] md:text-[12px] sm:text-[10px] text-[7px] whitespace-nowrap pb-1 pl-3 pr-3":
+            "text-white 2xl:text-[24px] xl:text-[21px] lg:text-[17px] md:text-[12px] sm:text-[10px] text-[7px] whitespace-nowrap h-full w-full inline-flex items-center justify-center ":
               variant === "pink",
-            "group-active:text-[#e1468c] transition-all text-[#222] xl:text-[24px] lg:text-[20px] md:text-[16px] sm:text-[12px] text-[8px] p-3 xl:py-3 py-1 lg:ml-3":
+            "group-active:text-[#e1468c] transition-all text-[#222] xl:text-[24px] lg:text-[20px] md:text-[16px] sm:text-[12px] text-[8px] p-3 xl:py-3 py-1 lg:ml-3 ":
               variant === "white",
           })}
           style={geometriaRegular.style}

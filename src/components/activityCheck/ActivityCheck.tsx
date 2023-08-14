@@ -14,7 +14,7 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
   const [remaining, setRemaining] = useState<number>(0);
 
   const onIdle = () => {
-    setState("Idle");
+    setState("Idle")
   };
 
   const onActive = () => {

@@ -2,6 +2,24 @@
   background-position: center;
   background-size: cover;
 }
+.search circle  {
+  transition: all 0.2s ease-in;
+}
+
+.search:hover circle {
+  fill: #f060c0;
+}
+
+.search:hover g circle {
+  fill: #f060c0;
+}
+
+.search:active circle {
+  fill: #792ec0;
+}
+.search:active g circle {
+  fill: #792ec0;
+}
 
 .search svg {
   width: 24px;
@@ -39,6 +57,7 @@
   height: 100%;
   display: none;
 }
+
 .modal[data-visible="true"] {
   z-index: 9999;
   display: flex;
