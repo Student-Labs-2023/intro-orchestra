@@ -13,10 +13,11 @@ export default function HomePage() {
         className={
           "absolute w-full h-full object-contain top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]"
         }
-        src={"/main-image.png"}
+        src={"/main-image.webp"}
         alt={"Картинка"}
         width={1920}
         height={1080}
+        priority
       />
       <Home />
     </>
