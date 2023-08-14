@@ -71,7 +71,7 @@ const InstructionCards = () => {
         <div className="absolute z-[2] top-0 left-0 mt-[15px] ml-[15px] lg:mt-[25px] lg:ml-[25px] xl:mt-[30px] xl:ml-[30px]">
           <Link href={"/"} className={styles.exit_btn}></Link>
         </div>
-        <div className="absolute z-[2] top-0 right-0 mt-[15px] mr-[15px] lg:mt-[25px] lg:ml-[25px] xl:mt-[30px] xl:ml-[30px]">
+        <div className="absolute z-[2] top-0 right-0 mt-[15px] mr-[15px] lg:mt-[25px] lg:mr-[25px] xl:mt-[30px] xl:mr-[30px]">
           <button
             className={styles.instruction_btn}
             onClick={changeVisibleInstruction}
@@ -102,7 +102,7 @@ const InstructionCards = () => {
                 <button
                   style={geometria.style}
                   className="text-[12px] leading-[10px] p-[5px] text-[#424242] md:text-[14px] md:p-[8px] lg:text-[18px] lg:leading-[16.2px]
-                  2xl:text-[24px] 2xl:leading-[24px] 2xl:p-[10px]"
+                  2xl:text-[24px] 2xl:leading-[24px] 2xl:p-[10px] transition-all duration-200 ease-in hover:text-[#F060C0] active:text-[#792EC0]"
                   onClick={changeVisibleInstruction}
                 >
                   Закрыть
@@ -144,7 +144,7 @@ const InstructionCards = () => {
                 className={`flex ${
                   !currentIndex ? "justify-end" : "justify-between"
                 }  text-white items-center`}
-              > 
+              >
                 {currentIndex && (
                   <button
                     style={geometria.style}
