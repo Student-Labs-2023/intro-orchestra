@@ -21,7 +21,6 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
   }, [screenWidth, screenHeight]);
 
   useEffect(() => {
-    console.log(isCorrectOrientation);
     const handleResize = (event: UIEvent) => {
       setScreenWidth(window.screen.width);
       setScreenHeight(window.screen.height);
