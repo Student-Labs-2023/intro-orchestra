@@ -6,7 +6,7 @@ type AlertWindowProps = {
   remaining: number;
 };
 
-const geometria = localFont({ src: "../../../fonts/Geometria.ttf" });
+const geometria = localFont({ src: "../../../fonts/Geometria.woff" });
 const geometriaBold = localFont({ src: "../../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({
   src: "../../../fonts/Geometria-Medium.woff",

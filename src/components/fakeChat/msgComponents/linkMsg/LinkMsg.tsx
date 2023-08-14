@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import { FC, LinkHTMLAttributes } from "react";
 
-const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.ttf" });
+const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.woff" });
 
 export const LinkMsg: FC<LinkHTMLAttributes<HTMLLinkElement>> = ({ href }) => {
   return (

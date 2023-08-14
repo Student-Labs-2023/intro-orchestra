@@ -7,7 +7,7 @@ interface IChatHeader {
   statusMsg: string;
 }
 
-const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.ttf" });
+const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.woff" });
 const geometriaBold = localFont({
   src: "../../../../fonts/Geometria-Bold.woff",
 });

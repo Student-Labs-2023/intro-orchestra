@@ -79,9 +79,9 @@ const InstructionCards = () => {
         </div>
       </header>
 
-      <main className="relative w-screen h-screen">
+      <main>
         {!backToPanorama && (
-          <div className=" absolute w-full h-full bg-[#42424299]/[0.6] z-[3]">
+          <div className="absolute w-full h-full bg-[#42424299]/[0.6] z-[3]">
             <div
               className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[368px] p-[16px] bg-white border-[2px] border-[#D93284] rounded-[16px] md:max-w-[503px] md:p-[24px] md:rounded-[22px] lg:max-w-[574px] lg:py-[24px] lg:px-[32px] lg:rounded-[16px] lg:border-[3px]
               2xl:max-w-[800px] 2xl:py-[32px] 2xl:px-[40px] 2xl:rounded-[24px]"

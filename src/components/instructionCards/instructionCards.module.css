@@ -179,7 +179,7 @@
 }
 
 
-@media (min-width: 1920px) {
+@media (min-width: 1800px) {
   .exit_btn, .instruction_btn {
     width: 80px;
     height: 80px;
