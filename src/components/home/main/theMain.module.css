@@ -1,0 +1,21 @@
+.gradient {
+	width: 90%;
+	height: 45%;
+	background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 25%, rgba(255, 0, 171, 0.3) 45%);
+	animation: changeSize 1s linear infinite alternate;
+	transition: all ease-in;
+}
+
+@keyframes changeSize {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}
