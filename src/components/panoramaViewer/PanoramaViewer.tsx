@@ -43,7 +43,7 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
         projection={projection}
         initialPitch={pitch}
         initialYaw={yaw}
-        fov={130}
+        fov={120}
       >
         {imageSrc === "/panorama-images/home-panorama.jpg" ? (
           <div className="view360-hotspots">
@@ -56,8 +56,8 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
                 onClick={() => goToChatArtist(hotspot)}
               >
                 <svg
-                  width="70"
-                  height="70"
+                  width="110"
+                  height="110"
                   viewBox="0 0 110 110"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
