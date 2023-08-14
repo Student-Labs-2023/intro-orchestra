@@ -43,7 +43,7 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
         projection={projection}
         initialPitch={pitch}
         initialYaw={yaw}
-        fov={130}
+        fov={120}
       >
         {imageSrc === "/panorama-images/home-panorama.jpg" ? (
           <div className="view360-hotspots">
@@ -54,7 +54,58 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
                 data-yaw={hotspot.yaw}
                 data-pitch={hotspot.pitch}
                 onClick={() => goToChatArtist(hotspot)}
-              ></div>
+              >
+                <svg
+                  width="110"
+                  height="110"
+                  viewBox="0 0 110 110"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g filter="url(#filter0_f_283_2941)">
+                    <circle
+                      cx="55"
+                      cy="55"
+                      r="35"
+                      fill="#F45FFF"
+                      fill-opacity="0.8"
+                    />
+                  </g>
+                  <circle
+                    cx="54.5"
+                    cy="54.5"
+                    r="34"
+                    fill="#D93284"
+                    stroke="white"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <defs>
+                    <filter
+                      id="filter0_f_283_2941"
+                      x="0"
+                      y="0"
+                      width="110"
+                      height="110"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="10"
+                        result="effect1_foregroundBlur_283_2941"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
             ))}
           </div>
         ) : null}
