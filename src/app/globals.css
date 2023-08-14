@@ -27,11 +27,11 @@ body {
 }
 
 body {
+
   width: 100vw;
   height: 100vh;
   background: url('/main-bg.webp') center / cover no-repeat;
 }
-  
 
 a {
   color: inherit;

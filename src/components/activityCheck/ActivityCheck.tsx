@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/navigation";
 import { Children, PropsWithChildren, useEffect, useState } from "react";
 import { useIdleTimer } from "react-idle-timer";
@@ -13,7 +14,7 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
   const [remaining, setRemaining] = useState<number>(0);
 
   const onIdle = () => {
-    setState("Idle");
+    setState("Idle")
   };
 
   const onActive = () => {
@@ -48,7 +49,6 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
       {Children.map(children, (child) => (
         <>{child}</>
       ))}
-      <div className="absolute top-10 text-white"> {remaining} </div>
       {state === "Active" && remaining <= 30 && remaining > 0 ? (
         <AlertWindow remaining={remaining} />
       ) : (

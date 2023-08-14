@@ -1,5 +1,3 @@
-import OrientationChange from "@/components/orientationChange/OrientationChange";
-
 import "./globals.css";
 export const metadata = {
   title: "Create Next App",
@@ -13,11 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={"relative"}>
-        <OrientationChange>
-          {children}
-        </OrientationChange>
-      </body>
+      <body className={"relative"}>{children}</body>
     </html>
   );
 }

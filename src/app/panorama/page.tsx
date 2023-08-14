@@ -1,11 +1,18 @@
+import ActivityCheck from "@/components/activityCheck/ActivityCheck";
 import InstructionCards from "@/components/instructionCards/InstructionCards";
 import PanoramaViewer from "@/components/panoramaViewer/PanoramaViewer";
 
 const Panorama = () => {
   return (
     <div className="relative">
-      <InstructionCards/>
-      <PanoramaViewer />
+      <ActivityCheck>
+        <InstructionCards />
+        <PanoramaViewer
+          imageSrc={"/panorama-images/home-panorama.jpg"}
+          pitch={-30}
+          yaw={0}
+        />
+      </ActivityCheck>
     </div>
   );
 };
