@@ -7,11 +7,11 @@ export default function HomePage() {
     <>
       <Link
         href={"/panorama"}
-        className="absolute block w-full h-full z-[1]"
+        className="absolute block w-screen h-screen z-[1]"
       />
       <Image
         className={
-          "absolute w-full h-full object-contain top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]"
+          "absolute w-screen h-screen object-contain top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%]"
         }
         src={"/main-image.webp"}
         alt={"Картинка"}
