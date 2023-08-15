@@ -14,14 +14,14 @@ export const TheMain = () => {
         знакомьтесь <br />
         <span
           style={geometriaBold.style}
-          className="text-[30px] tracking-[4px] text-[#D93284] sm:text-[33px] md:text-[45px] lg:text-[55px] xl:text-[65px] 2xl:text-[85px]"
+          className="text-[30px] tracking-[4px] text-[#D93284] sm:text-[33px] md:text-[40px] lg:text-[55px] xl:text-[65px] 2xl:text-[85px]"
         >
           c оркестром
         </span>
       </h1>
       <p
         style={geometriaMedium.style}
-        className="block mb-[15px] text-[13px] normal-case text-[#D93284] sm:text-[14px] md:text-[17px] lg:text-[20px] xl:text-[27px] 2xl:text-[30px]"
+        className="block mb-[15px] text-[13px] normal-case text-[#D93284] sm:text-[14px] md:text-[15px] lg:text-[20px] xl:text-[27px] 2xl:text-[30px]"
       >
         Нажмите на экран, чтобы начать
       </p>
@@ -29,7 +29,7 @@ export const TheMain = () => {
         <div
           className={` rounded-full ${styles.gradient} blur-[3px]`}
         ></div>
-        <Image className="absolute w-[75%] h-[80%] top-[12%] left-[18%]" src={"/pointer.svg"} alt={"Указатель"} width={70} height={110}/>
+        <Image className="absolute w-[70%] h-[75%] top-[10%] left-[19%]" src={"/pointer.svg"} alt={"Указатель"} width={70} height={110}/>
       </div>
     </main>
   );
