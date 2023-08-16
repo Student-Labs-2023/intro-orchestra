@@ -2,7 +2,7 @@ import cn from "clsx";
 import localFont from "next/font/local";
 import { FC, HTMLAttributes, PropsWithChildren } from "react";
 
-const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.ttf" });
+const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.woff" });
 
 export const TextQuestionMsg: FC<
   PropsWithChildren<HTMLAttributes<HTMLDivElement>>

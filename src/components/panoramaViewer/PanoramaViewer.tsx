@@ -39,13 +39,13 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
   return (
     <>
       <View360
-        className="is-16by9 z-0 h-screen"
+        className="is-16by9 z-[0] h-screen"
         projection={projection}
         initialPitch={pitch}
         initialYaw={yaw}
-        fov={130}
+        fov={120}
       >
-        {imageSrc === "/panorama-images/home-panorama.jpg" ? (
+        {imageSrc === "/panorama-images/1.jpg" ? (
           <div className="view360-hotspots">
             {homeHotspots.map((hotspot, i) => (
               <div
@@ -56,8 +56,8 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
                 onClick={() => goToChatArtist(hotspot)}
               >
                 <svg
-                  width="70"
-                  height="70"
+                  width="110"
+                  height="110"
                   viewBox="0 0 110 110"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
                       cy="55"
                       r="35"
                       fill="#F45FFF"
-                      fill-opacity="0.8"
+                      fillOpacity="0.8"
                     />
                   </g>
                   <circle
@@ -77,9 +77,9 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
                     r="34"
                     fill="#D93284"
                     stroke="white"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <defs>
                     <filter
@@ -89,9 +89,9 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
                       width="110"
                       height="110"
                       filterUnits="userSpaceOnUse"
-                      color-interpolation-filters="sRGB"
+                      colorInterpolationFilters="sRGB"
                     >
-                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
                       <feBlend
                         mode="normal"
                         in="SourceGraphic"

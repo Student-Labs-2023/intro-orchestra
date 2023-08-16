@@ -1,11 +1,11 @@
-.exit_btn {
+.exit_btn, .instruction_btn {
   position: relative;
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: 32px;
+  height: 32px;
 
   border: 2px solid #d93284;
-  border-radius: 100%;
+  border-radius: 6px;
   background-color: #ffff;
   transition: all 0.2s ease-in;
 }
@@ -16,7 +16,7 @@
 
 .exit_btn:active {
   border: 2px solid #792ec0;
-  background-color: #a393f5;
+  background-color: #CCD3FF;
 }
 
 .exit_btn::before,
@@ -48,31 +48,20 @@
   background-color: #792ec0;
 }
 
-.instruction_btn {
-  position: relative;
-  width: 45px;
-  height: 45px;
-
-  border: 5px solid #d93284;
-  border-radius: 20%;
-  background-color: #ffff;
-  transition: all 0.2s ease-in;
-}
-
 .instruction_btn:hover {
-  border: 5px solid #f060c0;
+  border: 2px solid #f060c0;
 }
 
 .instruction_btn:active {
-  border: 5px solid #792ec0;
-  background-color: #a393f5;
+  border: 2px solid #792ec0;
+  background-color: #CCD3FF;
 }
 
 .instruction_btn::before {
   position: absolute;
   content: "";
-  width: 12.5%;
-  height: 12.5%;
+  width: 12%;
+  height: 12%;
   top: 20%;
   left: 50%;
   transform: translate(-50%);
@@ -85,14 +74,14 @@
 .instruction_btn::after {
   position: absolute;
   content: "";
-  width: 12.5%;
+  width: 12%;
   height: 44%;
   top: 40%;
   left: 50%;
   transform: translate(-50%);
 
   background-color: #d93284;
-  border-radius: 3px;
+  border-radius: 1px;
   transition: all 0.2s ease-in;
 }
 
@@ -106,61 +95,112 @@
   background-color: #792ec0;
 }
 
-.instruction_cards {
-  position: absolute;
-  top: 50%;
-  left: -800px;
-  transform: translate(0, -50%);
-  animation: slideIn 2s forwards;
-}
-
-@keyframes slideIn {
-    0% {
-      left: -368px; 
-    }
-    100% {
-      left: calc(50% - 184px); 
-    }
-  }
-
-@media (min-width: 640px) {
-  .exit_btn {
-    width: 60px;
-    height: 60px;
-  }
-  .instruction_btn {
-    width: 60px;
-    height: 60px;
-  }
-}
 
 @media (min-width: 768px) {
-  .exit_btn {
-    width: 80px;
-    height: 80px;
-  }
-  .instruction_btn {
-    width: 80px;
-    height: 80px;
-  }
-  @keyframes slideIn {
-    0% {
-      left: -550px; 
-    }
-    100% {
-      left: calc(50% - 275px); 
-    }
+  .exit_btn, .instruction_btn {
+    width: 40px;
+    height: 40px;
   }
 }
-
 
 @media (min-width: 1024px) {
-  @keyframes slideIn {
-    0% {
-      left: -800px; 
-    }
-    100% {
-      left: calc(50% - 400px); 
-    }
+  .exit_btn, .instruction_btn {
+    width: 56px;
+    height: 56px;
+    border: 3px solid #d93284;
+    border-radius: 6px;
+  }
+
+  .instruction_btn:hover {
+    border-width: 3px;
+  }
+
+  .instruction_btn:active { 
+    border-width: 3px;
+  }
+
+  .exit_btn:hover {
+    border-width: 3px;
+  }
+
+  .exit_btn:active {
+    border-width: 3px;
   }
 }
+
+@media (min-width: 1280px) {
+  .exit_btn, .instruction_btn {
+    width: 64px;
+    height: 64px;
+    border: 3px solid #d93284;
+    border-radius: 10px;
+  }
+
+  .instruction_btn:hover {
+    border-width: 3px;
+  }
+
+  .instruction_btn:active { 
+    border-width: 3px;
+  }
+
+  .exit_btn:hover {
+    border-width: 3px;
+  }
+
+  .exit_btn:active {
+    border-width: 3px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .exit_btn, .instruction_btn {
+    width: 64px;
+    height: 64px;
+    border: 3px solid #d93284;
+    border-radius: 16px;
+  }
+
+  .instruction_btn:hover {
+    border-width: 3px;
+  }
+
+  .instruction_btn:active { 
+    border-width: 3px;
+  }
+
+  .exit_btn:hover {
+    border-width: 3px;
+  }
+
+  .exit_btn:active {
+    border-width: 3px;
+  }
+}
+
+
+@media (min-width: 1800px) {
+  .exit_btn, .instruction_btn {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #d93284;
+    border-radius: 16px;
+  }
+
+  .instruction_btn:hover {
+    border-width: 5px;
+  }
+
+  .instruction_btn:active { 
+    border-width: 5px;
+  }
+
+  .exit_btn:hover {
+    border-width: 5px;
+  }
+
+  .exit_btn:active {
+    border-width: 5px;
+  }
+}
+
