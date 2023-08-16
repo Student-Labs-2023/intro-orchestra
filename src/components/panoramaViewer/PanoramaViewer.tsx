@@ -45,7 +45,7 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
         initialYaw={yaw}
         fov={120}
       >
-        {imageSrc === "/panorama-images/home-panorama.jpg" ? (
+        {imageSrc === "/panorama-images/1.jpg" ? (
           <div className="view360-hotspots">
             {homeHotspots.map((hotspot, i) => (
               <div
