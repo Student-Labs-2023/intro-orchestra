@@ -6,7 +6,7 @@ const geometriaMedium = localFont({src: "../../../fonts/Geometria-Bold.woff",});
 
 export const TheMain = () => {
   return (
-    <main className="relative flex flex-col justify-center items-center text-center uppercase h-[calc(100dvh-9dvh)]">
+    <main className="relative flex flex-col justify-center items-center text-center uppercase h-[calc(100dvh-15dvh)] md:h-[calc(100dvh-8dvh)]">
       <h1
         style={geometriaBold.style}
         className="text-[7dvh] text-[#D93284]"
@@ -25,10 +25,10 @@ export const TheMain = () => {
       >
         Нажмите на экран, чтобы начать
       </p>
-      <div className="relative w-[3.91dvw] h-[12.7dvh]">
-        <div className={` rounded-full ${styles.gradient} blur-[3px]`}></div>
+      <div className="relative w-[3.91dvw]">
+        <div className={`rounded-full ${styles.gradient} blur-[3px]`}></div>
         <Image
-          className="absolute w-[3.7dvw] h-[10.2dvh] top-[17%] left-[9%]"
+          className="absolute w-[3.7dvw] h-[10.2dvh] top-[40%] left-[9%]"
           src={"/pointer.svg"}
           alt={"Указатель"}
           width={70}
