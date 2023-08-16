@@ -98,7 +98,10 @@ const FakeChat = ({ data }: IQASystem) => {
           msgList,
           element,
           t,
-          <AudioMsg key={uuid()} audioUrl={msgList[0].msg}></AudioMsg>
+          <AudioMsg
+            key={uuid()}
+            audioUrl={"sound/" + msgList[0].msg}
+          ></AudioMsg>
         );
         break;
       case "imgURL":
