@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <OrientationChange>
+    <>
       <Link href={"/panorama"} className="absolute block w-full h-full z-[1]" />
       <Image
         className={
@@ -18,6 +18,6 @@ export default function HomePage() {
         priority
       />
       <Home />
-    </OrientationChange>
+    </>
   );
 }
