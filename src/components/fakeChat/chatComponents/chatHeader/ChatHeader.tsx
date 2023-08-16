@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface IChatHeader {
   returnToMainPage: () => void;
@@ -15,22 +16,23 @@ const geometriaMedium = localFont({
   src: "../../../../fonts/Geometria-Medium.woff",
 });
 
-export function ChatHeader({
-  returnToMainPage,
-  musicianName,
-  statusMsg,
-}: IChatHeader) {
+export function ChatHeader({ musicianName, statusMsg }: IChatHeader) {
+  const { push } = useRouter();
+  function returnToMainPage() {
+    console.log("123");
+    push("/");
+  }
   return (
     <div className="w-full h-[8.55%] bg-white rounded-tl-[16px] 2xl:rounded-tl-[32px] shadow-topBar z-10 flex flex-col justify-center ">
       <div className=" relative">
         <div className="flex flex-row items-center justify-between p-4 lg:ml-[10px] md:ml-[6px] ">
           <div
-            className="flex flex-row items-center justify-evenly cursor-pointer"
+            className="flex flex-row items-center justify-evenly cursor-pointer z-40"
             onClick={returnToMainPage}
           >
             <Image
               src="/chevron.left.svg"
-              className="xl:h-[34px] lg:h-[29px] md:h-[20px] sm:h-[16px] h-[14px] w-auto"
+              className="xl:h-[34px] lg:h-[29px] md:h-[20px] sm:h-[16px] h-[14px] w-auto cursor-pointer"
               alt="Вернуться назад"
               width={19}
               height={28}
@@ -38,7 +40,7 @@ export function ChatHeader({
 
             <span
               style={geometriaRegular.style}
-              className=" text-[28px] text-raspberryPink leading-normal tracking-[-0.41px] hidden 2xl:block ml-2"
+              className=" text-[28px] text-raspberryPink leading-normal tracking-[-0.41px] hidden 2xl:block ml-2 cursor-pointer"
             >
               Назад
             </span>
