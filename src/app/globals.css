@@ -27,8 +27,8 @@ body {
 }
 
 body {
-  width: 100svw;
-  height: 100svh;
+  width: 100dvw;
+  height: 100dvh;
   background: url('/main-bg.webp') center / cover no-repeat;
 }
 
