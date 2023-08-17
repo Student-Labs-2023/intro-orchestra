@@ -68,10 +68,10 @@ const InstructionCards = () => {
   return (
     <>
       <header>
-        <div className="absolute z-[2] top-0 left-0 mt-[15px] ml-[15px] lg:mt-[25px] lg:ml-[25px] xl:mt-[30px] xl:ml-[30px]">
+        <div className="absolute z-[2] top-0 left-0 mt-[2.8dvh] ml-[2.8dvh]">
           <Link href={"/"} className={styles.exit_btn}></Link>
         </div>
-        <div className="absolute z-[2] top-0 right-0 mt-[15px] mr-[15px] lg:mt-[25px] lg:mr-[25px] xl:mt-[30px] xl:mr-[30px]">
+        <div className="absolute z-[2] top-0 right-0 mt-[2.8dvh] mr-[2.8dvh]">
           <button
             className={styles.instruction_btn}
             onClick={changeVisibleInstruction}
@@ -81,9 +81,9 @@ const InstructionCards = () => {
 
       <main>
         {!backToPanorama && (
-          <div className="absolute w-full h-full bg-[#42424299]/[0.6] z-[3]">
+          <div className="absolute w-[100dvw] h-[100dvh] bg-[#42424299]/[0.6] z-[3]">
             <div
-              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[368px] p-[16px] bg-white border-[2px] border-[#D93284] rounded-[16px] md:max-w-[503px] md:p-[24px] md:rounded-[22px] lg:max-w-[574px] lg:py-[24px] lg:px-[32px] lg:rounded-[16px] lg:border-[3px]
+              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full max-w-[368px] p-[16px] bg-white border-[2px] border-[#D93284] rounded-[16px] md:max-w-[503px] md:p-[24px] md:rounded-[22px] lg:max-w-[574px] lg:py-[24px] lg:px-[32px] lg:rounded-[16px] lg:border-[3px]
               2xl:max-w-[800px] 2xl:py-[32px] 2xl:px-[40px] 2xl:rounded-[24px]"
             >
               <div className="flex items-center justify-between mb-[8px] md:mb-[12px] lg:mb-[16px] 2xl:mb-[24px]">
@@ -114,7 +114,7 @@ const InstructionCards = () => {
                   return (
                     <div
                       key={uuid()}
-                      className="min-w-[336px] text-[#141414] mb-[16px] md:min-w-[455px] md:mb-[24px] lg:min-w-[510px] lg:mb-[32px] 2xl:min-w-[720px] 2xl:mb-[40px]"
+                      className="text-[#141414] mb-[16px] md:mb-[24px] lg:mb-[32px] 2xl:mb-[40px]"
                     >
                       <h3
                         style={geometriaBold.style}
@@ -123,16 +123,13 @@ const InstructionCards = () => {
                       >
                         {card.title}
                       </h3>
-                      <div>
-                        {card.desc.split("<br/>").map((text) => (
-                          <p
-                            key={uuid()}
-                            style={geometria.style}
-                            className="text-[14px] leading-[17.5px] font-normal md:text-[18px] md:leading-[22.5px] lg:text-[20px] lg:leading-[25px]
+                      <div
+                        style={geometria.style}
+                        className="text-[14px] leading-[17.5px] font-normal md:text-[18px] md:leading-[22.5px] lg:text-[20px] lg:leading-[25px]
                             2xl:text-[30px] 2xl:leading-[37.5px]"
-                          >
-                            {findAndWrapSpan(text)}
-                          </p>
+                      >
+                        {card.desc.split("<br/>").map((text) => (
+                          <p key={uuid()}>{findAndWrapSpan(text)}</p>
                         ))}
                       </div>
                     </div>

@@ -6,7 +6,7 @@ const geometriaMedium = localFont({src: "../../../fonts/Geometria-Bold.woff",});
 
 export const TheMain = () => {
   return (
-    <main className="relative flex flex-col justify-center items-center text-center uppercase h-[calc(100dvh-13dvh)] md:h-[calc(100dvh-20dvh)]">
+    <main className="relative flex flex-col justify-center items-center text-center uppercase h-[calc(100dvh-13dvh)] md:h-[calc(100dvh-20dvh)] 2xl:md:h-[calc(100dvh-15dvh)]">
       <h1
         style={geometriaBold.style}
         className="text-[7dvh] text-[#D93284]"
