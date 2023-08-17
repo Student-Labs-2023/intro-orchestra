@@ -145,9 +145,9 @@ const InstructionCards = () => {
                 {currentIndex && (
                   <button
                     style={geometria.style}
-                    className="pt-[3px] pb-[7px] px-[16px] text-[16px] leading-[14px] border-[1px] rounded-[8px] border-[#D93284] font-medium text-[#141414]
-                    md:text-[20px] md:leading-[0.9] md:px-[22px] md:border-[2px] md:rounded-[10px] lg:text-[22px] lg:leading-[1] lg:rounded-[12px]
-                    2xl:text-[30px] 2xl:leading-[0.9] 2xl:rounded-[16px] 2xl:pt-[8px] 2xl:pb-[13px] 2xl:px-[30px] transition-all duration-200 ease-in
+                    className="py-[5px] px-[17px] text-[16px] leading-[0.85] rounded-[8px] border-[1px] border-[#D93284] font-medium text-[#141414]
+                    md:text-[20px] md:leading-[0.9] md:px-[22px] md:py-[7px] md:rounded-[10px] lg:text-[22px] lg:rounded-[12px]
+                    2xl:text-[30px] 2xl:leading-[0.9] 2xl:rounded-[16px] 2xl:py-[11px] 2xl:px-[30px] transition-all duration-200 ease-in
                     hover:bg-[#D932841A]/[0.1] active:bg-[#F060C04D]/[0.3] active:text-[#D93284]"
                     onClick={goToBackCard}
                   >
@@ -157,9 +157,9 @@ const InstructionCards = () => {
 
                 <button
                   style={geometriaMedium.style}
-                  className="pt-[4px] pb-[8px] px-[16px] text-[16px] leading-[14px] rounded-[8px] border-none bg-[#D93284] font-medium
-                  md:text-[20px] md:leading-[0.9] md:px-[22px] md:pt-[5px] md:pb-[9px] md:rounded-[10px] lg:text-[22px] lg:leading-[1] lg:rounded-[12px]
-                  2xl:text-[30px] 2xl:leading-[0.9] 2xl:rounded-[16px] 2xl:pt-[10px] 2xl:pb-[15px] 2xl:px-[30px] transition-all duration-200 ease-in
+                  className="py-[6px] px-[17px] text-[16px] leading-[0.85] rounded-[8px] border-none bg-[#D93284] font-medium
+                  md:text-[20px] md:leading-[0.9] md:px-[22px] md:py-[8px] md:rounded-[10px] lg:text-[22px] lg:rounded-[12px]
+                  2xl:text-[30px] 2xl:leading-[0.9] 2xl:rounded-[16px] 2xl:py-[12px] 2xl:px-[30px] transition-all duration-200 ease-in
                   hover:bg-[#F060C0] active:bg-[#792EC0]"
                   onClick={
                     !finishInstruction ? goToNextCard : changeVisibleInstruction
