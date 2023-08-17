@@ -29,7 +29,7 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
   
   useEffect(() => {
     setIsCorrectOrientation(window.screen.width > window.screen.height);
-    setLoading(prev => prev = !prev);
+    setLoading(false);
   }, [screenWidth, screenHeight]);
 
   if (loading) {
