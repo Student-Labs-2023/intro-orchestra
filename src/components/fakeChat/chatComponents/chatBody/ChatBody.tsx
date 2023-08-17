@@ -33,7 +33,7 @@ export function ChatBody({
         {answer && (
           <div className={"w-full flex flex-col items-end lg:py-4 py-1"}>
             <Button key={uuid()} onClick={changeView} variant="white">
-              Посмотреть глазами музыканта
+              Посмотреть глазами артиста
             </Button>
             {questions.map((t) => {
               if (!activeFinishButton && t === "Нет, спасибо") {

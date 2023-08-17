@@ -19,8 +19,7 @@ const geometriaMedium = localFont({
 export function ChatHeader({ musicianName, statusMsg }: IChatHeader) {
   const { push } = useRouter();
   function returnToMainPage() {
-    console.log("123");
-    push("/");
+    push("/panorama");
   }
   return (
     <div className="w-full h-[8.55%] bg-white rounded-tl-[16px] 2xl:rounded-tl-[32px] shadow-topBar z-10 flex flex-col justify-center ">

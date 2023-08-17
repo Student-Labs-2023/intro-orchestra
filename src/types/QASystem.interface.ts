@@ -2,6 +2,7 @@ import { IMessage } from "./message.interface";
 
 export interface IQASystem {
   [chatId: string]: {
+    photoSrc: string;
     name: string;
     panoramaData: {
       imageSrc: string;
@@ -9,6 +10,6 @@ export interface IQASystem {
       pitch: number;
     };
     start: IMessage;
-    qa: { [item: string]: Array<IMessage> };
+    qa: { [item: string]: { messages: Array<IMessage>; fullQuestion: string } };
   };
 }
