@@ -28,7 +28,7 @@ export const TheMain = () => {
       <div className="relative w-[3.91vw]">
         <div className={`rounded-full ${styles.gradient} blur-[3px]`}></div>
         <Image
-          className="absolute w-[3.7vw] h-[10.2vh] top-[40%] left-[3%] translate-y-[-3%]"
+          className="absolute w-[3.7vw] h-[10.2vh] top-[40%] left-[3%]"
           src={"/pointer.svg"}
           alt={"Указатель"}
           width={70}
