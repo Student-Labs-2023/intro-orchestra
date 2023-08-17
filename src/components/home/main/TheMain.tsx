@@ -9,26 +9,26 @@ export const TheMain = () => {
     <main className="relative flex flex-col justify-center items-center text-center uppercase h-[calc(100dvh-13dvh)] md:h-[calc(100dvh-20dvh)] 2xl:md:h-[calc(100dvh-15dvh)]">
       <h1
         style={geometriaBold.style}
-        className="text-[7vh] text-[#D93284]"
+        className="text-[6.3vh] lg:text-[7vh] text-[#D93284]"
       >
         знакомьтесь <br />
         <span
           style={geometriaBold.style}
-          className="text-[7.9vh] tracking-[4px] text-[#D93284]"
+          className="text-[7.2vh] lg:text-[7.9vh] tracking-[4px] text-[#D93284]"
         >
           c оркестром
         </span>
       </h1>
       <p
         style={geometriaMedium.style}
-        className="block mb-[15px] text-[4.2vh] normal-case text-[#D93284]"
+        className="block mb-[15px] text-[3.5vh] lg:text-[4.2vh] normal-case text-[#D93284]"
       >
         Нажмите на экран, чтобы начать
       </p>
       <div className="relative w-[3.91vw]">
         <div className={`rounded-full ${styles.gradient} blur-[3px]`}></div>
         <Image
-          className="absolute w-[3.7vw] h-[10.2vh] top-[40%] left-[9%]"
+          className="absolute w-[3.7vw] h-[10.2vh] top-[40%] left-[4%]"
           src={"/pointer.svg"}
           alt={"Указатель"}
           width={70}
