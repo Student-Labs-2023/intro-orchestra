@@ -2,10 +2,11 @@ import Home from "@/components/home/Home";
 import OrientationChange from "@/components/orientationChange/OrientationChange";
 import Image from "next/image";
 import Link from "next/link";
+import "./globals.css";
 
 export default function HomePage() {
   return (
-    <>
+    <main className="main">
       <Link href={"/panorama"} className="absolute block w-full h-full z-[1]" />
       <Image
         className={
@@ -18,6 +19,6 @@ export default function HomePage() {
         priority
       />
       <Home />
-    </>
+    </main>
   );
 }

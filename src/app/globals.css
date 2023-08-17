@@ -38,9 +38,8 @@ a {
   text-decoration: none;
 }
 
-
 @media screen and (max-width: 900px) {
-  body {
+  .main {
     padding: 0 25px 0 25px; /* Добавляем паддинг сверху, чтобы учесть "чёлку" */
   }
 }

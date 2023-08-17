@@ -1,6 +1,15 @@
+.exit_btn {
+  margin-left: 4.1vh;
+}
+
+.instruction_btn {
+  margin-right: 4.1vh;
+}
+
 .exit_btn, .instruction_btn {
   position: relative;
   display: inline-block;
+  margin-top: 4.1vh;
   width: 32px;
   height: 32px;
 
@@ -201,6 +210,18 @@
 
   .exit_btn:active {
     border-width: 5px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .exit_btn {
+    margin-left: calc(4.1vh + 25px);
+  }
+  .instruction_btn {
+    margin-right: calc(4.1vh + 25px);
+  }
+  .exit_btn, .instruction_btn  {
+    margin-top: calc(4.1vh + 10px);
   }
 }
 
