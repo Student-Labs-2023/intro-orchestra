@@ -1,5 +1,5 @@
 .gradient {
-	width: 90%;
+	width: 6vh;
 	height: 6vh;
 	background: radial-gradient(50% 50% at 50% 50%, #FFFFFF 25%, rgba(255, 0, 171, 0.3) 45%);
 	animation: changeSize 1s linear infinite alternate;
