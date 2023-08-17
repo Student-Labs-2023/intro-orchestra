@@ -2,6 +2,7 @@ import { IMessage } from "./message.interface";
 
 export interface IQASystem {
   [chatId: string]: {
+    photoSrc: string;
     name: string;
     panoramaData: {
       imageSrc: string;

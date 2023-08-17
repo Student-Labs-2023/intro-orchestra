@@ -26,6 +26,7 @@ const names: INames = {
 
 export const QASystem: IQASystem = {
   vasiliev: {
+    photoSrc: "vasiliev",
     name: names["vasiliev"],
     panoramaData: {
       imageSrc: "/panorama-images/vasiliev-panorama.jpg",
@@ -136,6 +137,7 @@ export const QASystem: IQASystem = {
     },
   },
   butorina: {
+    photoSrc: "butorina",
     name: names["butorina"],
     panoramaData: {
       imageSrc: "/panorama-images/butorina-panorama.jpg",
@@ -269,6 +271,7 @@ export const QASystem: IQASystem = {
     },
   },
   lopatin: {
+    photoSrc: "lopatin",
     name: names["lopatin"],
     panoramaData: {
       imageSrc: "/panorama-images/lopatin-panorama.jpg",
@@ -396,6 +399,7 @@ export const QASystem: IQASystem = {
     },
   },
   romanova: {
+    photoSrc: "romanova",
     name: names["romanova"],
     panoramaData: {
       imageSrc: "/panorama-images/romanova-panorama.jpg",
@@ -543,6 +547,7 @@ export const QASystem: IQASystem = {
     },
   },
   stepancev: {
+    photoSrc: "stepancev",
     name: names["stepancev"],
     panoramaData: {
       imageSrc: "/panorama-images/antonov-panorama.jpg",
@@ -670,6 +675,7 @@ export const QASystem: IQASystem = {
     },
   },
   antonov: {
+    photoSrc: "antonov",
     name: names["antonov"],
     panoramaData: {
       imageSrc: "/panorama-images/antonov-panorama.jpg",
@@ -802,6 +808,7 @@ export const QASystem: IQASystem = {
     },
   },
   zaitsev: {
+    photoSrc: "zaitsev",
     name: names["zaitsev"],
     panoramaData: {
       imageSrc: "/panorama-images/zaitsev-panorama.jpg",
@@ -939,6 +946,7 @@ export const QASystem: IQASystem = {
     },
   },
   podshivalov: {
+    photoSrc: "podshivalov",
     name: names["podshivalov"],
     panoramaData: {
       imageSrc: "/panorama-images/podshivalov-panorama.jpg",
@@ -1046,6 +1054,7 @@ export const QASystem: IQASystem = {
     },
   },
   lunin: {
+    photoSrc: "lunin",
     name: names["lunin"],
     panoramaData: {
       imageSrc: "/panorama-images/lunin-panorama.jpg",
@@ -1163,6 +1172,7 @@ export const QASystem: IQASystem = {
     },
   },
   butikov: {
+    photoSrc: "butikov",
     name: names["butikov"],
     panoramaData: {
       imageSrc: "/panorama-images/butikov-panorama.jpg",
@@ -1290,6 +1300,7 @@ export const QASystem: IQASystem = {
     },
   },
   sesonov: {
+    photoSrc: "sesonov",
     name: names["sesonov"],
     panoramaData: {
       imageSrc: "/panorama-images/sesonov-panorama.jpg",
@@ -1397,6 +1408,7 @@ export const QASystem: IQASystem = {
     },
   },
   bogov: {
+    photoSrc: "bogov",
     name: names["bogov"],
     panoramaData: {
       imageSrc: "/panorama-images/bogov-panorama.jpg",
@@ -1524,6 +1536,7 @@ export const QASystem: IQASystem = {
     },
   },
   orynbaev: {
+    photoSrc: "orynbaev",
     name: names["orynbaev"],
     panoramaData: {
       imageSrc: "/panorama-images/orynbaev-panorama.jpg",
@@ -1641,6 +1654,7 @@ export const QASystem: IQASystem = {
     },
   },
   dyachenko: {
+    photoSrc: "dyachenko",
     name: names["dyachenko"],
     panoramaData: {
       imageSrc: "/panorama-images/dyachenko-panorama.jpg",
@@ -1748,6 +1762,7 @@ export const QASystem: IQASystem = {
     },
   },
   shitov: {
+    photoSrc: "shitov",
     name: names["shitov"],
     panoramaData: {
       imageSrc: "/panorama-images/shitov-panorama.jpg",
@@ -1855,6 +1870,7 @@ export const QASystem: IQASystem = {
     },
   },
   koroticheva: {
+    photoSrc: "koroticheva",
     name: names["koroticheva"],
     panoramaData: {
       imageSrc: "/panorama-images/koroticheva-panorama.jpg",
@@ -1992,6 +2008,7 @@ export const QASystem: IQASystem = {
     },
   },
   plaksin: {
+    photoSrc: "plaksin",
     name: names["plaksin"],
     panoramaData: {
       imageSrc: "/panorama-images/plaksin-panorama.jpg",
