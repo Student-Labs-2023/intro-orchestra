@@ -68,10 +68,10 @@ const InstructionCards = () => {
   return (
     <>
       <header>
-        <div className="absolute z-[2] top-0 left-0 mt-[3vh] ml-[4.5vh]">
+        <div className="absolute z-[2] top-0 left-0 mt-[3.5vh] ml-[5.5vh]">
           <Link href={"/"} className={styles.exit_btn}></Link>
         </div>
-        <div className="absolute z-[2] top-0 right-0 mt-[3vh] mr-[4.5vh]">
+        <div className="absolute z-[2] top-0 right-0 mt-[3.5vh] mr-[5.5vh]">
           <button
             className={styles.instruction_btn}
             onClick={changeVisibleInstruction}
