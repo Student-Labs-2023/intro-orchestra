@@ -21,9 +21,9 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
       setScreenHeight(window.screen.height);
     };
 
-    window.addEventListener("orientationchange", handleResize as EventListener, false);
+    window.addEventListener("resize", handleResize, false);
     return () => {
-      window.removeEventListener("orientationchange", handleResize as EventListener);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   
