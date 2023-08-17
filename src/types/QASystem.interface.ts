@@ -9,6 +9,6 @@ export interface IQASystem {
       pitch: number;
     };
     start: IMessage;
-    qa: { [item: string]: Array<IMessage> };
+    qa: { [item: string]: { messages: Array<IMessage>; fullQuestion: string } };
   };
 }
