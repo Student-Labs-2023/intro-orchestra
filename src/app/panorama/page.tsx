@@ -8,7 +8,7 @@ const Panorama = () => {
     <ActivityCheck>
       <InstructionCards />
       <PanoramaViewer
-        imageSrc={"/panorama-images/1.jpg"}
+        imageSrc={"/panorama-images/home-panorama.webp"}
         pitch={-30}
         yaw={0}
       />
