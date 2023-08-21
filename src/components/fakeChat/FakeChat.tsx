@@ -1,5 +1,6 @@
 import { IQASystem } from "@/types/QASystem.interface";
 import { IMessage } from "@/types/message.interface";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
@@ -98,7 +99,10 @@ const FakeChat = ({ data }: IQASystem) => {
           msgList,
           element,
           t,
-          <AudioMsg key={uuid()} audioUrl={msgList[0].msg}></AudioMsg>
+          <AudioMsg
+            key={uuid()}
+            audioUrl={"sound/" + msgList[0].msg}
+          ></AudioMsg>
         );
         break;
       case "imgURL":
@@ -129,10 +133,12 @@ const FakeChat = ({ data }: IQASystem) => {
     setAnswer(false);
     setQueue((prev) => [
       ...prev,
-      <TextQuestionMsg key={uuid()}> {element} </TextQuestionMsg>,
+      <TextQuestionMsg key={uuid()}>
+        {data.qa[element].fullQuestion}
+      </TextQuestionMsg>,
     ]);
     const newQuestions = [...questions].filter((t) => t != element);
-    msgHandler(data.qa[element], element);
+    msgHandler(data.qa[element].messages, element);
     setQuestions(newQuestions);
   }
 
@@ -143,6 +149,14 @@ const FakeChat = ({ data }: IQASystem) => {
 
   return (
     <>
+      <Image
+        src={"/artist-photos/" + data.photoSrc + ".jpg"}
+        className="absolute object-cover min-h-screen"
+        alt={data.photoSrc}
+        width={6000}
+        height={4000}
+      ></Image>
+
       <ChatBlurModal
         activateFlicker={activateFlicker}
         activeBlur={activeBlur}

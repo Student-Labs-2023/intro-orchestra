@@ -16,11 +16,6 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setIsCorrectOrientation(window.screen.width > window.screen.height);
-    setLoading(false);
-  }, [screenWidth, screenHeight]);
-
-  useEffect(() => {
     const handleResize = (event: UIEvent) => {
       setScreenWidth(window.screen.width);
       setScreenHeight(window.screen.height);
@@ -31,6 +26,11 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  
+  useEffect(() => {
+    setIsCorrectOrientation(window.screen.width > window.screen.height);
+    setLoading(false);
+  }, [screenWidth, screenHeight]);
 
   if (loading) {
     return (

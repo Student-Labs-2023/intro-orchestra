@@ -8,11 +8,12 @@ import uuid from "react-uuid";
 import { cardsData, buttonsData } from "./DataInstruction";
 import styles from "./instructionCards.module.css";
 
-const geometria = localFont({ src: "../../fonts/Geometria.ttf" });
+const geometria = localFont({ src: "../../fonts/Geometria.woff" });
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({
   src: "../../fonts/Geometria-Medium.woff",
 });
+const geometriaItalic = localFont({ src: "../../fonts/Geometria-Italic.woff" });
 
 const InstructionCards = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,13 +42,36 @@ const InstructionCards = () => {
     setBackToPanorama((prev) => (prev = !prev));
   };
 
+  const findAndWrapSpan = (text: string) => {
+    const spanIndex = text.indexOf("<span>");
+    if (spanIndex !== -1) {
+      const startIndex = spanIndex + "<span>".length;
+      const endIndex = text.indexOf("</span>", startIndex);
+      if (endIndex !== -1) {
+        const beforeSpan = text.slice(0, spanIndex);
+        const spanText = text.slice(startIndex, endIndex);
+        const afterSpan = text.slice(endIndex + "</span>".length);
+        return (
+          <>
+            {beforeSpan}
+            <span style={geometriaMedium.style} className={"italic"}>
+              {spanText}
+            </span>
+            {afterSpan}
+          </>
+        );
+      }
+    }
+    return <>{text}</>;
+  };
+
   return (
     <>
       <header>
-        <div className="absolute z-[2] top-0 left-0 mt-[30px] ml-[30px]">
+        <div className="absolute z-[2] top-0 left-0">
           <Link href={"/"} className={styles.exit_btn}></Link>
         </div>
-        <div className="absolute z-[2] top-0 right-0 mt-[30px] mr-[30px]">
+        <div className="absolute z-[2] top-0 right-0">
           <button
             className={styles.instruction_btn}
             onClick={changeVisibleInstruction}
@@ -57,52 +81,57 @@ const InstructionCards = () => {
 
       <main>
         {!backToPanorama && (
-          <div
-            className={`absolute z-[3] w-screen h-screen bg-[#42424299]/[0.6]`}
-          >
+          <div className="absolute w-[100dvw] h-[100dvh] bg-[#42424299]/[0.6] z-[3]">
             <div
-              className={`${styles.instruction_cards} max-w-[368px] p-[16px] md:py-[25px] md:px-[30px] lg:py-[30px] lg:px-[40px] bg-[#FFFFFF] rounded-2xl  border-[1px] border-[#D93284] md:max-w-[550px] lg:max-w-[800px]`}
+              className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full max-w-[368px] p-[16px] bg-white border-[2px] border-[#D93284] rounded-[16px] md:max-w-[503px] md:p-[24px] md:rounded-[22px] lg:max-w-[574px] lg:py-[24px] lg:px-[32px] lg:rounded-[16px] lg:border-[3px]
+              2xl:max-w-[800px] 2xl:py-[32px] 2xl:px-[40px] 2xl:rounded-[24px]"
             >
-              <div className="flex justify-between items-center mb-[4px] sm:mb-[8px] py-[5.5px] lg:mb-[24px]">
-                <div className="flex items-center gap-[5px]">
-                  {buttonsData.map((button) => (
+              <div className="flex items-center justify-between mb-[8px] md:mb-[12px] lg:mb-[16px] 2xl:mb-[24px]">
+                <div className="flex gap-[3px] py-[5px] md:py-[8px] 2xl:py-[10px] 2xl:gap-[5px]">
+                  {buttonsData.map((btn) => (
                     <div
                       key={uuid()}
                       className={`${
-                        button === cardID
-                          ? "w-[20px] opacity-[1] md:w-[32px]"
-                          : "w-[8px] opacity-[0.65] md:w-[13px]"
-                      } h-[8px] md:h-[13px] rounded-full  bg-[#D93284]`}
+                        btn === cardID
+                          ? "w-[20px] md:w-[24px] 2xl:w-[32px] opacity-100"
+                          : "w-[8px] md:w-[10px] 2xl:w-[14px] opacity-50"
+                      } h-[8px] bg-[#D93284] rounded-[5px] md:h-[10px] md:rounded-[7px] 2xl:h-[14px] 2xl:rounded-[10px]`}
                     ></div>
                   ))}
                 </div>
                 <button
                   style={geometria.style}
-                  className="text-[#424242] text-[12px] sm:leading-[15px] md:text-[18px] lg:text-[24px]"
+                  className="text-[12px] leading-[10px] p-[5px] text-[#424242] md:text-[14px] md:p-[8px] lg:text-[18px] lg:leading-[16.2px]
+                  2xl:text-[24px] 2xl:leading-[24px] 2xl:p-[10px] transition-all duration-200 ease-in hover:text-[#F060C0] active:text-[#792EC0]"
                   onClick={changeVisibleInstruction}
                 >
                   Закрыть
                 </button>
               </div>
+
               {cardsData.map((card) => {
                 if (card.id === cardID) {
                   return (
                     <div
                       key={uuid()}
-                      className="mb-[16px] md:mb-[26px] lg:mb-[40px]"
+                      className="text-[#141414] mb-[16px] md:mb-[24px] lg:mb-[32px] 2xl:mb-[40px]"
                     >
                       <h3
                         style={geometriaBold.style}
-                        className="text-[#141414] mb-[4px] text-[16px] sm:leading-[20px] md:text-[24px] md:mb-[8px] lg:text-[34px] lg:mb-[20px]"
+                        className="text-[16px] leading-[20px] font-bold mb-[4px] md:text-[20px] md:leading-[25px] md:mb-[6px] lg:text-[22px] lg:leading-[27.5px]
+                        2xl:text-[34px] 2xl:leading-[42.5px] 2xl:mb-[8px]"
                       >
                         {card.title}
                       </h3>
-                      <p
+                      <div
                         style={geometria.style}
-                        className="text-[#141414] text-[14px] sm:leading-[18px] md:text-[20px] md:leading-[27px] lg:text-[30px] lg:leading-[37px]"
+                        className="text-[14px] leading-[17.5px] font-normal md:text-[18px] md:leading-[22.5px] lg:text-[20px] lg:leading-[25px]
+                            2xl:text-[30px] 2xl:leading-[37.5px]"
                       >
-                        {card.desc}
-                      </p>
+                        {card.desc.split("<br/>").map((text) => (
+                          <p key={uuid()}>{findAndWrapSpan(text)}</p>
+                        ))}
+                      </div>
                     </div>
                   );
                 }
@@ -110,36 +139,34 @@ const InstructionCards = () => {
 
               <div
                 className={`flex ${
-                  currentIndex != 0 ? "justify-between" : "justify-end "
-                } items-center text-[#ffff] text-[16px] md:text-[20px] lg:text-[30px]`}
+                  !currentIndex ? "justify-end" : "justify-between"
+                }  text-white items-center`}
               >
-                {currentIndex != 0 ? (
+                {currentIndex && (
                   <button
                     style={geometria.style}
-                    className="border-[1px] border-[#D93284] px-[6px] py-[4] rounded-xl  sm:px-[16px] sm:leading-[14px] sm:py-[6px] md:px-[30px] md:py-[12px] lg:leading-[30px]  text-[#141414] hover:bg-[#D93284]/[0.1] active:text-[#D93284] active:bg-[#F060C0]/[0.3]"
+                    className="py-[5px] px-[17px] text-[16px] leading-[0.85] rounded-[8px] border-[1px] border-[#D93284] font-medium text-[#141414]
+                    md:text-[20px] md:leading-[0.9] md:px-[22px] md:py-[7px] md:rounded-[10px] lg:text-[22px] lg:rounded-[12px]
+                    2xl:text-[30px] 2xl:rounded-[16px] 2xl:py-[11px] 2xl:px-[30px] transition-all duration-200 ease-in
+                    hover:bg-[#D932841A]/[0.1] active:bg-[#F060C04D]/[0.3] active:text-[#D93284]"
                     onClick={goToBackCard}
                   >
                     назад
                   </button>
-                ) : null}
-
-                {finishInstruction ? (
-                  <button
-                    style={geometriaMedium.style}
-                    className="bg-[#D93284] px-[6px] py-[4] rounded-xl  sm:px-[16px] sm:leading-[14px] sm:py-[6px] md:px-[30px] md:py-[12px] lg:leading-[30px] transition-all duration-400 ease-in hover:bg-[#F060C0] active:bg-[#792EC0]"
-                    onClick={changeVisibleInstruction}
-                  >
-                    начать
-                  </button>
-                ) : (
-                  <button
-                    style={geometriaMedium.style}
-                    className="bg-[#D93284] px-[6px] py-[4] rounded-xl sm:px-[16px] sm:leading-[14px] sm:py-[6px] md:px-[30px] md:py-[12px] lg:leading-[30px] transition-all duration-400 ease-in hover:bg-[#F060C0] active:bg-[#792EC0] "
-                    onClick={goToNextCard}
-                  >
-                    далее
-                  </button>
                 )}
+
+                <button
+                  style={geometriaMedium.style}
+                  className="py-[6px] px-[17px] text-[16px] leading-[0.85] rounded-[8px] border-none bg-[#D93284] font-medium
+                  md:text-[20px] md:leading-[0.9] md:px-[22px] md:py-[8px] md:rounded-[10px] lg:text-[22px] lg:rounded-[12px]
+                  2xl:text-[30px] 2xl:rounded-[16px] 2xl:py-[12px] 2xl:px-[30px] transition-all duration-200 ease-in
+                  hover:bg-[#F060C0] active:bg-[#792EC0]"
+                  onClick={
+                    !finishInstruction ? goToNextCard : changeVisibleInstruction
+                  }
+                >
+                  {!finishInstruction ? "далее" : "начать"}
+                </button>
               </div>
             </div>
           </div>
