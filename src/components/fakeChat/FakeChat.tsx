@@ -5,17 +5,17 @@ import { useRouter } from "next/navigation";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
 import PanoramaViewer from "../panoramaViewer/PanoramaViewer";
+import { TextAnswerMsg } from "./TextAnswerMsg";
 import { ChatBody, ChatBottom, ChatHeader } from "./chatComponents";
 import { ChatBlurModal } from "./chatComponents/chatBlurModal";
 import { deviceRecognizer } from "./lib";
 import {
+  AudioMsg,
   ImgMsg,
   LinkMsg,
-  TextAnswerMsg,
   TextQuestionMsg,
+  TypingBallsMsg,
 } from "./msgComponents";
-import { AudioMsg } from "./msgComponents/audioMsg";
-
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
 const FakeChat = ({ data }: IQASystem) => {
@@ -53,21 +53,27 @@ const FakeChat = ({ data }: IQASystem) => {
     t = 3000,
     toAddQueue: ReactElement
   ) {
-    msgList.splice(0, 1);
-    if (msgList.length != 0) {
-      setTimeout(() => {
-        setQueue((prev) => [...prev, toAddQueue]);
-        msgHandler(msgList, element);
-      }, t);
-    } else {
-      setTimeout(() => {
-        setQueue((prev) => [...prev, toAddQueue]);
+    setTimeout(() => {
+      setQueue((prev) => [
+        ...prev,
+        <TypingBallsMsg key={uuid()}></TypingBallsMsg>,
+      ]);
+      msgList.splice(0, 1);
+      if (msgList.length != 0) {
         setTimeout(() => {
-          setAnswer(element != "Нет, спасибо");
-          setStatusMsg("в сети");
-        }, 2000);
-      }, t);
-    }
+          setQueue((prev) => [...prev.slice(0, -1), toAddQueue]);
+          msgHandler(msgList, element);
+        }, t);
+      } else {
+        setTimeout(() => {
+          setQueue((prev) => [...prev.slice(0, -1), toAddQueue]);
+          setTimeout(() => {
+            setAnswer(element != "Нет, спасибо");
+            setStatusMsg("в сети");
+          }, 2000);
+        }, t);
+      }
+    }, Math.random() * 1000);
   }
 
   function msgHandler(msgList: IMessage[], element: string, t = 3000) {
@@ -86,6 +92,7 @@ const FakeChat = ({ data }: IQASystem) => {
     switch (msgList[0].msgClass) {
       case "textMsg":
         setStatusMsg("печатает...");
+
         pendAdding(
           msgList,
           element,
