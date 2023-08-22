@@ -1,3 +1,4 @@
+import OrientationChange from "@/components/orientationChange/OrientationScreen";
 import "./globals.css";
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +12,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></meta>
+      </head>
+      <body className="relative">{children}</body>
     </html>
   );
 }

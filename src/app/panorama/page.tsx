@@ -5,18 +5,16 @@ import PanoramaViewer from "@/components/panoramaViewer/PanoramaViewer";
 
 const Panorama = () => {
   return (
-    <div className="relative">
-      <OrientationChange>
-        <ActivityCheck>
-          <InstructionCards />
-          <PanoramaViewer
-            imageSrc={"/panorama-images/home-panorama.jpg"}
-            pitch={-30}
-            yaw={0}
-          />
-        </ActivityCheck>
-      </OrientationChange>
-    </div>
+    <OrientationChange>
+      <ActivityCheck>
+        <InstructionCards />
+        <PanoramaViewer
+          imageSrc={"/panorama-images/home-panorama.webp"}
+          pitch={-30}
+          yaw={0}
+        />
+      </ActivityCheck>
+    </OrientationChange>
   );
 };
 
