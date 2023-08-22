@@ -1,11 +1,4 @@
-import React, {
-  memo,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { default as WaveSurfer, WaveSurferOptions } from "wavesurfer.js";
 
@@ -142,9 +135,5 @@ interface AudioMsgProps {
 }
 
 export const AudioMsg = memo(function AudioMsg({ audioUrl }: AudioMsgProps) {
-  const loger = useMemo(() => {
-    console.log("audio rendered", audioUrl);
-  }, [audioUrl]);
-
   return <WaveSurferPlayer audioUrl={"/" + audioUrl} />;
 });

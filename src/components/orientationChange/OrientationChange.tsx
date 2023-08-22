@@ -45,11 +45,14 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
       </div>
     );
   } else {
-    if (isCorrectOrientation) {
-      return Children.map(children, (child) => <>{child}</>);
-    } else {
-      return <OrientationScreen></OrientationScreen>;
-    }
+    return (
+      <>
+        {!isCorrectOrientation && <OrientationScreen></OrientationScreen>}
+        {Children.map(children, (child) => (
+          <>{child}</>
+        ))}
+      </>
+    );
   }
 };
 
