@@ -158,10 +158,10 @@ const FakeChat = ({ data }: IQASystem) => {
     <>
       <Image
         src={"/artist-photos/" + data.photoSrc + ".jpg"}
-        className="absolute object-cover min-h-screen max-w-[80vw]"
+        className="absolute object-cover min-h-screen max-w-[65vw]"
         alt={data.photoSrc}
-        width={6000}
-        height={4000}
+        width={1920}
+        height={1080}
       ></Image>
 
       <ChatBlurModal
