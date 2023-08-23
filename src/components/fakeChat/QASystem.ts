@@ -18,7 +18,6 @@ const names: INames = {
   sesonov: "Станислав Сезонов",
   orynbaev: "Даурен Орынбаев",
   dyachenko: "Григорий Дьяченко",
-  shitov: "Денис Шитов",
   plaksin: "Евгений Плаксин",
   koroticheva: "Ирина Коротичева",
   bogov: "Никита Богов",
@@ -177,7 +176,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "cello.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "cello.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -271,7 +270,7 @@ export const QASystem: IQASystem = {
     },
   },
   lopatin: {
-    photoSrc: "lopatin",
+    photoSrc: "lopatin5",
     name: names["lopatin"],
     panoramaData: {
       imageSrc: "/panorama-images/lopatin-panorama.jpg",
@@ -306,7 +305,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "violin.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "violin.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -439,7 +438,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "harp.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "harp.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -587,7 +586,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "clarinet.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "clarinet.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -715,7 +714,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "double_bass.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "double_bass.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -843,7 +842,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "flute.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "flute.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -976,7 +975,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "bassoon.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "bassoon.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1084,7 +1083,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "violin.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "violin.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1207,7 +1206,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "pipe.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "pipe.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1317,7 +1316,12 @@ export const QASystem: IQASystem = {
         messages: [
           {
             msgClass: "textMsg",
-            msg: "nan",
+            msg: "Ударные инструменты - это самые древние музыкальные инструменты, обладают наибольшим разнообразием.",
+            device: "any",
+          },
+          {
+            msgClass: "textMsg",
+            msg: "Ударная установка является основой всей эстрадной музыки.",
             device: "any",
           },
           {
@@ -1330,7 +1334,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "drum_kit.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "drum_kit.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1343,7 +1347,7 @@ export const QASystem: IQASystem = {
         messages: [
           {
             msgClass: "textMsg",
-            msg: "nan",
+            msg: "Есть привычка разыгрываться перед выступлением.",
             device: "any",
           },
           {
@@ -1359,7 +1363,12 @@ export const QASystem: IQASystem = {
         messages: [
           {
             msgClass: "textMsg",
-            msg: "nan",
+            msg: "Играл концерт дуэтом – рояль и ударные.",
+            device: "any",
+          },
+          {
+            msgClass: "textMsg",
+            msg: "Пришлось сочинять свои партии, чтобы с помощью барабанной установки сымитировать народные инструменты и бас.",
             device: "any",
           },
           {
@@ -1374,7 +1383,7 @@ export const QASystem: IQASystem = {
         messages: [
           {
             msgClass: "textMsg",
-            msg: "nan",
+            msg: "Во время концерта в Концзале упал на впереди сидящих музыкантов звукоизолирующий щит для барабанов",
             device: "any",
           },
           {
@@ -1458,7 +1467,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "nan.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "trombon.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1571,7 +1580,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "timpani.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "timpani.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1684,7 +1693,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "tuba.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "tuba.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -1761,114 +1770,6 @@ export const QASystem: IQASystem = {
       },
     },
   },
-  shitov: {
-    photoSrc: "shitov",
-    name: names["shitov"],
-    panoramaData: {
-      imageSrc: "/panorama-images/shitov-panorama.jpg",
-      yaw: 160,
-      pitch: -15,
-    },
-    start: {
-      msgClass: "textMsg",
-      msg: "Здравствуйте! Меня зовут Денис Шитов. Я играю на гобое в симфоническом оркестре.",
-      device: "any",
-    },
-    qa: {
-      "Расскажите о Вашем инструменте": {
-        messages: [
-          {
-            msgClass: "textMsg",
-            msg: "nan",
-            device: "any",
-          },
-          {
-            msgClass: "textMsg",
-            msg: "Хотите узнать что-нибудь еще?",
-            device: "any",
-          },
-        ],
-        fullQuestion: "Расскажите о Вашем инструменте",
-      },
-      "Как звучит Ваш инструмент?": {
-        messages: [
-          { msgClass: "audioMsg", msg: "timpani.wav", device: "any" },
-          {
-            msgClass: "textMsg",
-            msg: "Хотите узнать что-нибудь еще?",
-            device: "any",
-          },
-        ],
-        fullQuestion: "Как звучит Ваш инструмент?",
-      },
-      "Есть привычки перед выступлением?": {
-        messages: [
-          {
-            msgClass: "textMsg",
-            msg: "nan",
-            device: "any",
-          },
-          {
-            msgClass: "textMsg",
-            msg: "Хотите узнать что-нибудь еще?",
-            device: "any",
-          },
-        ],
-        fullQuestion:
-          "Есть ли у вас какие-то приметы или особые привычки перед выступлением?",
-      },
-      "Необычный эксперимент с музыкой?": {
-        messages: [
-          {
-            msgClass: "textMsg",
-            msg: "nan",
-            device: "any",
-          },
-          {
-            msgClass: "textMsg",
-            msg: "Хотите узнать что-нибудь еще?",
-            device: "any",
-          },
-        ],
-        fullQuestion: "Какой был самый необычный эксперимент с музыкой?",
-      },
-      "Незабываемый момент на концерте?": {
-        messages: [
-          {
-            msgClass: "textMsg",
-            msg: "nan",
-            device: "any",
-          },
-          {
-            msgClass: "textMsg",
-            msg: "Хотите узнать что-нибудь еще?",
-            device: "any",
-          },
-        ],
-        fullQuestion: "Расскажите про незабываемый момент на концерте",
-      },
-      "Нет, спасибо": {
-        messages: [
-          {
-            msgClass: "textMsg",
-            msg: "Тогда будем рады видеть Вас на наших концертах! Ниже можно отсканировать QR-код или перейти на сайт с афишей предстоящих мероприятий.",
-            device: "any",
-          },
-          {
-            msgClass: "imgURL",
-            msg: "QRCode.png",
-            device: "desktop",
-          },
-          {
-            msgClass: "linkMsg",
-            msg: "https://omfil.ru/afisha/",
-            device: "phone",
-          },
-        ],
-        fullQuestion: "Нет, спасибо",
-      },
-    },
-  },
   koroticheva: {
     photoSrc: "koroticheva",
     name: names["koroticheva"],
@@ -1910,7 +1811,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "nan.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "alt.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",
@@ -2063,7 +1964,7 @@ export const QASystem: IQASystem = {
       },
       "Как звучит Ваш инструмент?": {
         messages: [
-          { msgClass: "audioMsg", msg: "nan.wav", device: "any" },
+          { msgClass: "audioMsg", msg: "valtorna.mp3", device: "any" },
           {
             msgClass: "textMsg",
             msg: "Хотите узнать что-нибудь еще?",

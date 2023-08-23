@@ -19,8 +19,6 @@ const geometriaRegular = localFont({
   src: "./../../../../fonts/Geometria-Medium.woff",
 });
 
-// TODO Какая то хуйня черная ебучая мистическая не понятно откуда берется надо разобраться
-
 export const Button = ({
   onClick,
   activeFlicker,

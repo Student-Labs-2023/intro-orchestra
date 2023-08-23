@@ -2,15 +2,21 @@
 import { useRouter } from "next/navigation";
 import { Children, PropsWithChildren, useEffect, useState } from "react";
 import { useIdleTimer } from "react-idle-timer";
+import { deviceRecognizer } from "../fakeChat/lib";
 import AlertWindow from "./alertWindow/AlertWindow";
 
 type stateProps = "Active" | "Idle";
 
 export default function ActivityCheck({ children }: PropsWithChildren) {
+  const [device, setDevice] = useState<"phone" | "desktop">();
   const { push } = useRouter();
   const [state, setState] = useState<stateProps>("Active");
 
   const [remaining, setRemaining] = useState<number>(0);
+
+  useEffect(() => {
+    setDevice(deviceRecognizer());
+  }, []);
 
   const onIdle = () => {
     setState("Idle");
@@ -48,7 +54,10 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
       {Children.map(children, (child) => (
         <>{child}</>
       ))}
-      {state === "Active" && remaining <= 30 && remaining > 0 ? (
+      {state === "Active" &&
+      device === "desktop" &&
+      remaining <= 30 &&
+      remaining > 0 ? (
         <AlertWindow remaining={remaining} />
       ) : (
         <></>
