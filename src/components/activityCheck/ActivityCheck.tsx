@@ -44,10 +44,10 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
   });
 
   useEffect(() => {
-    if (state === "Idle") {
+    if (state === "Idle" && device === "desktop") {
       push("/");
     }
-  }, [state, push]);
+  }, [state, push, device]);
 
   return (
     <>

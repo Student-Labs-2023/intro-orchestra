@@ -270,7 +270,7 @@ export const QASystem: IQASystem = {
     },
   },
   lopatin: {
-    photoSrc: "lopatin5",
+    photoSrc: "lopatin",
     name: names["lopatin"],
     panoramaData: {
       imageSrc: "/panorama-images/lopatin-panorama.jpg",
