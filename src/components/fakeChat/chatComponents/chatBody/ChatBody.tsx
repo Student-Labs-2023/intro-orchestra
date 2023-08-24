@@ -1,7 +1,6 @@
 import { IMessage } from "@/types/message.interface";
 import { ReactElement, useState } from "react";
 import uuid from "react-uuid";
-import ChatVideoPlayer from "../../chatVideoPlayer/ChatVideoPlayer";
 import { Button } from "../../msgComponents";
 
 interface IChatBody {
@@ -70,7 +69,7 @@ export function ChatBody({
                 Посмотреть глазами артиста
               </Button>
             )}
-            {isArtistPOVExists === "/panorama-images/vasiliev-panorama.jpg" && (
+            {isArtistPOVExists === "/panorama-images/vasiliev-panorama.webp" && (
               <Button key={uuid()} onClick={handleOpenedVideo} variant="white">
                 Посмотреть на вашу работу
               </Button>
