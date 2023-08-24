@@ -38,7 +38,7 @@ export const Button = ({
             variant === "pink" && activeFlicker,
           "flex flex-row items-center justify- md:mb-[14px] sm:mb-[8px] mb-[4px] md:border-[3px] sm:border-[2px] border-[1px] md:rounded-[18px] rounded-[8px] border-[#F060C0] group-active:bg-[#fdd0eb] transition-all hover:bg-[#fdebf1] w-[150px] sm:w-[200px] md:w-[220px] lg:w-[300px] xl:w-[450px]":
             variant === "whiteArrow",
-          "bg-[#D93283] rounded-[16px] flex flex-row items-center justify-center w-[130px] sm:w-[170px] md:w-[170px] lg:w-[230px] xl:w-[380px] md:mb-[11px] sm:mb-[8px] mb-[4px]":
+          "bg-[#d8428a] rounded-[16px] flex flex-row items-center justify-center w-[130px] sm:w-[170px] md:w-[170px] lg:w-[230px] xl:w-[380px] md:mb-[11px] sm:mb-[8px] mb-[4px]":
             variant === "pinkBack",
         })}
         onClick={() => {

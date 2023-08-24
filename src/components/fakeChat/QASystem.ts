@@ -1618,38 +1618,6 @@ export const QASystem: IQASystem = {
           fullQuestion:
             "Есть ли у вас какие-то приметы или особые привычки перед выступлением?",
         },
-        "Необычный эксперимент с музыкой?": {
-          messages: [
-            {
-              msgClass: "textMsg",
-              msg: "nan",
-              device: "any",
-            },
-            {
-              msgClass: "randomTextMsg",
-              msg: "Хотите узнать что-нибудь еще?",
-              randomList: somethingElse,
-              device: "any",
-            },
-          ],
-          fullQuestion: "Какой был самый необычный эксперимент с музыкой?",
-        },
-        "Незабываемый момент на концерте?": {
-          messages: [
-            {
-              msgClass: "textMsg",
-              msg: "nan",
-              device: "any",
-            },
-            {
-              msgClass: "randomTextMsg",
-              msg: "Хотите узнать что-нибудь еще?",
-              randomList: somethingElse,
-              device: "any",
-            },
-          ],
-          fullQuestion: "Расскажите про незабываемый момент на концерте",
-        },
       },
       finish: {
         "Нет, спасибо": {
