@@ -28,7 +28,7 @@ export const QASystem: IQASystem = {
     photoSrc: "vasiliev",
     name: names["vasiliev"],
     panoramaData: {
-      imageSrc: "/panorama-images/vasiliev-panorama.jpg",
+      imageSrc: "/panorama-images/vasiliev-panorama.webp",
       yaw: 170,
       pitch: -30,
     },
@@ -139,7 +139,7 @@ export const QASystem: IQASystem = {
     photoSrc: "butorina",
     name: names["butorina"],
     panoramaData: {
-      imageSrc: "/panorama-images/butorina-panorama.jpg",
+      imageSrc: "/panorama-images/butorina-panorama.webp",
       yaw: 0,
       pitch: 0,
     },
@@ -273,7 +273,7 @@ export const QASystem: IQASystem = {
     photoSrc: "lopatin",
     name: names["lopatin"],
     panoramaData: {
-      imageSrc: "/panorama-images/lopatin-panorama.jpg",
+      imageSrc: "/panorama-images/lopatin-panorama.webp",
       yaw: 30,
       pitch: -5,
     },
@@ -401,7 +401,7 @@ export const QASystem: IQASystem = {
     photoSrc: "romanova",
     name: names["romanova"],
     panoramaData: {
-      imageSrc: "/panorama-images/romanova-panorama.jpg",
+      imageSrc: "/panorama-images/romanova-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -549,7 +549,7 @@ export const QASystem: IQASystem = {
     photoSrc: "stepancev",
     name: names["stepancev"],
     panoramaData: {
-      imageSrc: "/panorama-images/antonov-panorama.jpg",
+      imageSrc: "/panorama-images/antonov-panorama.webp",
       yaw: 140,
       pitch: -15,
     },
@@ -677,7 +677,7 @@ export const QASystem: IQASystem = {
     photoSrc: "antonov",
     name: names["antonov"],
     panoramaData: {
-      imageSrc: "/panorama-images/antonov-panorama.jpg",
+      imageSrc: "/panorama-images/antonov-panorama.webp",
       yaw: 140,
       pitch: -15,
     },
@@ -810,7 +810,7 @@ export const QASystem: IQASystem = {
     photoSrc: "zaitsev",
     name: names["zaitsev"],
     panoramaData: {
-      imageSrc: "/panorama-images/zaitsev-panorama.jpg",
+      imageSrc: "/panorama-images/zaitsev-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -948,7 +948,7 @@ export const QASystem: IQASystem = {
     photoSrc: "podshivalov",
     name: names["podshivalov"],
     panoramaData: {
-      imageSrc: "/panorama-images/podshivalov-panorama.jpg",
+      imageSrc: "/panorama-images/podshivalov-panorama.webp",
       yaw: -120,
       pitch: -15,
     },
@@ -1056,7 +1056,7 @@ export const QASystem: IQASystem = {
     photoSrc: "lunin",
     name: names["lunin"],
     panoramaData: {
-      imageSrc: "/panorama-images/lunin-panorama.jpg",
+      imageSrc: "/panorama-images/lunin-panorama.webp",
       yaw: -180,
       pitch: -15,
     },
@@ -1174,7 +1174,7 @@ export const QASystem: IQASystem = {
     photoSrc: "butikov",
     name: names["butikov"],
     panoramaData: {
-      imageSrc: "/panorama-images/butikov-panorama.jpg",
+      imageSrc: "/panorama-images/butikov-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -1302,7 +1302,7 @@ export const QASystem: IQASystem = {
     photoSrc: "sesonov",
     name: names["sesonov"],
     panoramaData: {
-      imageSrc: "/panorama-images/sesonov-panorama.jpg",
+      imageSrc: "/panorama-images/sesonov-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -1420,7 +1420,7 @@ export const QASystem: IQASystem = {
     photoSrc: "bogov",
     name: names["bogov"],
     panoramaData: {
-      imageSrc: "/panorama-images/bogov-panorama.jpg",
+      imageSrc: "/panorama-images/bogov-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -1548,7 +1548,7 @@ export const QASystem: IQASystem = {
     photoSrc: "orynbaev",
     name: names["orynbaev"],
     panoramaData: {
-      imageSrc: "/panorama-images/orynbaev-panorama.jpg",
+      imageSrc: "/panorama-images/orynbaev-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -1666,7 +1666,7 @@ export const QASystem: IQASystem = {
     photoSrc: "dyachenko",
     name: names["dyachenko"],
     panoramaData: {
-      imageSrc: "/panorama-images/dyachenko-panorama.jpg",
+      imageSrc: "/panorama-images/dyachenko-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -1774,7 +1774,7 @@ export const QASystem: IQASystem = {
     photoSrc: "koroticheva",
     name: names["koroticheva"],
     panoramaData: {
-      imageSrc: "/panorama-images/koroticheva-panorama.jpg",
+      imageSrc: "/panorama-images/koroticheva-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
@@ -1912,7 +1912,7 @@ export const QASystem: IQASystem = {
     photoSrc: "plaksin",
     name: names["plaksin"],
     panoramaData: {
-      imageSrc: "/panorama-images/plaksin-panorama.jpg",
+      imageSrc: "/panorama-images/plaksin-panorama.webp",
       yaw: 160,
       pitch: -15,
     },
