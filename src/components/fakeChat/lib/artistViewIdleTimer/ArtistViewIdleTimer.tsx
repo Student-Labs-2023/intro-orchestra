@@ -35,8 +35,8 @@ export function ArtistViewIdleTimer({
     onPrompt,
     onActive,
     onAction,
-    timeout: 30000_000,
-    promptBeforeIdle: 1_000,
+    timeout: 30_000,
+    promptBeforeIdle: 15_000,
     throttle: 500,
   });
 

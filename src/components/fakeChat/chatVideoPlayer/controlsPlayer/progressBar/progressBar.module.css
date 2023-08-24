@@ -1,0 +1,69 @@
+.container {
+  position: absolute;
+  width: 98%;
+  height: 19vh;
+
+  bottom: 1%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: linear-gradient(180deg, rgba(13, 15, 20, 0.00) 0%, rgba(13, 15, 20, 0.90) 100%);
+  backdrop-filter: blur(1px);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.text {
+  position: absolute;
+  right: 2%;
+  bottom: 57px;
+  font-size: 2.4vh;
+  color:white;
+}
+
+.progressBar {
+  width: 95%;
+  height: 3px;
+  background-color: hsl(0, 0%, 50%);
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  bottom: 43px;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+}
+
+.progress {
+  height: 100%;
+  background-color: #FFFFFF;
+  width: 0;
+}
+
+.seekBar {
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .progressBar {
+    width: 97%;
+  }
+  .container {
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .progressBar {
+    width: 98%;
+  }
+  .container {
+    width: 99%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+}

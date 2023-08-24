@@ -1,15 +1,15 @@
 "use client";
-import Image from "next/image";
 import localFont from "next/font/local";
+import Image from "next/image";
 
 const geometriaBold = localFont({ src: "../../fonts/Geometria-Bold.woff" });
 const geometriaMedium = localFont({
   src: "../../fonts/Geometria-Medium.woff",
 });
 
-export default function OrientationChange() {
+export default function OrientationScreen() {
   return (
-    <>
+    <div className="z-[9999] bg-white h-screen w-screen absolute">
       <header className="pt-[25px] px-[25px]">
         <Image
           src={"/logo.svg"}
@@ -34,6 +34,6 @@ export default function OrientationChange() {
           для начала просмотра
         </p>
       </main>
-    </>
+    </div>
   );
 }

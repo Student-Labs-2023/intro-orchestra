@@ -1,6 +1,5 @@
-import React from "react";
-import Image from "next/image";
 import localFont from "next/font/local";
+import Image from "next/image";
 
 type AlertWindowProps = {
   remaining: number;
@@ -14,7 +13,7 @@ const geometriaMedium = localFont({
 
 const AlertWindow = ({ remaining }: AlertWindowProps) => {
   return (
-    <div className="absolute max-w-[810px] top-0 left-[50%] py-[6px] px-[9px] sm:py-[12px] sm:px-[13px] lg:py-[18px] lg:px-[26px] 2xl:py-[24px] 2xl:px-[36.5px] translate-x-[-50%] bg-white border-x-[3px] border-b-[3px] rounded-b-3xl border-[#D93284] z-[3]">
+    <div className="absolute max-w-[810px] top-0 left-[50%] py-[6px] px-[9px] sm:py-[12px] sm:px-[13px] lg:py-[18px] lg:px-[26px] 2xl:py-[24px] 2xl:px-[36.5px] translate-x-[-50%] bg-white border-x-[3px] border-b-[3px] rounded-b-3xl border-[#D93284] z-[999]">
       <div className="flex items-center first-of-type:gap-[8px]">
         <Image
           className="w-[8%] h-[60%]"

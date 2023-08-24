@@ -1,0 +1,31 @@
+.fst-ball,
+.sec-ball,
+.th-ball {
+  width: 10px;
+  height: 10px;
+  background-color: #f461bc;
+  display: inline-block;
+  margin: 1px;
+  border-radius: 50%;
+  animation: bounce 1s infinite;
+}
+
+.sec-ball {
+  animation: bounce 1s infinite 0.2s;
+}
+
+.th-ball {
+  animation: bounce 1s infinite 0.4s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

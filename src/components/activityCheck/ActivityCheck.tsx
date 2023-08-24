@@ -1,20 +1,25 @@
-"use client"
+"use client";
 import { useRouter } from "next/navigation";
 import { Children, PropsWithChildren, useEffect, useState } from "react";
 import { useIdleTimer } from "react-idle-timer";
+import { deviceRecognizer } from "../fakeChat/lib";
 import AlertWindow from "./alertWindow/AlertWindow";
-import React from "react";
 
 type stateProps = "Active" | "Idle";
 
 export default function ActivityCheck({ children }: PropsWithChildren) {
+  const [device, setDevice] = useState<"phone" | "desktop">();
   const { push } = useRouter();
   const [state, setState] = useState<stateProps>("Active");
 
   const [remaining, setRemaining] = useState<number>(0);
 
+  useEffect(() => {
+    setDevice(deviceRecognizer());
+  }, []);
+
   const onIdle = () => {
-    setState("Idle")
+    setState("Idle");
   };
 
   const onActive = () => {
@@ -24,7 +29,7 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
   const { getRemainingTime } = useIdleTimer({
     onIdle,
     onActive,
-    timeout: 35_000,
+    timeout: 90_000,
     throttle: 500,
   });
 
@@ -39,17 +44,20 @@ export default function ActivityCheck({ children }: PropsWithChildren) {
   });
 
   useEffect(() => {
-    if (state === "Idle") {
+    if (state === "Idle" && device === "desktop") {
       push("/");
     }
-  }, [state, push]);
+  }, [state, push, device]);
 
   return (
     <>
       {Children.map(children, (child) => (
         <>{child}</>
       ))}
-      {state === "Active" && remaining <= 30 && remaining > 0 ? (
+      {state === "Active" &&
+      device === "desktop" &&
+      remaining <= 30 &&
+      remaining > 0 ? (
         <AlertWindow remaining={remaining} />
       ) : (
         <></>

@@ -1,11 +1,4 @@
-import React, {
-  memo,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 import { BsPauseCircle, BsPlayCircle } from "react-icons/bs";
 import { default as WaveSurfer, WaveSurferOptions } from "wavesurfer.js";
 
@@ -108,8 +101,6 @@ const WaveSurferPlayer = memo(function WaveSurferPlayer({
     };
   }, [waveSurfer]);
 
-  //TODO Ебучее гс надо фиксить
-
   return (
     <div className="bg-[#E6E9FF] max-w-[60%] md:p-2 md:pl-3 md:pr-3 pl-2 pr-2 p-1 rounded-tl-xl rounded-tr-xl rounded-br-xl md:mt-3 mt-1 w-auto flex flex-row items-center justify-start gap-2">
       {isPlaying ? (
@@ -142,9 +133,5 @@ interface AudioMsgProps {
 }
 
 export const AudioMsg = memo(function AudioMsg({ audioUrl }: AudioMsgProps) {
-  const loger = useMemo(() => {
-    console.log("audio rendered", audioUrl);
-  }, [audioUrl]);
-
   return <WaveSurferPlayer audioUrl={"/" + audioUrl} />;
 });
