@@ -130,6 +130,28 @@ const FakeChat = ({ data }: IQASystem) => {
           <LinkMsg href={msgList[0].msg.normalize()} key={uuid()}></LinkMsg>
         );
         break;
+      case "randomTextMsg":
+        setStatusMsg("печатает...");
+        if (msgList[0].randomList) {
+          const randomAnswer =
+            msgList[0].randomList[
+              Math.floor(Math.random() * msgList[0].randomList.length)
+            ];
+          pendAdding(
+            msgList,
+            element,
+            t,
+            <TextAnswerMsg key={uuid()}>{randomAnswer}</TextAnswerMsg>
+          );
+        } else {
+          pendAdding(
+            msgList,
+            element,
+            t,
+            <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>
+          );
+        }
+        break;
       default:
         break;
     }
@@ -184,6 +206,7 @@ const FakeChat = ({ data }: IQASystem) => {
           handleClick={handleClick}
           questions={questions}
           queue={queue}
+          isArtistPOVExists={data.panoramaData.imageSrc}
         ></ChatBody>
         <ChatBottom></ChatBottom>
       </div>

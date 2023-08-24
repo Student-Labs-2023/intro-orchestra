@@ -4,6 +4,14 @@ interface INames {
   [nameId: string]: string;
 }
 
+const somethingElse = [
+  "Хотите узнать что-нибудь еще?",
+  "Интересно ли Вам что-то еще?",
+  "Хотели бы Вы задать еще вопросы?",
+  "Интересны ли Вам ответы на другие вопросы?",
+  "Есть ли что-то еще, что Вас интересует?",
+];
+
 const names: INames = {
   vasiliev: "Дмитрий Васильев",
   butorina: "Анастасия Буторина",
@@ -100,6 +108,12 @@ export const QASystem: IQASystem = {
             msg: "Поэтому отдача и вдохновение оркестрантов на концерте во многом зависит от того, насколько дирижер убедителен в дирижировании и воплощении своих замыслов.",
             device: "any",
           },
+          {
+            msgClass: "randomTextMsg",
+            msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
+            device: "any",
+          },
         ],
         fullQuestion: "В чем заключается миссия дирижера?",
       },
@@ -167,8 +181,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -178,8 +193,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "cello.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -198,8 +214,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -219,8 +236,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -239,8 +257,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -296,8 +315,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -307,8 +327,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "violin.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -327,8 +348,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -348,8 +370,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -368,8 +391,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -429,8 +453,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -440,8 +465,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "harp.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -460,8 +486,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -486,8 +513,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -516,8 +544,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -549,7 +578,7 @@ export const QASystem: IQASystem = {
     photoSrc: "stepancev",
     name: names["stepancev"],
     panoramaData: {
-      imageSrc: "/panorama-images/antonov-panorama.jpg",
+      imageSrc: "",
       yaw: 140,
       pitch: -15,
     },
@@ -577,8 +606,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -588,8 +618,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "clarinet.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -608,8 +639,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -624,8 +656,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -644,8 +677,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -705,8 +739,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -716,8 +751,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "double_bass.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -736,8 +772,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -757,8 +794,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -777,8 +815,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -833,8 +872,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -844,8 +884,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "flute.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -859,8 +900,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -890,8 +932,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -915,8 +958,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -966,8 +1010,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -977,8 +1022,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "bassoon.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -992,8 +1038,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1008,8 +1055,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1023,8 +1071,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1074,8 +1123,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1085,8 +1135,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "violin.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1105,8 +1156,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1126,8 +1178,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1141,8 +1194,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1197,8 +1251,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1208,8 +1263,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "pipe.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1228,8 +1284,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1249,8 +1306,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1269,8 +1327,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1325,8 +1384,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1336,8 +1396,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "drum_kit.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1351,8 +1412,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1372,8 +1434,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1387,8 +1450,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1420,7 +1484,7 @@ export const QASystem: IQASystem = {
     photoSrc: "bogov",
     name: names["bogov"],
     panoramaData: {
-      imageSrc: "/panorama-images/bogov-panorama.jpg",
+      imageSrc: "",
       yaw: 160,
       pitch: -15,
     },
@@ -1458,8 +1522,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1469,8 +1534,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "trombon.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1484,8 +1550,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1500,8 +1567,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1515,8 +1583,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1571,8 +1640,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1582,8 +1652,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "timpani.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1597,8 +1668,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1618,8 +1690,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1633,8 +1706,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1666,7 +1740,7 @@ export const QASystem: IQASystem = {
     photoSrc: "dyachenko",
     name: names["dyachenko"],
     panoramaData: {
-      imageSrc: "/panorama-images/dyachenko-panorama.jpg",
+      imageSrc: "",
       yaw: 160,
       pitch: -15,
     },
@@ -1684,8 +1758,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1695,8 +1770,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "tuba.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1710,8 +1786,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1726,8 +1803,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1741,8 +1819,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1774,7 +1853,7 @@ export const QASystem: IQASystem = {
     photoSrc: "koroticheva",
     name: names["koroticheva"],
     panoramaData: {
-      imageSrc: "/panorama-images/koroticheva-panorama.jpg",
+      imageSrc: "",
       yaw: 160,
       pitch: -15,
     },
@@ -1802,8 +1881,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1813,8 +1893,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "alt.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1833,8 +1914,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1859,8 +1941,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1879,8 +1962,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1912,7 +1996,7 @@ export const QASystem: IQASystem = {
     photoSrc: "plaksin",
     name: names["plaksin"],
     panoramaData: {
-      imageSrc: "/panorama-images/plaksin-panorama.jpg",
+      imageSrc: "",
       yaw: 160,
       pitch: -15,
     },
@@ -1950,13 +2034,15 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1966,8 +2052,9 @@ export const QASystem: IQASystem = {
         messages: [
           { msgClass: "audioMsg", msg: "valtorna.mp3", device: "any" },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -1981,8 +2068,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -2007,8 +2095,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
@@ -2022,8 +2111,9 @@ export const QASystem: IQASystem = {
             device: "any",
           },
           {
-            msgClass: "textMsg",
+            msgClass: "randomTextMsg",
             msg: "Хотите узнать что-нибудь еще?",
+            randomList: somethingElse,
             device: "any",
           },
         ],
