@@ -13,7 +13,7 @@ const PlayButton = ({ isPlaying, onTogglePlay, showButton }: TPlayButton) => {
     if (isPlaying) {
       const hideTimeout = setTimeout(() => {
         setShow(true);
-      }, 10000);
+      }, 15000);
 
       return () => {
         clearTimeout(hideTimeout);

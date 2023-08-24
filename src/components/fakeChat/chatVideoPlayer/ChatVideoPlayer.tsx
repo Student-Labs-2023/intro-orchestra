@@ -3,7 +3,13 @@ import ReactPlayer from "react-player";
 import styles from "./chatVideoPlayer.module.css";
 import ControlsPlayer from "./controlsPlayer/ControlsPlayer";
 
-const ChatVideoPlayer = ({ videoUrl }: { videoUrl: string }) => {
+const ChatVideoPlayer = ({
+  videoUrl,
+  handleOpenedVideo,
+}: {
+  videoUrl: string;
+  handleOpenedVideo: () => void;
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -29,6 +35,9 @@ const ChatVideoPlayer = ({ videoUrl }: { videoUrl: string }) => {
 
   return (
     <div className={styles.container}>
+      <div className="absolute z-[2] top-0 right-0">
+          <button onClick={handleOpenedVideo} className={styles.exit_btn}></button>
+        </div>
       <div
         onMouseEnter={() => handleVideoHover(true)}
         onMouseLeave={() => handleVideoHover(false)}

@@ -12,6 +12,7 @@ interface IChatBody {
   activeFinishButton: boolean;
   handleClick: (element: string, category: string) => void;
   isArtistPOVExists: string;
+  handleOpenedVideo: () => void;
 }
 
 interface ICategory {
@@ -38,9 +39,10 @@ export function ChatBody({
   activeFinishButton,
   handleClick,
   isArtistPOVExists,
+  handleOpenedVideo
 }: IChatBody) {
   const [currentCategory, setCurrentCategory] = useState("");
-  const [videoIsOpened, setVideoIsOpened] = useState(false);
+
   function lastQuestionChecker(questions: IQuestions) {
     if (Object.keys(questions).length == 1) {
       switchCategory("");
@@ -52,7 +54,6 @@ export function ChatBody({
   }
   return (
     <div className="w-full h-[82.6%] bg-white z-0 flex flex-col-reverse lg:px-[24px] md:px-[12px] px-[8px] overflow-y-auto no-scrollbar">
-      <ChatVideoPlayer videoUrl="/1.mp4"></ChatVideoPlayer>
       <div className="flex flex-col justify-end">
         <div
           className={`rounded-tl-lg rounded-tr-lg rounded-br-lg md:pb-[14px] sm:pb-[8px] pb-[4px]`}
@@ -70,7 +71,7 @@ export function ChatBody({
               </Button>
             )}
             {isArtistPOVExists === "/panorama-images/vasiliev-panorama.jpg" && (
-              <Button key={uuid()} onClick={changeView} variant="white">
+              <Button key={uuid()} onClick={handleOpenedVideo} variant="white">
                 Посмотреть на вашу работу
               </Button>
             )}

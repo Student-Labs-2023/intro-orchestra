@@ -16,6 +16,7 @@ import {
   TextQuestionMsg,
   TypingBallsMsg,
 } from "./msgComponents";
+import ChatVideoPlayer from "./chatVideoPlayer/ChatVideoPlayer";
 
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
@@ -38,6 +39,7 @@ const FakeChat = ({ data }: IQASystem) => {
   const [statusMsg, setStatusMsg] = useState<statusMsgType>("в сети");
   const [activeBlur, setActiveBlur] = useState<boolean>(false);
   const [activeFlicker, setActiveFlicker] = useState<boolean>(false);
+  const [videoIsOpened, setVideoIsOpened] = useState<boolean>(false);
 
   const imageSrc = data.panoramaData.imageSrc;
   const initialPitch = data.panoramaData.pitch;
@@ -51,6 +53,10 @@ const FakeChat = ({ data }: IQASystem) => {
   function activateFlicker() {
     setActiveFlicker((prev) => !prev);
   }
+
+  const handleOpenedVideo = () => {
+    setVideoIsOpened((prev) => (prev = !prev));
+  };
 
   const { push } = useRouter();
   function returnToMainPage() {
@@ -204,6 +210,13 @@ const FakeChat = ({ data }: IQASystem) => {
 
   return (
     <>
+      {videoIsOpened && (
+        <ChatVideoPlayer
+          handleOpenedVideo={handleOpenedVideo}
+          videoUrl="/1.mp4"
+        ></ChatVideoPlayer>
+      )}
+
       <Image
         src={"/artist-photos/" + data.photoSrc + ".jpg"}
         className="absolute object-cover min-h-screen max-w-[65vw]"
@@ -227,6 +240,7 @@ const FakeChat = ({ data }: IQASystem) => {
         ></ChatHeader>
         <ChatBody
           activeFinishButton={activeFinishButton}
+          handleOpenedVideo={handleOpenedVideo}
           answer={answer}
           changeView={changeView}
           handleClick={handleClick}
