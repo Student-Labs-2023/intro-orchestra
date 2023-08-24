@@ -127,9 +127,9 @@ export function ChatBody({
               <Button
                 key={uuid()}
                 onClick={() => switchCategory("")}
-                variant="white"
+                variant="pinkBack"
               >
-                Назад
+                вернуться к списку
               </Button>
             )}
           </div>
