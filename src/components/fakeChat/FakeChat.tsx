@@ -16,7 +16,7 @@ import {
   TextQuestionMsg,
   TypingBallsMsg,
 } from "./msgComponents";
-import ChatVideoPlayer from "./chatVideoPlayer/ChatVideoPlayer";
+
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
 interface IData {
@@ -204,7 +204,6 @@ const FakeChat = ({ data }: IQASystem) => {
 
   return (
     <>
-      {/* <ChatVideoPlayer videoUrl="/1.mp4"></ChatVideoPlayer> */}
       <Image
         src={"/artist-photos/" + data.photoSrc + ".jpg"}
         className="absolute object-cover min-h-screen max-w-[65vw]"
@@ -220,7 +219,7 @@ const FakeChat = ({ data }: IQASystem) => {
         changeView={changeView}
       ></ChatBlurModal>
 
-      <div className="flex flex-col h-full w-[39.65%] absolute right-0 z-10 ">
+      <div className={"flex flex-col h-full w-[39.65%] absolute right-0 z-10"}>
         <ChatHeader
           musicianName={data.name}
           statusMsg={statusMsg}
