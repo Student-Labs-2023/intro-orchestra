@@ -7,7 +7,7 @@ const geometriaMedium = localFont({
   src: "../../fonts/Geometria-Medium.woff",
 });
 
-export default function OrientationScreen() {
+export default function OrientationScreenPC() {
   return (
     <div className="z-[9999] bg-white h-screen w-screen absolute">
       <header className="pt-[25px] px-[25px]">
@@ -21,17 +21,17 @@ export default function OrientationScreen() {
       <main className="flex flex-col items-center justify-center h-[85vh] text-center">
         <Image
           className="mb-[30px]"
-          src={"/phone-icon.svg"}
-          alt="Телефон"
-          width={120}
-          height={210}
+          src={"/expandpc.svg"}
+          alt="Расширьте экран"
+          width={280}
+          height={280}
         />
         <p style={geometriaMedium.style} className="text-[16px]">
-          Пожалуйста,
+          Для просмотра
           <br />
-          <span style={geometriaBold.style}>переверните </span> свой телефон
+          <span style={geometriaBold.style}>расширьте </span> окно браузера
           <br />
-          для начала просмотра
+          на весь экран
         </p>
       </main>
     </div>

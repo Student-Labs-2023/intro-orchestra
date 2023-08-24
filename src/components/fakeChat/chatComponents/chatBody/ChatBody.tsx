@@ -1,7 +1,6 @@
 import { IMessage } from "@/types/message.interface";
 import { ReactElement, useState } from "react";
 import uuid from "react-uuid";
-import ChatVideoPlayer from "../../chatVideoPlayer/ChatVideoPlayer";
 import { Button } from "../../msgComponents";
 
 interface IChatBody {
@@ -39,7 +38,7 @@ export function ChatBody({
   activeFinishButton,
   handleClick,
   isArtistPOVExists,
-  handleOpenedVideo
+  handleOpenedVideo,
 }: IChatBody) {
   const [currentCategory, setCurrentCategory] = useState("");
 
@@ -70,7 +69,8 @@ export function ChatBody({
                 Посмотреть глазами артиста
               </Button>
             )}
-            {isArtistPOVExists === "/panorama-images/vasiliev-panorama.webp" && (
+            {isArtistPOVExists ===
+              "/panorama-images/vasiliev-panorama.webp" && (
               <Button key={uuid()} onClick={handleOpenedVideo} variant="white">
                 Посмотреть на вашу работу
               </Button>
@@ -98,7 +98,7 @@ export function ChatBody({
                     <Button
                       key={uuid()}
                       onClick={() => switchCategory(t)}
-                      variant="white"
+                      variant="whiteArrow"
                     >
                       {t}
                     </Button>

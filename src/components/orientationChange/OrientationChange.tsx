@@ -1,7 +1,9 @@
 "use client";
 import localFont from "next/font/local";
 import { Children, PropsWithChildren, useEffect, useState } from "react";
+import { deviceRecognizer } from "../fakeChat/lib";
 import OrientationScreen from "./OrientationScreen";
+import OrientationScreenPC from "./OrientationScreenPC";
 import "./loader.css";
 
 const geometriaMedium = localFont({
@@ -11,6 +13,7 @@ const geometriaMedium = localFont({
 const OrientationChange = ({ children }: PropsWithChildren) => {
   const [screenWidth, setScreenWidth] = useState<number>();
   const [screenHeight, setScreenHeight] = useState<number>();
+  const [device, setDevice] = useState<"phone" | "desktop">("phone");
 
   const [isCorrectOrientation, setIsCorrectOrientation] = useState<boolean>();
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,6 +23,8 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
       setScreenWidth(window.innerWidth);
       setScreenHeight(window.innerHeight);
     };
+
+    setDevice(deviceRecognizer());
 
     window.addEventListener("resize", handleResize, false);
     return () => {
@@ -47,7 +52,12 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
   } else {
     return (
       <>
-        {!isCorrectOrientation && <OrientationScreen></OrientationScreen>}
+        {!isCorrectOrientation && device === "phone" && (
+          <OrientationScreen></OrientationScreen>
+        )}
+        {!isCorrectOrientation && device === "desktop" && (
+          <OrientationScreenPC></OrientationScreenPC>
+        )}
         {Children.map(children, (child) => (
           <>{child}</>
         ))}
