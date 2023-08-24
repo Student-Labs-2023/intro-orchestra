@@ -1,4 +1,3 @@
-import OrientationChange from "@/components/orientationChange/OrientationScreen";
 import "./globals.css";
 export const metadata = {
   title: "Знакомство с Оркестком",

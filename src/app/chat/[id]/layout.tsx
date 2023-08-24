@@ -1,6 +1,8 @@
 import "../../globals.css";
 export const metadata = {
+
   title: "Знакомство с Оркестком",
+
 };
 
 export default function RootLayout({
@@ -16,7 +18,9 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         ></meta>
       </head>
-      <body>{children}</body>
+
+      <body className="relative">{children}</body>
+
     </html>
   );
 }
