@@ -16,6 +16,7 @@ import {
   TextQuestionMsg,
   TypingBallsMsg,
 } from "./msgComponents";
+import ChatVideoPlayer from "./chatVideoPlayer/ChatVideoPlayer";
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
 const FakeChat = ({ data }: IQASystem) => {
@@ -156,6 +157,7 @@ const FakeChat = ({ data }: IQASystem) => {
 
   return (
     <>
+      {/* <ChatVideoPlayer videoUrl="/1.mp4"></ChatVideoPlayer> */}
       <Image
         src={"/artist-photos/" + data.photoSrc + ".jpg"}
         className="absolute object-cover min-h-screen"
