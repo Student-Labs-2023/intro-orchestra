@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { IMessage } from "@/types/message.interface";
+import { ReactElement, useState } from "react";
 import uuid from "react-uuid";
 import { Button } from "../../msgComponents";
 
@@ -6,10 +7,26 @@ interface IChatBody {
   queue: ReactElement[];
   answer: boolean;
   changeView: (t: string | undefined) => void;
-  questions: string[];
+  questions: ICategory;
   activeFinishButton: boolean;
-  handleClick: (element: string) => void;
+  handleClick: (element: string, category: string) => void;
   isArtistPOVExists: string;
+}
+
+interface ICategory {
+  [category: string]: {
+    [question: string]: {
+      messages: IMessage[];
+      fullQuestion: string;
+    };
+  };
+}
+
+interface IQuestions {
+  [question: string]: {
+    messages: IMessage[];
+    fullQuestion: string;
+  };
 }
 
 export function ChatBody({
@@ -21,6 +38,16 @@ export function ChatBody({
   handleClick,
   isArtistPOVExists,
 }: IChatBody) {
+  const [currentCategory, setCurrentCategory] = useState("");
+  function lastQuestionChecker(questions: IQuestions) {
+    if (Object.keys(questions).length == 1) {
+      switchCategory("");
+    }
+  }
+
+  function switchCategory(category: string) {
+    setCurrentCategory(category);
+  }
   return (
     <div className="w-full h-[82.6%] bg-white z-0 flex flex-col-reverse lg:px-[24px] md:px-[12px] px-[8px] overflow-y-auto no-scrollbar">
       <div className="flex flex-col justify-end">
@@ -40,16 +67,62 @@ export function ChatBody({
               </Button>
             )}
 
-            {questions.map((t) => {
-              if (!activeFinishButton && t === "Нет, спасибо") {
-                return;
-              }
-              return (
-                <Button key={uuid()} onClick={handleClick} variant="white">
-                  {t}
-                </Button>
-              );
-            })}
+            {!currentCategory &&
+              Object.keys(questions).map((t) => {
+                if (Object.values(questions[t]).length == 1) {
+                  if (t === "finish" && !activeFinishButton) {
+                    return;
+                  }
+                  return (
+                    <Button
+                      key={uuid()}
+                      onClick={() =>
+                        handleClick(Object.keys(questions[t])[0], t)
+                      }
+                      variant="white"
+                    >
+                      {Object.keys(questions[t])}
+                    </Button>
+                  );
+                } else if (Object.values(questions[t]).length > 1) {
+                  return (
+                    <Button
+                      key={uuid()}
+                      onClick={() => switchCategory(t)}
+                      variant="white"
+                    >
+                      {t}
+                    </Button>
+                  );
+                } else {
+                  return;
+                }
+              })}
+
+            {currentCategory &&
+              Object.keys(questions[currentCategory]).map((t) => {
+                lastQuestionChecker(questions[currentCategory]);
+                console.log(t);
+
+                return (
+                  <Button
+                    key={uuid()}
+                    onClick={() => handleClick(t, currentCategory)}
+                    variant="white"
+                  >
+                    {t}
+                  </Button>
+                );
+              })}
+            {currentCategory && (
+              <Button
+                key={uuid()}
+                onClick={() => switchCategory("")}
+                variant="white"
+              >
+                Назад
+              </Button>
+            )}
           </div>
         )}
       </div>
