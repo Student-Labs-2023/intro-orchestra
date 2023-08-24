@@ -161,10 +161,10 @@
 
 @media screen and (max-width: 900px) {
   .exit_btn {
-    margin-right: calc(4.1vh + 25px);
+    margin-right: calc(4.1vh + 18px);
   }
   .exit_btn {
-    margin-top: calc(4.1vh + 10px);
+    margin-top: calc(4.1vh + 7px);
   }
 }
 

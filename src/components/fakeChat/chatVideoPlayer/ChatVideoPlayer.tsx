@@ -41,7 +41,7 @@ const ChatVideoPlayer = ({
       <div
         onMouseEnter={() => handleVideoHover(true)}
         onMouseLeave={() => handleVideoHover(false)}
-        className={`${styles.videoContainer} relative max-w-[375px] w-full sm:max-w-[480px] md:max-w-[680px] lg:max-w-[980px] xl:max-w-[1180px] 2xl:max-w-[1334px]`}
+        className={`${styles.videoContainer} relative max-w-[375px] w-full sm:max-w-[480px] md:max-w-[580px] lg:max-w-[980px] xl:max-w-[1180px] 2xl:max-w-[1334px]`}
       >
         <ReactPlayer
           className={styles.videoPlayer}
