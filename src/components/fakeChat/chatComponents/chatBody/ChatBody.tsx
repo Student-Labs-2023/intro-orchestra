@@ -9,6 +9,7 @@ interface IChatBody {
   questions: string[];
   activeFinishButton: boolean;
   handleClick: (element: string) => void;
+  isArtistPOVExists: string;
 }
 
 export function ChatBody({
@@ -18,6 +19,7 @@ export function ChatBody({
   questions,
   activeFinishButton,
   handleClick,
+  isArtistPOVExists,
 }: IChatBody) {
   return (
     <div className="w-full h-[82.6%] bg-white z-0 flex flex-col-reverse lg:px-[24px] md:px-[12px] px-[8px] overflow-y-auto no-scrollbar">
@@ -32,9 +34,12 @@ export function ChatBody({
 
         {answer && (
           <div className={"w-full flex flex-col items-end lg:py-4 py-1"}>
-            <Button key={uuid()} onClick={changeView} variant="white">
-              Посмотреть глазами артиста
-            </Button>
+            {isArtistPOVExists && (
+              <Button key={uuid()} onClick={changeView} variant="white">
+                Посмотреть глазами артиста
+              </Button>
+            )}
+
             {questions.map((t) => {
               if (!activeFinishButton && t === "Нет, спасибо") {
                 return;

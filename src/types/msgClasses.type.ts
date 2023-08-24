@@ -3,4 +3,5 @@ export type MsgClasses =
   | "audioMsg"
   | "imgURL"
   | "musicianPos"
-  | "linkMsg";
+  | "linkMsg"
+  | "randomTextMsg";

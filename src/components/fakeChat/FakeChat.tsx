@@ -131,6 +131,28 @@ const FakeChat = ({ data }: IQASystem) => {
           <LinkMsg href={msgList[0].msg.normalize()} key={uuid()}></LinkMsg>
         );
         break;
+      case "randomTextMsg":
+        setStatusMsg("печатает...");
+        if (msgList[0].randomList) {
+          const randomAnswer =
+            msgList[0].randomList[
+              Math.floor(Math.random() * msgList[0].randomList.length)
+            ];
+          pendAdding(
+            msgList,
+            element,
+            t,
+            <TextAnswerMsg key={uuid()}>{randomAnswer}</TextAnswerMsg>
+          );
+        } else {
+          pendAdding(
+            msgList,
+            element,
+            t,
+            <TextAnswerMsg key={uuid()}>{msgList[0].msg}</TextAnswerMsg>
+          );
+        }
+        break;
       default:
         break;
     }
@@ -160,10 +182,10 @@ const FakeChat = ({ data }: IQASystem) => {
       {/* <ChatVideoPlayer videoUrl="/1.mp4"></ChatVideoPlayer> */}
       <Image
         src={"/artist-photos/" + data.photoSrc + ".jpg"}
-        className="absolute object-cover min-h-screen"
+        className="absolute object-cover min-h-screen max-w-[65vw]"
         alt={data.photoSrc}
-        width={6000}
-        height={4000}
+        width={1920}
+        height={1080}
       ></Image>
 
       <ChatBlurModal
@@ -186,6 +208,7 @@ const FakeChat = ({ data }: IQASystem) => {
           handleClick={handleClick}
           questions={questions}
           queue={queue}
+          isArtistPOVExists={data.panoramaData.imageSrc}
         ></ChatBody>
         <ChatBottom></ChatBottom>
       </div>
