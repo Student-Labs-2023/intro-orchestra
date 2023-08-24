@@ -111,8 +111,6 @@ export function ChatBody({
             {currentCategory &&
               Object.keys(questions[currentCategory]).map((t) => {
                 lastQuestionChecker(questions[currentCategory]);
-                console.log(t);
-
                 return (
                   <Button
                     key={uuid()}

@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import localFont from "next/font/local";
 import Link from "next/link";
+import { useState } from "react";
 import uuid from "react-uuid";
 
-import { cardsData, buttonsData } from "./DataInstruction";
+import { buttonsData, cardsData } from "./DataInstruction";
 import styles from "./instructionCards.module.css";
 
 const geometria = localFont({ src: "../../fonts/Geometria.woff" });
@@ -15,11 +15,17 @@ const geometriaMedium = localFont({
 });
 const geometriaItalic = localFont({ src: "../../fonts/Geometria-Italic.woff" });
 
-const InstructionCards = () => {
+interface IInstructionCards {
+  turnOnInstruction: string | null;
+}
+
+const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardID, setCardID] = useState(cardsData[currentIndex].id);
   const [finishInstruction, setFinishInstruction] = useState(false);
-  const [backToPanorama, setBackToPanorama] = useState(false);
+  const [backToPanorama, setBackToPanorama] = useState(
+    !Boolean(turnOnInstruction)
+  );
 
   const goToNextCard = () => {
     const nextIndex = (currentIndex + 1) % cardsData.length;
