@@ -70,7 +70,7 @@ export function ChatBody({
                 Посмотреть глазами артиста
               </Button>
             )}
-            {isArtistPOVExists === "/panorama-images/vasiliev-panorama.jpg" && (
+            {isArtistPOVExists === "/panorama-images/vasiliev-panorama.webp" && (
               <Button key={uuid()} onClick={handleOpenedVideo} variant="white">
                 Посмотреть на вашу работу
               </Button>
