@@ -5,7 +5,7 @@
 <h2>Посмотреть демо проекта</h2>
 <p>https://elegant-crostata-1ef0c5.netlify.app</p>
 <h2>Запуск проекта</h2>
-<p>git clone -b dev https://github.com/Student-Labs-2023/intro-orchestra.git</p>
+<p>git clone -b release https://github.com/Student-Labs-2023/intro-orchestra.git</p>
 <p>cd intro-orchestra</p>
 <p>npm install</p>
 <p>npm run dev</p>
