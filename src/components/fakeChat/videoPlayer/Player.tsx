@@ -52,10 +52,9 @@ const Player = (props: Props) => {
 
     startTimer() {
       clearTimeout(this.timer);
-      console.log(this.counter);
       this.timer = setTimeout(() => {
         setShowVideoControls(false);
-        this.counter += 1;
+        setShowVolumeSlider(false);
       }, 4000);
     }
   }
@@ -140,7 +139,6 @@ const Player = (props: Props) => {
 
   const handlePlayPauseClick = () => {
     if (videoRef.current) {
-      timer.current.startTimer();
       if (isPlaying) {
         videoRef.current.pause();
       } else {
@@ -157,7 +155,6 @@ const Player = (props: Props) => {
     }
     if (currentVolumeRef.current) {
       currentVolumeRef.current.style.width = pos * 100 + "%";
-      console.log(currentVolumeRef.current.style.width);
     }
     if (pos > 1) {
       videoRef.current.volume = 1;
@@ -183,7 +180,7 @@ const Player = (props: Props) => {
   return (
     <div className="absolute w-screen h-screen flex items-center justify-center">
       <div
-        className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[10px] w-[70%] h-auto overflow-hidden group/item`}
+        className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[1.5vw] w-[70%] h-auto overflow-hidden group/item`}
       >
         {isWaiting && (
           <div className="loader-container w-full h-full">
@@ -200,26 +197,33 @@ const Player = (props: Props) => {
           autoPlay={autoPlay}
           muted={muted}
           src={src}
+          className="z-[2]"
           onClick={() => clickOnVideoHandler()}
           ref={videoRef}
+          onMouseOver={() => {
+            setShowVideoControls(true);
+          }}
+          onMouseLeave={() => {
+            setShowVideoControls(false);
+          }}
         />
         <div
           className={`group-hover/item:opacity-100 ${
             showVideoControls ? "opacity-100" : ""
-          } flex timeline-container opacity-100 w-full absolute transition-opacity delay-75 left-0 bottom-0 flex-end px-[2vw]`}
+          } flex timeline-container opacity-0 w-full absolute transition-opacity delay-75 left-0 bottom-0 flex-end px-[2vw] h-[11vh] sm:h-[10vh] z-[4]`}
         >
           <div className="flex flex-col w-full items-center">
             <div
-              className="flex timeline w-full delay-100 h-[1.2vh] max-h-[1.2vh] min-h-[1.2vh] mb-[0.5rem] rounded-[10px] bg-[#c1c1c180] hover:h-[1.4vh] overflow-hidden"
+              className="flex timeline w-full delay-100 h-[1.2vh] max-h-[1.2vh] min-h-[1.2vh] mb-[1vh] rounded-[10px] bg-[#c1c1c180] hover:h-[1.4vh] overflow-hidden"
               onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
                 const { left, width } = e.currentTarget.getBoundingClientRect();
                 const clickedPos = (e.clientX - left) / width;
                 seekToPosition(clickedPos);
               }}
             >
-              <div className="relative w-full h-full flex ">
+              <div className="relative w-full h-full flex">
                 <div
-                  className="play-progress h-full bg-[#dd1181] z-[1] flex"
+                  className="play-progress h-full bg-[#dd1181] z-[10] flex"
                   ref={progressRef}
                 ></div>
                 <div
@@ -228,11 +232,14 @@ const Player = (props: Props) => {
                 ></div>
               </div>
             </div>
-            <div className="flex w-full justify-between items-center">
+            <div className="flex w-full justify-between items-center ml-[1vw]">
               <div className="flex items-center">
                 <button
-                  className="p-0 mr-[0.4rem] rounded bg-transparent mb-[0.5rem] hover:opacity-40 "
-                  onClick={handlePlayPauseClick}
+                  className="p-0 mr-[1vw] rounded bg-transparent hover:opacity-40 "
+                  onClick={() => {
+                    handlePlayPauseClick();
+                    timer.current.startTimer();
+                  }}
                 >
                   {!isPlaying ? (
                     <BsPlayFill color="white" className="w-[3vw] h-auto" />
@@ -244,7 +251,7 @@ const Player = (props: Props) => {
                 <div className="group/volumeIcon flex flex-row w-full h-full items-center justify-center">
                   <BsFillVolumeUpFill
                     color="white"
-                    className="w-[2vw] h-auto mt-[-8px] p-0 flex"
+                    className="w-[2vw] h-auto p-0 flex"
                     onClick={() => {
                       setShowVolumeSlider((prev) => !prev);
                       timer.current.startTimer();
@@ -252,7 +259,7 @@ const Player = (props: Props) => {
                   ></BsFillVolumeUpFill>
 
                   <div
-                    className={`volumeLine ml-1 delay-100 h-[1vh] mb-[0.5rem] rounded-[10px] overflow-hidden w-[4.5vw] group-hover/volumeIcon:block  ${
+                    className={`volumeLine ml-[0.5vw] delay-100 h-[1vh] rounded-[10px] overflow-hidden w-[4.5vw] group-hover/volumeIcon:block ${
                       showVolumeSlider ? "block" : "hidden"
                     }`}
                     onClick={(
@@ -266,18 +273,15 @@ const Player = (props: Props) => {
                   >
                     <div className="relative w-full h-full flex">
                       <div
-                        className=" play-progress h-full w-full bg-[#dd1181] flex z-[10]"
+                        className="h-full w-full bg-[#dd1181] flex z-[10]"
                         ref={currentVolumeRef}
                       ></div>
-                      <div className="buffer-progress flex absolute w-full h-full bg-[#FDFFFC80]"></div>
+                      <div className="flex absolute w-full h-full bg-[#FDFFFC80]"></div>
                     </div>
                   </div>
                 </div>
 
-                <ElapsedTimeTracker
-                  totalSec={durationSec}
-                  elapsedSec={elapsedSec}
-                />
+                <ElapsedTimeTracker totalSec={24} elapsedSec={elapsedSec} />
               </div>
             </div>
           </div>

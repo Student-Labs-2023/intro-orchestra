@@ -8,7 +8,7 @@ export default function ElapsedTimeTracker({ ...props }: Props) {
   const elapsedSec = Math.floor(props.elapsedSec % 60);
 
   return (
-    <div className="elapsed-time-tracker flex align-middle font-semibold gap-1 transition-opacity delay-500 mt-[-8px] p-0 ml-[1vw] flex-row">
+    <div className="elapsed-time-tracker flex align-middle font-semibold gap-1 transition-opacity delay-500 p-0 ml-[1vw] flex-row">
       <div className="flex justify-end text-[1.3vw]">
         <div className="font-semibold text-white">{elapsedMin}:</div>
         <div className="font-semibold text-white">
