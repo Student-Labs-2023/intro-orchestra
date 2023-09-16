@@ -35,9 +35,16 @@ const ChatVideoPlayer = ({
 
   return (
     <div className={styles.container}>
+      <div
+        className="absolute -z-[1] w-screen h-screen"
+        onClick={handleOpenedVideo}
+      ></div>
       <div className="absolute z-[2] top-0 right-0">
-          <button onClick={handleOpenedVideo} className={styles.exit_btn}></button>
-        </div>
+        <button
+          onClick={handleOpenedVideo}
+          className={styles.exit_btn}
+        ></button>
+      </div>
       <div
         onMouseEnter={() => handleVideoHover(true)}
         onMouseLeave={() => handleVideoHover(false)}
