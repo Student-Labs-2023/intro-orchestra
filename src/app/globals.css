@@ -40,6 +40,6 @@ a {
 
 @media screen and (max-width: 900px) {
   .main {
-    padding: 0 25px 0 25px; /* Добавляем паддинг сверху, чтобы учесть "чёлку" */
+    padding: 0 25px 0 25px; 
   }
 }
