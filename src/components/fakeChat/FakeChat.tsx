@@ -16,7 +16,7 @@ import {
   TextQuestionMsg,
   TypingBallsMsg,
 } from "./msgComponents";
-import ChatVideoPlayer from "./chatVideoPlayer/ChatVideoPlayer";
+import CustomVideoPlayer from "./videoPlayer/CustomVideoPlayer";
 
 type statusMsgType = "печатает..." | "записывает аудио..." | "в сети";
 
@@ -211,10 +211,10 @@ const FakeChat = ({ data }: IQASystem) => {
   return (
     <>
       {videoIsOpened && (
-        <ChatVideoPlayer
-          handleOpenedVideo={handleOpenedVideo}
-          videoUrl="/1.mp4"
-        ></ChatVideoPlayer>
+        <CustomVideoPlayer
+          closeVideoPlayer={handleOpenedVideo}
+          src="/1.mp4"
+        ></CustomVideoPlayer>
       )}
 
       <Image

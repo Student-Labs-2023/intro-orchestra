@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
+import localFont from "next/font/local";
 import "rc-slider/assets/index.css";
 import React, { useEffect, useRef, useState } from "react";
-
-import localFont from "next/font/local";
 import { BsFillVolumeUpFill, BsPauseFill, BsPlayFill } from "react-icons/bs";
 import ElapsedTimeTracker from "./ElapsedTimeTracker";
+import styles from "./exit_btn.module.css";
 import "./loader.css";
 
 const Video = styled.video`
@@ -25,9 +25,10 @@ interface Props {
   src: string;
   muted?: boolean;
   autoPlay?: boolean;
+  closeVideoPlayer: () => void;
 }
 
-const Player = (props: Props) => {
+const CustomVideoPlayer = (props: Props) => {
   const { src, autoPlay, muted } = props;
   const [isWaiting, setIsWaiting] = useState(false);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
@@ -178,110 +179,119 @@ const Player = (props: Props) => {
   };
 
   return (
-    <div className="absolute w-screen h-screen flex items-center justify-center">
+    <div>
       <div
-        className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[1.5vw] w-[70%] h-auto overflow-hidden group/item`}
-      >
-        {isWaiting && (
-          <div className="loader-container w-full h-full">
-            <div className="spinner "></div>
-            <span
-              className="loading text-[20px] mt-2 text-[#dd1181]"
-              style={geometriaMedium.style}
-            >
-              Загрузка...
-            </span>
-          </div>
-        )}
-        <Video
-          autoPlay={autoPlay}
-          muted={muted}
-          src={src}
-          className="z-[2]"
-          onClick={() => clickOnVideoHandler()}
-          ref={videoRef}
-          onMouseOver={() => {
-            setShowVideoControls(true);
-          }}
-          onMouseLeave={() => {
-            setShowVideoControls(false);
-          }}
-        />
+        className="absolute w-screen h-screen z-20 bg-black opacity-40"
+        onClick={props.closeVideoPlayer}
+      ></div>
+      <div className="absolute z-[30] top-0 right-0">
+        <button
+          onClick={props.closeVideoPlayer}
+          className={styles.exit_btn}
+        ></button>
+      </div>
+      <div className="absolute w-screen h-screen flex items-center justify-center">
         <div
-          className={`group-hover/item:opacity-100 ${
-            showVideoControls ? "opacity-100" : ""
-          } flex timeline-container opacity-0 w-full absolute transition-opacity delay-75 left-0 bottom-0 flex-end px-[2vw] h-[11vh] sm:h-[10vh] z-[4]`}
+          className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[1.5vw] w-[70%] h-auto overflow-hidden group/item  z-[21]`}
         >
-          <div className="flex flex-col w-full items-center">
-            <div
-              className="flex timeline w-full delay-100 h-[1.2vh] max-h-[1.2vh] min-h-[1.2vh] mb-[1vh] rounded-[10px] bg-[#c1c1c180] hover:h-[1.4vh] overflow-hidden"
-              onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-                const { left, width } = e.currentTarget.getBoundingClientRect();
-                const clickedPos = (e.clientX - left) / width;
-                seekToPosition(clickedPos);
-              }}
-            >
-              <div className="relative w-full h-full flex">
-                <div
-                  className="play-progress h-full bg-[#dd1181] z-[10] flex"
-                  ref={progressRef}
-                ></div>
-                <div
-                  className="buffer-progress flex absolute h-full bg-[#FDFFFC80]"
-                  ref={bufferRef}
-                ></div>
-              </div>
+          {isWaiting && (
+            <div className="loader-container w-full h-full">
+              <div className="spinner "></div>
+              <span
+                className="loading text-[20px] mt-2 text-[#dd1181]"
+                style={geometriaMedium.style}
+              >
+                Загрузка...
+              </span>
             </div>
-            <div className="flex w-full justify-between items-center ml-[1vw]">
-              <div className="flex items-center">
-                <button
-                  className="p-0 mr-[1vw] rounded bg-transparent hover:opacity-40 "
-                  onClick={() => {
-                    handlePlayPauseClick();
-                    timer.current.startTimer();
-                  }}
-                >
-                  {!isPlaying ? (
-                    <BsPlayFill color="white" className="w-[3vw] h-auto" />
-                  ) : (
-                    <BsPauseFill color="white" className="w-[3vw] h-auto" />
-                  )}
-                </button>
-
-                <div className="group/volumeIcon flex flex-row w-full h-full items-center justify-center">
-                  <BsFillVolumeUpFill
-                    color="white"
-                    className="w-[2vw] h-auto p-0 flex"
+          )}
+          <Video
+            autoPlay={autoPlay}
+            muted={muted}
+            src={src}
+            className="z-[2]"
+            ref={videoRef}
+            onClick={() => {
+              clickOnVideoHandler();
+            }}
+          />
+          <div
+            className={`${
+              showVideoControls ? "opacity-100 " : ""
+            } flex timeline-container opacity-0 w-full absolute transition-opacity delay-75 left-0 bottom-0 flex-end px-[2vw] h-[11vh] sm:h-[10vh] z-[4]`}
+          >
+            <div className="flex flex-col w-full items-center">
+              <div
+                className="flex timeline w-full delay-100 h-[1.2vh] max-h-[1.2vh] min-h-[1.2vh] mb-[1vh] rounded-[10px] bg-[#c1c1c180] hover:h-[1.4vh] overflow-hidden"
+                onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+                  const { left, width } =
+                    e.currentTarget.getBoundingClientRect();
+                  const clickedPos = (e.clientX - left) / width;
+                  seekToPosition(clickedPos);
+                }}
+              >
+                <div className="relative w-full h-full flex">
+                  <div
+                    className="play-progress h-full bg-[#dd1181] z-[10] flex"
+                    ref={progressRef}
+                  ></div>
+                  <div
+                    className="buffer-progress flex absolute h-full bg-[#FDFFFC80]"
+                    ref={bufferRef}
+                  ></div>
+                </div>
+              </div>
+              <div className="flex w-full justify-between items-center ml-[1vw]">
+                <div className="flex items-center">
+                  <button
+                    className="p-0 mr-[1vw] rounded bg-transparent hover:opacity-40 "
                     onClick={() => {
-                      setShowVolumeSlider((prev) => !prev);
+                      handlePlayPauseClick();
                       timer.current.startTimer();
                     }}
-                  ></BsFillVolumeUpFill>
-
-                  <div
-                    className={`volumeLine ml-[0.5vw] delay-100 h-[1vh] rounded-[10px] overflow-hidden w-[4.5vw] group-hover/volumeIcon:block ${
-                      showVolumeSlider ? "block" : "hidden"
-                    }`}
-                    onClick={(
-                      e: React.MouseEvent<HTMLDivElement, MouseEvent>
-                    ) => {
-                      const { left, width } =
-                        e.currentTarget.getBoundingClientRect();
-                      const clickedPos = (e.clientX - left) / width;
-                      seekToVolume(clickedPos);
-                    }}
                   >
-                    <div className="relative w-full h-full flex">
-                      <div
-                        className="h-full w-full bg-[#dd1181] flex z-[10]"
-                        ref={currentVolumeRef}
-                      ></div>
-                      <div className="flex absolute w-full h-full bg-[#FDFFFC80]"></div>
+                    {!isPlaying ? (
+                      <BsPlayFill color="white" className="w-[3vw] h-auto" />
+                    ) : (
+                      <BsPauseFill color="white" className="w-[3vw] h-auto" />
+                    )}
+                  </button>
+
+                  <div className="group/volumeIcon flex flex-row w-full h-full items-center justify-center">
+                    <BsFillVolumeUpFill
+                      color="white"
+                      className="w-[2vw] h-auto p-0 flex"
+                      onClick={() => {
+                        setShowVolumeSlider((prev) => !prev);
+                        timer.current.startTimer();
+                      }}
+                    ></BsFillVolumeUpFill>
+
+                    <div
+                      className={`volumeLine ml-[0.5vw] delay-100 h-[1vh] rounded-[10px] overflow-hidden w-[4.5vw] group-hover/volumeIcon:block ${
+                        showVolumeSlider ? "block" : "hidden"
+                      }`}
+                      onClick={(
+                        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+                      ) => {
+                        const { left, width } =
+                          e.currentTarget.getBoundingClientRect();
+                        const clickedPos = (e.clientX - left) / width;
+                        seekToVolume(clickedPos);
+                      }}
+                    >
+                      <div className="relative w-full h-full flex">
+                        <div
+                          className="h-full w-full bg-[#dd1181] flex z-[10]"
+                          ref={currentVolumeRef}
+                        ></div>
+                        <div className="flex absolute w-full h-full bg-[#FDFFFC80]"></div>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <ElapsedTimeTracker totalSec={24} elapsedSec={elapsedSec} />
+                  <ElapsedTimeTracker totalSec={24} elapsedSec={elapsedSec} />
+                </div>
               </div>
             </div>
           </div>
@@ -291,4 +301,4 @@ const Player = (props: Props) => {
   );
 };
 
-export default Player;
+export default CustomVideoPlayer;
