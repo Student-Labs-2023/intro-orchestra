@@ -15,6 +15,7 @@ export default function RootLayout({
           name="viewport"
           content="initial-scale=1, viewport-fit=cover"
         ></meta>
+        <link rel="manifest" href="./manifest.json" />
       </head>
 
       <body className="relative">{children}</body>
