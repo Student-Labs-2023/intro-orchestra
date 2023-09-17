@@ -192,7 +192,7 @@ const CustomVideoPlayer = (props: Props) => {
       </div>
       <div className="absolute w-screen h-screen flex items-center justify-center">
         <div
-          className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[1.5vw] w-[70%] h-auto overflow-hidden group/item  z-[21]`}
+          className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[1.5vw] w-[70%] max-h-[100%] h-auto overflow-hidden group/item  z-[21]`}
         >
           {isWaiting && (
             <div className="loader-container w-full h-full">
