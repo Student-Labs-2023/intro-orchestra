@@ -24,7 +24,9 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
       setScreenHeight(window.innerHeight);
     };
 
-    setDevice(deviceRecognizer());
+    setDevice((prev) => deviceRecognizer());
+    console.log(device);
+    console.log(deviceRecognizer());
 
     window.addEventListener("resize", handleResize, false);
     return () => {

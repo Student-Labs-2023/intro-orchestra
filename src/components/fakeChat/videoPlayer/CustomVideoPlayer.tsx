@@ -5,7 +5,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsFillVolumeUpFill, BsPauseFill, BsPlayFill } from "react-icons/bs";
 import ElapsedTimeTracker from "./ElapsedTimeTracker";
 import styles from "./exit_btn.module.css";
-import "./loader.css";
 
 const Video = styled.video`
   flex-shrink: 1;
@@ -194,9 +193,19 @@ const CustomVideoPlayer = (props: Props) => {
         <div
           className={`flex flex-col cursor-pointer items-center justify-center relative rounded-[1.5vw] w-[70%] max-h-[100%] h-auto overflow-hidden group/item  z-[21]`}
         >
+          <Video
+            autoPlay={autoPlay}
+            muted={muted}
+            src={src}
+            className="-z-[2]"
+            ref={videoRef}
+            onClick={() => {
+              clickOnVideoHandler();
+            }}
+          />
           {isWaiting && (
-            <div className="loader-container w-full h-full">
-              <div className="spinner "></div>
+            <div className="flex flex-col justify-center items-center absolute w-full h-full bg-[#00000040]">
+              <div className="spinner"></div>
               <span
                 className="loading text-[20px] mt-2 text-[#dd1181]"
                 style={geometriaMedium.style}
@@ -205,16 +214,6 @@ const CustomVideoPlayer = (props: Props) => {
               </span>
             </div>
           )}
-          <Video
-            autoPlay={autoPlay}
-            muted={muted}
-            src={src}
-            className="z-[2]"
-            ref={videoRef}
-            onClick={() => {
-              clickOnVideoHandler();
-            }}
-          />
           <div
             className={`${
               showVideoControls ? "opacity-100 " : ""
