@@ -191,7 +191,7 @@ const CustomVideoPlayer = (props: Props) => {
       </div>
       <div className="absolute w-screen h-screen flex items-center justify-center">
         <div
-          className={`flex flex-col cursor-pointer items-center justify-center md:relative md:w-[70%] absolute rounded-[1.5vw] w-[50%] top-0  overflow-hidden group/item  z-[21]`}
+          className={`flex flex-col cursor-pointer items-center justify-center md:relative md:w-[70%] absolute rounded-[1.5vw] w-[30%] top-0  overflow-hidden group/item  z-[21]`}
         >
           <Video
             autoPlay={autoPlay}
