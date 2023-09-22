@@ -68,7 +68,7 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
 
   return (
     <>
-      <header>
+      {/* <header>
         <div className="absolute z-[2] top-0 left-0">
           <Link href={"/"} className={styles.exit_btn}></Link>
         </div>
@@ -78,7 +78,7 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
             onClick={changeVisibleInstruction}
           ></button>
         </div>
-      </header>
+      </header> */}
     </>
   );
 };
