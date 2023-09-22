@@ -84,10 +84,10 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
         {!backToPanorama && (
           <>
             <div
-              className="absolute w-[100%] h-[100dvh] z-[2] bg-[#42424299]/[0.6]"
+              className="absolute w-[100vw] h-[100dvh] z-[2] bg-[#42424299]/[0.6]"
               onClick={changeVisibleInstruction}
             ></div>
-            <div className="absolute w-[100dvw] h-[100dvh]">
+            <div className="absolute w-[100vw] h-[100dvh]">
               <div
                 className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full max-w-[368px] p-[16px] bg-white border-[2px] border-[#D93284] rounded-[16px] md:max-w-[503px] md:p-[24px] md:rounded-[22px] lg:max-w-[574px] lg:py-[24px] lg:px-[32px] lg:rounded-[16px] lg:border-[3px]
               2xl:max-w-[800px] 2xl:py-[32px] 2xl:px-[40px] 2xl:rounded-[24px] z-[3]"
