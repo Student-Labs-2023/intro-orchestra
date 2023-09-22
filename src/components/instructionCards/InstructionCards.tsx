@@ -79,8 +79,6 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
           ></button>
         </div>
       </header>
-
-      
     </>
   );
 };
