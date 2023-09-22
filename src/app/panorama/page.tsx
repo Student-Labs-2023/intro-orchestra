@@ -12,7 +12,7 @@ const Panorama = () => {
   return (
     <OrientationChange>
       <ActivityCheck>
-        <main className="absolute w-[100vw] h-[100dvh]">
+        <main>
         <InstructionCards turnOnInstruction={instruction} />
         <PanoramaViewer
           imageSrc={"/panorama-images/home-panorama.webp"}
