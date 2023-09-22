@@ -10,16 +10,18 @@ const Panorama = () => {
   const instruction = searchParams.get("instruction");
 
   return (
-    <OrientationChange>
-      {/* <ActivityCheck> */}
-        <InstructionCards turnOnInstruction={instruction} />
-        {/* <PanoramaViewer
-          imageSrc={"/panorama-images/home-panorama.webp"}
-          pitch={-30}
-          yaw={0}
-        /> */}
-      {/* </ActivityCheck> */}
-    </OrientationChange>
+    <>
+      <InstructionCards turnOnInstruction={instruction} />
+    </>
+    // <OrientationChange>
+    //   <ActivityCheck>
+    //     <PanoramaViewer
+    //       imageSrc={"/panorama-images/home-panorama.webp"}
+    //       pitch={-30}
+    //       yaw={0}
+    //     />
+    //   </ActivityCheck>
+    // </OrientationChange>
   );
 };
 
