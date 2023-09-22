@@ -80,11 +80,11 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
         </div>
       </header>
 
-      <main>
+      <>
         {!backToPanorama && (
           <>
             <div
-              className="absolute w-[100dvw] h-[100dvh] z-[2] bg-[#42424299]/[0.6]"
+              className="absolute w-[100%] h-[100dvh] z-[2] bg-[#42424299]/[0.6]"
               onClick={changeVisibleInstruction}
             ></div>
             <div className="absolute w-[100dvw] h-[100dvh]">
@@ -184,7 +184,7 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
             </div>
           </>
         )}
-      </main>
+      </>
     </>
   );
 };
