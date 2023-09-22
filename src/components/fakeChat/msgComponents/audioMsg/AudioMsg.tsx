@@ -35,6 +35,8 @@ interface IWaveSurferPlayer {
 const WaveSurferPlayer = memo(function WaveSurferPlayer({
   audioUrl,
 }: IWaveSurferPlayer) {
+  console.log("rendered");
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);

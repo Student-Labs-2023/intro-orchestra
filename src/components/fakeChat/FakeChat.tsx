@@ -73,7 +73,9 @@ const FakeChat = ({ data }: IQASystem) => {
     setTimeout(() => {
       setQueue((prev) => [
         ...prev,
-        <TypingBallsMsg key={uuid()}></TypingBallsMsg>,
+        <div key={uuid()}>
+          <TypingBallsMsg key={uuid()}></TypingBallsMsg>
+        </div>,
       ]);
       msgList.splice(0, 1);
       if (msgList.length != 0) {
