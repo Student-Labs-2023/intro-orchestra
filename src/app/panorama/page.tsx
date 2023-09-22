@@ -14,11 +14,11 @@ const Panorama = () => {
       <ActivityCheck>
         <main>
         <InstructionCards turnOnInstruction={instruction} />
-        <PanoramaViewer
+        {/* <PanoramaViewer
           imageSrc={"/panorama-images/home-panorama.webp"}
           pitch={-30}
           yaw={0}
-        />
+        /> */}
         </main>
       </ActivityCheck>
     </OrientationChange>
