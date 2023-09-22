@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
+/* @layer components {
   @variants responsive {
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -13,7 +13,7 @@
       scrollbar-width: none;
     }
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -38,8 +38,8 @@ a {
   text-decoration: none;
 }
 
-/* @media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .main {
     padding: 0 25px 0 25px; 
   }
-} */
+}
