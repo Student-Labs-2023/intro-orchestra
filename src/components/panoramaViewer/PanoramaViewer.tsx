@@ -39,7 +39,7 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
   return (
     <>
       <View360
-        className="is-16by9 h-[100dvh]"
+        className="is-16by9 h-[100vh]"
         projection={projection}
         initialPitch={pitch}
         initialYaw={yaw}
