@@ -80,7 +80,7 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
         </div>
       </header>
 
-      <>
+      <main>
         {!backToPanorama && (
           <>
             <div
@@ -184,7 +184,7 @@ const InstructionCards = ({ turnOnInstruction }: IInstructionCards) => {
             </div>
           </>
         )}
-      </>
+      </main>
     </>
   );
 };
