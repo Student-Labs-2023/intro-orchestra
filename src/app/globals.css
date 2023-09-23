@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
+@layer components {
   @variants responsive {
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -13,7 +13,7 @@
       scrollbar-width: none;
     }
   }
-} */
+}
 
 * {
   box-sizing: border-box;
@@ -28,9 +28,9 @@ body {
 }
 
 body {
-  width: 100dvw;
-  height: 100dvh;
+  width: 100svw;
   background: url('/main-bg.webp') center / cover no-repeat;
+  height: 100svh;
 }
 
 a {
