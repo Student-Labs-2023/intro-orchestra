@@ -3,10 +3,8 @@ export const metadata = {
   title: "Знакомство с Оркестром",
   viewport: {
     width: "device-width",
-    initialScale: 1,
+    initialScale: 1.0,
     viewportFit: "cover",
-    maximumScale: 1,
-    userScalable: "no",
   },
 };
 

@@ -2,13 +2,6 @@ import "../../globals.css";
 
 export const metadata = {
   title: "Знакомство с Оркестром",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    viewportFit: "cover",
-    maximumScale: 1,
-    userScalable: "no",
-  },
 };
 
 
