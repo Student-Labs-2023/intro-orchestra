@@ -1,4 +1,4 @@
-import "../../globals.css";
+import "../globals.css";
 
 export const metadata = {
   title: "Знакомство с Оркестром",
@@ -10,7 +10,6 @@ export const metadata = {
     userScalable: "no",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -26,3 +25,4 @@ export default function RootLayout({
     </html>
   );
 }
+
