@@ -213,7 +213,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
   .exit_btn {
     margin-left: calc(4.1vh + 25px);
   }
@@ -223,5 +223,5 @@
   .exit_btn, .instruction_btn  {
     margin-top: calc(4.1vh + 10px);
   }
-}
+} */
 
