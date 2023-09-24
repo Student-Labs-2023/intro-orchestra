@@ -8,18 +8,22 @@ import { useSearchParams } from "next/navigation";
 const Panorama = () => {
   const searchParams = useSearchParams();
   const instruction = searchParams.get("instruction");
-  const pitch =
-    !isNaN(+searchParams.get("pitch")) &&
-    typeof +searchParams.get("pitch") == "number" &&
-    searchParams.get("pitch") != ""
-      ? +searchParams.get("pitch")
-      : -30;
-  const yaw =
-    !isNaN(+searchParams.get("yaw")) &&
-    typeof +searchParams.get("yaw") == "number" &&
-    searchParams.get("yaw") != ""
-      ? +searchParams.get("yaw")
-      : 0;
+  const pitchParams = searchParams.get("pitch");
+  const yawParams = searchParams.get("yaw");
+  let pitch = -30;
+  let yaw = 0;
+
+  if (pitchParams != null) {
+    if (typeof +pitchParams == "number") {
+      pitch = +pitchParams;
+    }
+  }
+
+  if (yawParams != null) {
+    if (typeof +yawParams == "number") {
+      yaw = +yawParams;
+    }
+  }
 
   return (
     <OrientationChange>
