@@ -31,7 +31,7 @@ export function ChatHeader({ musicianName, statusMsg }: IChatHeader) {
           >
             <Image
               src="/chevron.left.svg"
-              className="xl:h-[34px] lg:h-[29px] md:h-[20px] sm:h-[16px] h-[7vh] w-auto cursor-pointer"
+              className="xl:h-[34px] lg:h-[29px] md:h-[20px] sm:h-[7vh] h-[7vh] w-auto cursor-pointer"
               alt="Вернуться назад"
               width={19}
               height={28}
@@ -49,13 +49,13 @@ export function ChatHeader({ musicianName, statusMsg }: IChatHeader) {
             <div className="flex flex-col items-center md:pt-1 pt-[2px] 3xl:pt-2 w-full">
               <span
                 style={geometriaBold.style}
-                className="text-[#141414]  xl:text-[28px] lg:text-[22px] md:text-[16px] sm:text-[12px] text-[4vh] xl:leading-[20px] lg:leading-[16px] md:leading-[12px] sm:leading-[8px] leading-[3vh] tracking-[-0.32px] "
+                className="text-[#141414]  xl:text-[28px] lg:text-[22px] md:text-[12px] text-[4vh] xl:leading-[20px] lg:leading-[16px] md:leading-[3vh] leading-[2vh] tracking-[-0.32px] "
               >
                 {musicianName}
               </span>
               <span
                 style={geometriaMedium.style}
-                className=" text-[#D93284] 3xl:pt-1 xl:text-[18px] lg:text-[14px] md:text-[10px] sm:text-[8px] text-[3vh] "
+                className=" text-[#D93284] 3xl:pt-1 xl:text-[18px] lg:text-[14px] md:text-[8px] text-[3vh] "
               >
                 {statusMsg}
               </span>
