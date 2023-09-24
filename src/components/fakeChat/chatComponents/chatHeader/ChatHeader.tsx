@@ -6,6 +6,8 @@ interface IChatHeader {
   returnToMainPage: () => void;
   musicianName: string;
   statusMsg: string;
+  yaw: number;
+  pitch: number;
 }
 
 const geometriaRegular = localFont({ src: "../../../../fonts/Geometria.woff" });
@@ -16,10 +18,15 @@ const geometriaMedium = localFont({
   src: "../../../../fonts/Geometria-Medium.woff",
 });
 
-export function ChatHeader({ musicianName, statusMsg }: IChatHeader) {
+export function ChatHeader({
+  musicianName,
+  statusMsg,
+  yaw,
+  pitch,
+}: IChatHeader) {
   const { push } = useRouter();
   function returnToMainPage() {
-    push("/panorama");
+    push(`/panorama?yaw=${yaw}&pitch=${pitch}`);
   }
   return (
     <div className="w-full h-[8.55%] bg-white rounded-tl-[16px] 2xl:rounded-tl-[32px] shadow-topBar z-10 flex flex-col justify-center ">

@@ -25,8 +25,6 @@ const OrientationChange = ({ children }: PropsWithChildren) => {
     };
 
     setDevice((prev) => deviceRecognizer());
-    console.log(device);
-    console.log(deviceRecognizer());
 
     window.addEventListener("resize", handleResize, false);
     return () => {

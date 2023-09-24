@@ -1,10 +1,10 @@
-import { IQASystem } from "@/types/QASystem.interface";
 import { IMessage } from "@/types/message.interface";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ReactElement, useEffect, useState } from "react";
 import uuid from "react-uuid";
 import PanoramaViewer from "../panoramaViewer/PanoramaViewer";
+import { hotspotData } from "../panoramaViewer/hotspotData";
 import { TextAnswerMsg } from "./TextAnswerMsg";
 import { ChatBody, ChatBottom, ChatHeader } from "./chatComponents";
 import { ChatBlurModal } from "./chatComponents/chatBlurModal";
@@ -29,7 +29,29 @@ interface IData {
   };
 }
 
-const FakeChat = ({ data }: IQASystem) => {
+interface FakeChatProps {
+  data: {
+    photoSrc: string;
+    name: string;
+    panoramaData: {
+      imageSrc: string;
+      yaw: number;
+      pitch: number;
+    };
+    start: IMessage;
+    qa: {
+      [category: string]: {
+        [question: string]: {
+          messages: Array<IMessage>;
+          fullQuestion: string;
+        };
+      };
+    };
+  };
+  artistId: string;
+}
+
+const FakeChat = ({ data, artistId }: FakeChatProps) => {
   const [device, setDevice] = useState<"phone" | "desktop">();
   const [activeFinishButton, setActiveFinishButton] = useState<boolean>(false);
   const [answer, setAnswer] = useState(false);
@@ -63,6 +85,19 @@ const FakeChat = ({ data }: IQASystem) => {
     push("/");
   }
 
+  function findYawPitch() {
+    const hotSpots = hotspotData.homeScene;
+    const currentArtist = hotSpots.filter((artist) => artist.id == artistId);
+    const yaw = currentArtist[0].yaw;
+    const pitch = currentArtist[0].pitch;
+    return {
+      yaw: yaw,
+      pitch: pitch,
+    };
+  }
+
+  const currentYawPitch = findYawPitch();
+
   function pendAdding(
     msgList: IMessage[],
     element: string,
@@ -93,7 +128,6 @@ const FakeChat = ({ data }: IQASystem) => {
               const newQuestions = questions;
               delete newQuestions[category][element];
               setQuestions((prev) => (prev = newQuestions));
-              console.log(questions);
             }
           }, 2000);
         }, t);
@@ -239,6 +273,8 @@ const FakeChat = ({ data }: IQASystem) => {
           musicianName={data.name}
           statusMsg={statusMsg}
           returnToMainPage={returnToMainPage}
+          pitch={currentYawPitch.pitch}
+          yaw={currentYawPitch.yaw}
         ></ChatHeader>
         <ChatBody
           activeFinishButton={activeFinishButton}

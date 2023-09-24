@@ -1,10 +1,10 @@
 "use client";
-import { useMemo } from "react";
 import View360, { EquirectProjection } from "@egjs/react-view360";
 import "@egjs/react-view360/css/view360.min.css";
-import styles from "./panoramaViewer.module.css";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 import { hotspotData } from "./hotspotData";
+import styles from "./panoramaViewer.module.css";
 
 type TProps = {
   imageSrc: string;
@@ -39,7 +39,7 @@ const PanoramaViewer = ({ imageSrc, yaw, pitch }: TProps) => {
   return (
     <>
       <View360
-        style={{padding: 0}}
+        style={{ padding: 0 }}
         className="is-16by9 w-[100dvw] h-[100dvh]"
         projection={projection}
         initialPitch={pitch}
