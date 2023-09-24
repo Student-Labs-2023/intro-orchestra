@@ -16,7 +16,7 @@ const Artist = ({ params }: TProps) => {
     <>
       <ActivityCheck>
         <OrientationChange>
-          <FakeChat data={QASystem[params.id]} />
+          <FakeChat data={QASystem[params.id]} artistId={params.id} />
         </OrientationChange>
       </ActivityCheck>
     </>

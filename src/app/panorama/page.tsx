@@ -8,6 +8,22 @@ import { useSearchParams } from "next/navigation";
 const Panorama = () => {
   const searchParams = useSearchParams();
   const instruction = searchParams.get("instruction");
+  const pitchParams = searchParams.get("pitch");
+  const yawParams = searchParams.get("yaw");
+  let pitch = -30;
+  let yaw = 0;
+
+  if (pitchParams != null) {
+    if (typeof +pitchParams == "number") {
+      pitch = +pitchParams;
+    }
+  }
+
+  if (yawParams != null) {
+    if (typeof +yawParams == "number") {
+      yaw = +yawParams;
+    }
+  }
 
   return (
     <OrientationChange>
@@ -15,8 +31,8 @@ const Panorama = () => {
         <InstructionCards turnOnInstruction={instruction} />
         <PanoramaViewer
           imageSrc={"/panorama-images/home-panorama.webp"}
-          pitch={-30}
-          yaw={0}
+          pitch={pitch}
+          yaw={yaw}
         />
       </ActivityCheck>
     </OrientationChange>

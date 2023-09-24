@@ -1,0 +1,54 @@
+.exit_btn {
+  margin-right: 4.1vh;
+}
+
+.exit_btn {
+  position: relative;
+  display: inline-block;
+  margin-top: 4.1vh;
+  width: 4vw;
+  height: 4vw;
+
+  border: 0.3vw solid #d93284;
+  border-radius: 2px;
+  background-color: #ffff;
+  transition: all 0.2s ease-in;
+}
+
+.exit_btn:hover {
+  border: 2px solid #f060c0;
+}
+
+.exit_btn:active {
+  border: 2px solid #792ec0;
+  background-color: #ccd3ff;
+}
+
+.exit_btn::before,
+.exit_btn::after {
+  position: absolute;
+  content: "";
+  width: 9%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+
+  border-radius: 0.375rem;
+  background-color: #d93284;
+  transition: all 0.2s ease-in;
+}
+
+.exit_btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.exit_btn:hover::before,
+.exit_btn:hover::after {
+  background-color: #f060c0;
+}
+
+.exit_btn:active::before,
+.exit_btn:active::after {
+  background-color: #792ec0;
+}

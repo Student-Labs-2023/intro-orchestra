@@ -78,13 +78,6 @@ export const hotspotData = {
       book: 1,
     },
     {
-      id: "dychenko",
-      type: "link",
-      yaw: -130,
-      pitch: -10,
-      book: 1,
-    },
-    {
       id: "bogov",
       type: "link",
       yaw: -230,

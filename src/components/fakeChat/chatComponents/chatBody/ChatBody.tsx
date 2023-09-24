@@ -57,9 +57,9 @@ export function ChatBody({
         <div
           className={`rounded-tl-lg rounded-tr-lg rounded-br-lg md:pb-[14px] sm:pb-[8px] pb-[4px]`}
         >
-          {queue.map((item) => (
-            <div key={uuid()}>{item}</div>
-          ))}
+          {queue.map((el) => {
+            return el;
+          })}
         </div>
 
         {answer && (
